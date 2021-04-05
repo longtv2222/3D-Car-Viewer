@@ -1,35 +1,34 @@
 import './App.css';
-import * as THREE from 'three'
 
-function App() {
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+import React, { useRef, useState } from 'react'
+import { Canvas, useFrame } from 'react-three-fiber'
 
-  const renderer = new THREE.WebGLRenderer();
-  renderer.setSize( window.innerWidth, window.innerHeight );
-  document.body.appendChild( renderer.domElement );
+function Box(props) {
+  // This reference will give us direct access to the mesh
+  const mesh = useRef()
 
-  const geometry = new THREE.BoxGeometry();
-  const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-  const cube = new THREE.Mesh( geometry, material );
-  scene.add( cube );
+  // Set up state for the hovered and active state
+  const [hovered, setHover] = useState(false)
+  const [active, setActive] = useState(false)
 
-  camera.position.z = 5;
+  // Rotate mesh every frame, this is outside of React without overhead
+  useFrame(() => {
+    mesh.current.rotation.x = mesh.current.rotation.y += 0.01
+  })
 
-  const animate = function () {
-    requestAnimationFrame( animate );
-
-    cube.rotation.x += 0.01;
-    cube.rotation.y += 0.01;
-
-    renderer.render( scene, camera );
-  };
-
-  animate();
   return (
-    null
-  );
+    <mesh
+      {...props}
+      ref={mesh}
+      scale={active ? [1.5, 1.5, 1.5] : [1, 1, 1]}
+      onClick={(event) => setActive(!active)}
+      onPointerOver={(event) => setHover(true)}
+      onPointerOut={(event) => setHover(false)}>
+      <boxBufferGeometry args={[1, 1, 1]} />
+      <meshStandardMaterial color={hovered ? 'hotpink' : 'orange'} />
+    </mesh>
+  )
 }
 
 
-export default App;
+export default Box;

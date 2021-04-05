@@ -1,15 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-
+import ReactDOM from 'react-dom'
+import React from 'react'
+import { Canvas } from 'react-three-fiber'
+import App from './App'
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Canvas>
+    <ambientLight />
+    <pointLight position={[10, 10, 10]} />
+    <App position={[-1.2, 0, 0]} />
+    <App position={[1.2, 0, 0]} />
+  </Canvas>,
   document.getElementById('root')
-);
+)
 
 
 
