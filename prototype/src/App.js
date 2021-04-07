@@ -28,21 +28,21 @@ function Ground(props) {
   return null
 }
 
-
-
 function ColorPicker() {
+  const [visibility1, setVisibility] = useState(false);
+  const [visibility2, setVisibility2] = useState(false);
   return (
     <div className="picker">
-      <h2>Interior
-       <br/>
-        
-        <TwitterPicker className="padding" width={400} onChange={(color) => { state.items.interior = color.hex }} />
-      </h2>
+      <button className="button" onClick={() => setVisibility(!visibility1)}>
+        <br />Interior
+        <TwitterPicker className={visibility1 ? "padding" : "padding-hidden"} width={400} onChange={(color) => { state.items.interior = color.hex }} />
+      </button>
 
-      <h2>
+      <button className="button" onClick={() => setVisibility2(!visibility2)}>
+        <br />
         Exterior
-         <TwitterPicker className="padding" width={400} onChange={(color) => { state.items.exterior = color.hex }} />
-      </h2>
+         <TwitterPicker className={visibility2 ? "padding" : "padding-hidden"} width={400} onChange={(color) => { state.items.exterior = color.hex }} />
+      </button>
 
     </div>
   )

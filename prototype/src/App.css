@@ -9,5 +9,24 @@
 }
 
 .padding {
-    margin-top:10px;
+    visibility: visible;
+    margin-top: 25px;
+}
+
+.button {
+    outline: none;
+    border-radius: 10px;
+    background-color: black;
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    border-color: white;
+}
+
+.padding-hidden {
+    visibility: hidden;
+    margin-top: 25px;
 }
