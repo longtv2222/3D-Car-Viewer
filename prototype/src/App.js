@@ -3,12 +3,13 @@ import { Canvas, useThree, useFrame } from 'react-three-fiber'
 import { useGLTF, OrbitControls, ContactShadows } from 'drei'
 import { proxy, useProxy } from 'valtio'
 import * as THREE from 'three'
+import { TwitterPicker } from 'react-color';
 
 const state = proxy({
   current: null,
   items: {
-    interior: '#ffffff',
-    exterior: '#FFF300',
+    interior: '#FFF300',
+    exterior: '#FFF000',
   }
 })
 
@@ -25,6 +26,17 @@ function Ground(props) {
 
   scene.add(grid)
   return null
+}
+
+
+
+function ColorPicker() {
+  return (
+    <div className="picker">
+      <TwitterPicker width={400} onChange={(color) => { state.items.interior = color.hex }} />
+      <TwitterPicker width={400} onChange={(color) => { state.items.exterior = color.hex }} />
+    </div>
+  )
 }
 
 function Model(props) {
@@ -80,15 +92,18 @@ function Model(props) {
 
 export default function App() {
   return (
-    <Canvas>
-      <ambientLight intensity={0.5} />
-      <spotLight intensity={0.3} angle={0.1} penumbra={1} position={[5, 25, 20]} />
-      <Suspense fallback={null}>
-        <Model />
-        <Ground />
-        <ContactShadows rotation-x={Math.PI / 2} position={[0, -0.8, 0]} opacity={0.25} width={10} height={10} blur={2} far={1} />
-      </Suspense>
-      <OrbitControls maxPolarAngle={Math.PI / 2} />
-    </Canvas>
+    <>
+      <ColorPicker />
+      <Canvas>
+        <ambientLight intensity={0.5} />
+        <spotLight intensity={0.3} angle={0.1} penumbra={1} position={[5, 25, 20]} />
+        <Suspense fallback={null}>
+          <Model />
+          <Ground />
+          <ContactShadows rotation-x={Math.PI / 2} position={[0, -0.8, 0]} opacity={0.25} width={10} height={10} blur={2} far={1} />
+        </Suspense>
+        <OrbitControls maxPolarAngle={Math.PI / 2} />
+      </Canvas>
+    </>
   )
 }
