@@ -33,14 +33,15 @@ function Ground(props) {
 function ColorPicker() {
   return (
     <div className="picker">
-      <h2>
-        Interior
-        <TwitterPicker width={400} onChange={(color) => { state.items.interior = color.hex }} />
+      <h2>Interior
+       <br/>
+        
+        <TwitterPicker className="padding" width={400} onChange={(color) => { state.items.interior = color.hex }} />
       </h2>
 
       <h2>
         Exterior
-         <TwitterPicker width={400} onChange={(color) => { state.items.exterior = color.hex }} />
+         <TwitterPicker className="padding" width={400} onChange={(color) => { state.items.exterior = color.hex }} />
       </h2>
 
     </div>
