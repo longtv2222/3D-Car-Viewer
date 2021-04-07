@@ -1,4 +1,4 @@
-import React, { useRef, Suspense } from 'react'
+import React, { useRef, Suspense, useState } from 'react'
 import { Canvas, useThree, useFrame } from 'react-three-fiber'
 import { useGLTF, OrbitControls, ContactShadows } from 'drei'
 import { proxy, useProxy } from 'valtio'
@@ -8,7 +8,7 @@ const state = proxy({
   current: null,
   items: {
     interior: '#DC143C',
-    exterior: '#FF3333'
+    exterior: '#FF0000'
   }
 })
 
@@ -20,8 +20,12 @@ function Ground(props) {
   scene.fog = new THREE.Fog(0xeeeeee, 10, 50)
   const grid = new THREE.GridHelper(100, 40, 0x000000, 0x000000)
   grid.material.opacity = 0.3
-  grid.material.depthWrite = true
+  grid.material.depthWrite = false
   grid.material.transparent = true
+  useFrame(() => {
+    const time = - performance.now() / 1000;
+    grid.position.z = - (time) % 5;
+  })
   scene.add(grid)
   return null
 }
@@ -30,24 +34,38 @@ function Model(props) {
   // Update the cubeCamera with current renderer and scene.
   const group = useRef()
 
+  const wheel1 = useRef() //Need to figure out a better way to write this
+  const wheel2 = useRef()
+  const wheel3 = useRef()
+  const wheel4 = useRef()
+
+  useFrame(() => {
+    const time = - performance.now() / 1000;
+    wheel1.current.rotation.x = time * Math.PI;
+    wheel2.current.rotation.x = time * Math.PI;
+    wheel3.current.rotation.x = time * Math.PI;
+    wheel4.current.rotation.x = time * Math.PI;
+  })
+
   const snap = useProxy(state)
   const { nodes, materials } = useGLTF('dodge-challenger_moasdfdel.glb')
   return (
     <group position={[0, 0.7, 0]} ref={group} {...props} dispose={null}>
       <mesh geometry={nodes.Body002.geometry} material={materials.license_plate} />
-      <group position={[0.88, -0.33, -1.59]}>
+
+      <group position={[0.88, -0.33, -1.59]} ref={wheel1} >
         <mesh geometry={nodes.Cylinder009.geometry} material={materials.tire} />
         <mesh geometry={nodes.Cylinder009_1.geometry} material={materials.rim} />
       </group>
-      <group position={[0.88, -0.33, 1.47]}>
+      <group position={[0.88, -0.33, 1.47]} ref={wheel2}>
         <mesh geometry={nodes.Cylinder010.geometry} material={materials.tire} />
         <mesh geometry={nodes.Cylinder010_1.geometry} material={materials.rim} />
       </group>
-      <group position={[-0.88, -0.33, 1.47]}>
+      <group position={[-0.88, -0.33, 1.47]} ref={wheel3}>
         <mesh geometry={nodes.Cylinder008.geometry} material={materials.tire} />
         <mesh geometry={nodes.Cylinder008_1.geometry} material={materials.rim} />
       </group>
-      <group position={[-0.88, -0.33, -1.59]}>
+      <group position={[-0.88, -0.33, -1.59]} ref={wheel4}>
         <mesh geometry={nodes.Cylinder.geometry} material={materials.tire} />
         <mesh geometry={nodes.Cylinder_1.geometry} material={materials.rim} />
       </group>
