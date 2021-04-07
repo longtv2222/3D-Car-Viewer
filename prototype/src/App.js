@@ -4,7 +4,7 @@ import { useGLTF, OrbitControls, ContactShadows } from 'drei'
 import { proxy, useProxy } from 'valtio'
 import * as THREE from 'three'
 import { TwitterPicker } from 'react-color';
-
+import './App.css'
 const state = proxy({
   current: null,
   items: {
@@ -33,8 +33,16 @@ function Ground(props) {
 function ColorPicker() {
   return (
     <div className="picker">
-      <TwitterPicker width={400} onChange={(color) => { state.items.interior = color.hex }} />
-      <TwitterPicker width={400} onChange={(color) => { state.items.exterior = color.hex }} />
+      <h2>
+        Interior
+        <TwitterPicker width={400} onChange={(color) => { state.items.interior = color.hex }} />
+      </h2>
+
+      <h2>
+        Exterior
+         <TwitterPicker width={400} onChange={(color) => { state.items.exterior = color.hex }} />
+      </h2>
+
     </div>
   )
 }
