@@ -6,6 +6,7 @@ import React, { useRef } from 'react'
 import { useGLTF } from 'drei'
 import { useProxy } from 'valtio'
 import { state } from './App.js'
+import { StaticReadUsage } from 'three'
 
 export default function Model(props) {
     const snap = useProxy(state)
@@ -15,40 +16,40 @@ export default function Model(props) {
         <group ref={group} {...props} dispose={null}>
             <group position={[0, 0.65, 0]}>
                 <group position={[0, 0.4, 0]} scale={[0.02, 0.02, 0.02]}>
-                    <group position={[0, -17.52, 177.45]} rotation={[-Math.PI, 0, -Math.PI]}>
+                    <group position={[0, -17.5222, 177.4529]} rotation={[-Math.PI, 0, -Math.PI]}>
                         <mesh geometry={nodes.Plane012_1.geometry} material={materials.Rubber} />
                         <mesh geometry={nodes.Plane012_2.geometry} material={materials.Chrome} />
                     </group>
-                    <group position={[-34.27, 22.24, 81.9]} rotation={[0.01, 0, 0.06]} scale={[1, 1, 1]}>
+                    <group position={[-34.2674, 22.2363, 81.8952]} rotation={[0.0069, 0.0012, 0.06]} scale={[1, 1, 1]}>
                         <mesh geometry={nodes.Cube006_1.geometry} material={materials.Chrome} />
                         <mesh geometry={nodes.Cube006_2.geometry} material={materials.Rubber} />
                     </group>
-                    <group position={[0, 23.06, 82.35]} rotation={[0.02, 0, 0]}>
+                    <group position={[0, 23.0602, 82.35]} rotation={[0.0186, 0, 0]}>
                         <mesh geometry={nodes.Cube008_1.geometry} material={materials.Chrome} />
                         <mesh geometry={nodes.Cube008_2.geometry} material={materials.Rubber} />
                     </group>
-                    <group position={[0, -1.61, -100.17]}>
+                    <group position={[0, -1.6132, -100.1712]}>
                         <mesh geometry={nodes.Plane044_1.geometry} material={materials.Chrome} />
                         <mesh geometry={nodes.Plane044_2.geometry} material={materials.Rubber} />
                     </group>
-                    <group position={[-63.933, 18.959, -20.112]} scale={[-0.077, 0.08, 0.08]}>
+                    <group position={[-63.9331, 18.9587, -20.1118]} scale={[-0.0772, 0.0772, 0.0772]}>
                         <mesh geometry={nodes.Plane047_1.geometry} material={materials.Chrome} />
                         <mesh geometry={nodes.Plane047_2.geometry} material={materials.Rubber} />
                     </group>
-                    <group position={[0.01, 46.69, -20.07]} rotation={[0.3, -0.25, 0.08]} scale={[1, 1, 1]}>
+                    <group position={[0.0111, 46.6859, -20.0682]} rotation={[0.2988, -0.2505, 0.0778]} scale={[1, 1, 1]}>
                         <mesh geometry={nodes.Cube011_1.geometry} material={materials.Rubber} />
                         <mesh geometry={nodes.Cube011_2.geometry} material={materials['Chrome.003']} />
                     </group>
-                    <group position={[-4.06, -0.48, -49.64]}>
+                    <group position={[-4.0557, -0.4777, -49.6404]}>
                         <mesh geometry={nodes.Cube022_1.geometry} material={materials.Rubber} />
                         <mesh geometry={nodes.Cube022_2.geometry} material={materials['Material.008']} />
                     </group>
-                    <group position={[1.14, -19.08, 3.84]}>
+                    <group position={[1.1415, -19.0838, 3.8412]}>
                         <mesh geometry={nodes.Cube034.geometry} material={materials.Chrome} />
                         <mesh geometry={nodes.Cube034_1.geometry} material={materials.Rubber} />
                     </group>
-                    <group position={[-60.17, -5.07, -12.93]} rotation={[0, 0, -Math.PI / 2]}>
-                        <group position={[3.06, 0.47, 9.18]} rotation={[0, 0, Math.PI / 2]}>
+                    <group position={[-60.1745, -5.065, -12.9324]} rotation={[0, 0, -Math.PI / 2]}>
+                        <group position={[3.0605, 0.4719, 9.1836]} rotation={[0, 0, Math.PI / 2]}>
                             <mesh geometry={nodes.Cube024_1.geometry} material={materials['Rubber.001']} />
                             <mesh geometry={nodes.Cube024_2.geometry} material={materials.Chrome} />
                             <mesh geometry={nodes.Cube024_3.geometry} material={materials['matte-black']} />
@@ -58,45 +59,51 @@ export default function Model(props) {
                         <mesh
                             geometry={nodes.Plane038.geometry}
                             material={materials.metal}
-                            position={[1.95, 0.84, -12.72]}
-                            rotation={[0, 0.06, Math.PI / 2]}
-                            scale={[1.34, 1.34, 1.34]}
+                            position={[1.9531, 0.8392, -12.7178]}
+                            rotation={[0, 0.0639, Math.PI / 2]}
+                            scale={[1.3418, 1.3418, 1.3418]}
                         />
                     </group>
-                    <group position={[-59.95, -7.38, -38.8]} rotation={[2.75, 0, -Math.PI / 2]} scale={[0.02, 0.02, 0.02]}>
+                    <group
+                        position={[-59.9455, -7.3788, -38.8037]}
+                        rotation={[2.7463, 0, -Math.PI / 2]}
+                        scale={[0.0218, 0.0218, 0.0218]}>
                         <mesh geometry={nodes.Cylinder032.geometry} material={materials.Chrome} />
                         <mesh geometry={nodes.Cylinder032_1.geometry} material={materials.Rubber} />
                     </group>
-                    <group position={[0, -1.61, -100.17]}>
+                    <group position={[0, -1.6132, -100.1712]}>
                         <mesh geometry={nodes.Plane003.geometry} material={materials['Material.001']} />
                         <mesh geometry={nodes.Plane003_1.geometry} material={materials['Material.003']} />
                     </group>
-                    <group position={[-61.47, -29.15, -98.98]}>
+                    <group position={[-61.4683, -29.1479, -98.9785]}>
                         <mesh geometry={nodes.Plane014_2.geometry} material={materials.tire_tread} />
                         <mesh geometry={nodes.Plane014_1.geometry} material={materials.tire_side} />
                     </group>
-                    <group position={[-22.28, 21.3, 111.25]} rotation={[0.08, 0, 0]} scale={[0.81, 0.81, 0.81]}>
+                    <group position={[-22.276, 21.2993, 111.2451]} rotation={[0.0752, 0, 0]} scale={[0.8081, 0.8081, 0.8081]}>
                         <mesh geometry={nodes.Cylinder038.geometry} material={materials.metal} />
                         <mesh geometry={nodes.Cylinder038_1.geometry} material={materials.Rubber} />
                     </group>
-                    <group position={[-10.16, 53.93, -18.29]}>
+                    <group position={[-10.1606, 53.9258, -18.2943]}>
                         <mesh geometry={nodes.Cube030_1.geometry} material={materials.metal} />
                         <mesh geometry={nodes.Cube030_2.geometry} material={materials.Rubber} />
                     </group>
-                    <group position={[0.01, 51.89, -20.95]}>
+                    <group position={[0.0111, 51.8871, -20.9519]}>
                         <mesh geometry={nodes.Cube007_1.geometry} material={materials.Rubber} />
                         <mesh geometry={nodes.Cube007_2.geometry} material={materials.metal} />
                     </group>
-                    <group position={[0, 7.22, -40.97]} rotation={[1.31, 0, 0]}>
+                    <group position={[0, 7.2189, -40.9722]} rotation={[1.3146, 0, 0]}>
                         <mesh geometry={nodes.Cylinder030.geometry} material={materials.metal} />
                         <mesh geometry={nodes.Cylinder030_1.geometry} material={materials.Rubber} />
                     </group>
-                    <group position={[-4.73, 7.26, -40.79]} rotation={[1.35, 0, 0]}>
+                    <group position={[-4.7332, 7.2612, -40.7867]} rotation={[1.3467, 0, 0]}>
                         <mesh geometry={nodes.Cylinder031.geometry} material={materials.metal} />
                         <mesh geometry={nodes.Cylinder031_1.geometry} material={materials.Rubber} />
                     </group>
-                    <group position={[-0.76, -12.1, -28.81]} rotation={[-0.17, -0.16, 0.17]} scale={[0.01, 0.01, 0.01]}>
-                        <group position={[0, 2121.53, 0.06]} scale={[131.16, 131.16, 131.16]}>
+                    <group
+                        position={[-0.7644, -12.1, -28.8051]}
+                        rotation={[-0.1664, -0.1598, 0.167]}
+                        scale={[0.0076, 0.0076, 0.0076]}>
+                        <group position={[-0.0001, 2121.5337, 0.0637]} scale={[131.1593, 131.1593, 131.1593]}>
                             <mesh geometry={nodes.Cylinder037_1.geometry} material={materials.metal} />
                             <mesh geometry={nodes.Cylinder037.geometry} material={materials['matte-black']} />
                         </group>
@@ -105,329 +112,368 @@ export default function Model(props) {
                     </group>
                     <mesh geometry={nodes.Plane029_1.geometry} material={materials['matte-black']} />
                     <mesh geometry={nodes.Plane029_2.geometry} material={materials.Cluster} />
-                    <group position={[-17.77, -0.13, 1.56]}>
+                    <group position={[-17.7719, -0.1327, 1.5559]}>
                         <mesh geometry={nodes.Plane030_1.geometry} material={materials['matte-black']} />
                         <mesh geometry={nodes.Plane030_2.geometry} material={materials.Cluster} />
                     </group>
-                    <group position={[-24.48, -0.44, 2.17]}>
+                    <group position={[-24.4764, -0.4357, 2.168]}>
                         <mesh geometry={nodes.Plane031_1.geometry} material={materials['matte-black']} />
                         <mesh geometry={nodes.Plane031_2.geometry} material={materials.Cluster} />
                     </group>
-                    <group position={[-18.65, 0.08, 1.61]}>
+                    <group position={[-18.65, 0.0822, 1.6076]}>
                         <mesh geometry={nodes.Plane032_1.geometry} material={materials['matte-black']} />
                         <mesh geometry={nodes.Plane032_2.geometry} material={materials.Cluster} />
                     </group>
                     <mesh geometry={nodes.Plane033_1.geometry} material={materials['matte-black']} />
                     <mesh geometry={nodes.Plane033_2.geometry} material={materials.Cluster} />
-                    <group position={[-69.8, 7.39, 38.82]} scale={[1.21, 1.21, 1.21]}>
+                    <group position={[-69.8005, 7.3927, 38.82]} scale={[1.2143, 1.2143, 1.2143]}>
                         <mesh geometry={nodes.Plane025_1.geometry} material={materials.Chrome} />
                         <mesh geometry={nodes.Plane025_2.geometry} material={materials.metal} />
                         <mesh geometry={nodes.Plane025_3.geometry} material={materials['matte-black']} />
                     </group>
-                    <group position={[-17.01, 2.52, -40.24]} rotation={[1.03, 0, 0]}>
+                    <group position={[-17.0118, 2.516, -40.245]} rotation={[1.0344, 0, 0]}>
                         <mesh geometry={nodes.Cylinder021.geometry} material={materials.metal} />
                         <mesh geometry={nodes.Cylinder021_1.geometry} material={materials['matte-black']} />
                     </group>
-                    <group position={[-51.88, 12.16, -38.8]} rotation={[1.58, 0.01, -0.08]} scale={[0.01, 0.01, 0.01]}>
+                    <group
+                        position={[-51.8777, 12.1563, -38.8043]}
+                        rotation={[1.5773, 0.0087, -0.0849]}
+                        scale={[0.0075, 0.0075, 0.0075]}>
                         <mesh geometry={nodes.Cylinder016_1.geometry} material={materials.metal} />
                         <mesh geometry={nodes.Cylinder016_2.geometry} material={materials['matte-black']} />
                     </group>
-                    <group position={[-49.04, 12.16, -39.05]} rotation={[1.58, 0.01, -0.09]} scale={[0.01, 0.01, 0.01]}>
+                    <group
+                        position={[-49.0353, 12.1563, -39.0472]}
+                        rotation={[1.5776, 0.0087, -0.0854]}
+                        scale={[0.0075, 0.0075, 0.0075]}>
                         <mesh geometry={nodes.Cylinder016_1_1.geometry} material={materials.metal} />
                         <mesh geometry={nodes.Cylinder016_2_1.geometry} material={materials['matte-black']} />
                     </group>
-                    <group position={[-46.19, 12.16, -39.29]} rotation={[1.58, 0.01, -0.09]} scale={[0.01, 0.01, 0.01]}>
+                    <group
+                        position={[-46.193, 12.1563, -39.2905]}
+                        rotation={[1.5776, 0.0087, -0.0854]}
+                        scale={[0.0075, 0.0075, 0.0075]}>
                         <mesh geometry={nodes.Cylinder016_1_2.geometry} material={materials.metal} />
                         <mesh geometry={nodes.Cylinder016_2_2.geometry} material={materials['matte-black']} />
                     </group>
-                    <group position={[-43.35, 12.16, -39.54]} rotation={[1.58, 0.01, -0.09]} scale={[0.01, 0.01, 0.01]}>
+                    <group
+                        position={[-43.3507, 12.1563, -39.5352]}
+                        rotation={[1.5774, 0.0087, -0.0865]}
+                        scale={[0.0075, 0.0075, 0.0075]}>
                         <mesh geometry={nodes.Cylinder016_1_3.geometry} material={materials.metal} />
                         <mesh geometry={nodes.Cylinder016_2_3.geometry} material={materials['matte-black']} />
                     </group>
-                    <mesh geometry={nodes.Plane013.geometry} material={materials.Chrome} position={[0, -1.61, -100.17]} />
-                    <mesh geometry={nodes.Plane010.geometry} material={materials.Rubber} position={[0, -1.61, -100.17]} />
-                    <mesh geometry={nodes.Plane009.geometry} material={materials['Cristal.001']} position={[0, -1.61, -100.17]} />
-                    <mesh geometry={nodes.Plane007.geometry} material={materials.Chrome} position={[0, -1.61, -100.17]} />
-                    <mesh material-color={snap.items.exterior} geometry={nodes.Plane006.geometry} material={materials.paint} position={[0, -1.61, -100.17]} />
-                    <mesh geometry={nodes.Plane005.geometry} material={materials.paint} position={[0, -1.61, -100.17]} />
-                    <mesh geometry={nodes.Plane004.geometry} material={materials.paint} position={[0, -1.61, -100.17]} />
-                    <mesh geometry={nodes.Plane.geometry} material={materials.paint} position={[0, -1.61, -100.17]} />
-                    <mesh geometry={nodes.Plane001.geometry} material={materials['Chrome.003']} position={[0, -1.61, -100.17]} />
+                    <mesh geometry={nodes.Plane013.geometry} material={materials.Chrome} position={[0, -1.6132, -100.1712]} />
+                    <mesh geometry={nodes.Plane010.geometry} material={materials.Rubber} position={[0, -1.6132, -100.1712]} />
+                    <mesh
+                        geometry={nodes.Plane009.geometry}
+                        material={materials['Cristal.001']}
+                        position={[0, -1.6132, -100.1712]}
+                    />
+                    <mesh geometry={nodes.Plane007.geometry} material={materials.Chrome} position={[0, -1.6132, -100.1712]} />
+                    <mesh material-color={snap.items.exterior} geometry={nodes.Plane006.geometry} material={materials.paint} position={[0, -1.6132, -100.1712]} />
+                    <mesh geometry={nodes.Plane005.geometry} material={materials.paint} position={[0, -1.6132, -100.1712]} />
+                    <mesh geometry={nodes.Plane004.geometry} material={materials.paint} position={[0, -1.6132, -100.1712]} />
+                    <mesh geometry={nodes.Plane.geometry} material={materials.paint} position={[0, -1.6132, -100.1712]} />
+                    <mesh
+                        geometry={nodes.Plane001.geometry}
+                        material={materials['Chrome.003']}
+                        position={[0, -1.6132, -100.1712]}
+                    />
                     <mesh
                         geometry={nodes.Cube001.geometry}
                         material={materials['Material.002']}
-                        position={[-46.92, -0.49, 177.15]}
+                        position={[-46.9245, -0.4904, 177.1505]}
                     />
                     <mesh
                         geometry={nodes.Sphere002.geometry}
                         material={materials['Chrome.002']}
-                        position={[-46.23, 1.02, 176.48]}
-                        rotation={[-1.65, 0.09, 0.1]}
-                        scale={[0.01, 0.01, 0.01]}
+                        position={[-46.229, 1.0236, 176.4751]}
+                        rotation={[-1.6472, 0.0909, 0.0982]}
+                        scale={[0.0069, 0.0069, 0.0069]}
                     />
                     <mesh
                         geometry={nodes.Plane022.geometry}
                         material={materials['Material.004']}
-                        position={[-36.88, -0.5, 179.85]}
+                        position={[-36.878, -0.4959, 179.8525]}
                     />
-                    <mesh geometry={nodes.Cube003.geometry} material={materials.Rubber} position={[-34.11, 20.94, 110.96]} />
-                    <mesh geometry={nodes.Cube004.geometry} material={materials.Chrome} position={[-34.11, 20.94, 110.96]} />
-                    <mesh geometry={nodes.Plane039.geometry} material={materials.Chrome} position={[0, -1.61, -100.17]} />
-                    <mesh geometry={nodes.Plane040.geometry} material={materials.Chrome} position={[0, -1.61, -99.35]} />
-                    <mesh geometry={nodes.Cube018.geometry} material={materials.Chrome} position={[-61.81, 19.17, 53.76]} />
-                    <mesh geometry={nodes.Plane042.geometry} material={materials.Rubber} position={[0, -1.61, -100.17]} />
+                    <mesh geometry={nodes.Cube003.geometry} material={materials.Rubber} position={[-34.1141, 20.945, 110.9615]} />
+                    <mesh geometry={nodes.Cube004.geometry} material={materials.Chrome} position={[-34.1141, 20.945, 110.9615]} />
+                    <mesh geometry={nodes.Plane039.geometry} material={materials.Chrome} position={[0, -1.6132, -100.1712]} />
+                    <mesh geometry={nodes.Plane040.geometry} material={materials.Chrome} position={[0, -1.6132, -99.3487]} />
+                    <mesh geometry={nodes.Cube018.geometry} material={materials.Chrome} position={[-61.811, 19.1741, 53.761]} />
+                    <mesh geometry={nodes.Plane042.geometry} material={materials.Rubber} position={[0, -1.6132, -100.1712]} />
                     <mesh
                         geometry={nodes.Plane043.geometry}
                         material={materials['Cristal.001']}
-                        position={[-63.933, 18.959, -20.112]}
-                        scale={[-0.077,0.077, 0.077]}
+                        position={[-63.9331, 18.9587, -20.1118]}
+                        scale={[-0.0772, 0.0772, 0.0772]}
                     />
                     <mesh
                         geometry={nodes.Plane046.geometry}
                         material={materials['Cristal.001']}
-                        position={[-63.68, 18.52, 13.78]}
+                        position={[-63.6831, 18.5198, 13.7754]}
                     />
-                    <mesh geometry={nodes.Cube021.geometry} material={materials.Chrome} position={[-57.18, -18.83, 174.98]} />
+                    <mesh
+                        geometry={nodes.Cube021.geometry}
+                        material={materials.Chrome}
+                        position={[-57.1778, -18.8341, 174.9769]}
+                    />
                     <mesh
                         geometry={nodes.Plane048.geometry}
                         material={materials['Material.011']}
-                        position={[1.01, -20.65, 2.11]}
+                        position={[1.0092, -20.6484, 2.1131]}
                         rotation={[-Math.PI, 0, 0]}
                     />
-                    <mesh geometry={nodes.Plane049.geometry} material={materials.Chrome} position={[0, -1.61, -100.17]} />
+                    <mesh geometry={nodes.Plane049.geometry} material={materials.Chrome} position={[0, -1.6132, -100.1712]} />
                     <mesh
                         geometry={nodes.Cube029.geometry}
                         material={materials.Chrome}
-                        position={[-60.9, 19.92, -70.54]}
-                        rotation={[-0.01, 0, 0]}
+                        position={[-60.9016, 19.9153, -70.5446]}
+                        rotation={[-0.0147, 0, 0]}
                     />
                     <mesh
                         geometry={nodes.Cube031.geometry}
                         material={materials.Chrome}
-                        position={[-61.84, 19.82, -70.43]}
-                        rotation={[0, 0.15, 0]}
+                        position={[-61.8425, 19.8199, -70.427]}
+                        rotation={[0, 0.1456, 0]}
                     />
                     <mesh
                         geometry={nodes.Cube032.geometry}
                         material={materials.Rubber}
-                        position={[-60.9, 19.92, -70.54]}
-                        rotation={[-0.01, 0, 0]}
+                        position={[-60.9016, 19.9153, -70.5446]}
+                        rotation={[-0.0147, 0, 0]}
                     />
                     <mesh
                         geometry={nodes.Cube033.geometry}
                         material={materials['Chrome.003']}
-                        position={[-61.84, 19.82, -70.43]}
-                        rotation={[0, 0.15, 0]}
+                        position={[-61.8425, 19.8199, -70.427]}
+                        rotation={[0, 0.1456, 0]}
                     />
                     <mesh
                         geometry={nodes.Sphere.geometry}
                         material={materials.lightbulb}
-                        position={[-49.41, 1.96, -161.85]}
-                        scale={[0.02, 0.02, 0.02]}
+                        position={[-49.4149, 1.9619, -161.8472]}
+                        scale={[0.0204, 0.0204, 0.0204]}
                     />
                     <mesh
                         geometry={nodes.Plane052.geometry}
                         material={materials['Rubber.003']}
-                        position={[-48.93, -9.1, -169.48]}
+                        position={[-48.9345, -9.1039, -169.4843]}
                     />
-                    <mesh geometry={nodes.Plane011.geometry} material={materials.Chrome} position={[0, -17.52, -180.92]} />
-                    <mesh geometry={nodes.Plane047.geometry} material={materials.Rubber} position={[0, -17.52, -179.42]} />
+                    <mesh geometry={nodes.Plane011.geometry} material={materials.Chrome} position={[0, -17.5222, -180.9241]} />
+                    <mesh geometry={nodes.Plane047.geometry} material={materials.Rubber} position={[0, -17.5222, -179.4241]} />
                     <mesh geometry={nodes.Plane017.geometry} material={materials.Rubber} />
                     <mesh geometry={nodes.Plane021.geometry} material={materials.Rubber} />
-                    <mesh geometry={nodes.Cylinder014.geometry} material={materials.Rubber} position={[0, -16.61, -27.89]} />
+                    <mesh geometry={nodes.Cylinder014.geometry} material={materials.Rubber} position={[0, -16.6111, -27.8881]} />
                     <mesh
                         geometry={nodes.Cube024.geometry}
                         material={materials.Rubber}
-                        position={[-20.59, -24.17, -72.69]}
-                        rotation={[-0.34, 0, 0]}
+                        position={[-20.5913, -24.1731, -72.6928]}
+                        rotation={[-0.3439, 0, 0]}
                     />
                     <mesh
                         geometry={nodes.Cube023.geometry}
                         material={materials.Rubber}
-                        position={[-27.78, -24.17, -72.69]}
-                        rotation={[-0.34, 0, 0]}
+                        position={[-27.7815, -24.1731, -72.6928]}
+                        rotation={[-0.3439, 0, 0]}
                     />
                     <mesh
                         geometry={nodes.Cube027.geometry}
                         material={materials['metal.001']}
-                        position={[-12.11, -24.25, -75.54]}
-                        rotation={[-0.36, 0, 0]}
+                        position={[-12.1065, -24.2516, -75.5386]}
+                        rotation={[-0.3575, 0, 0]}
                     />
                     <mesh
                         geometry={nodes.Cylinder008.geometry}
                         material={materials['Rubber.001']}
-                        position={[-27.48, 10.41, -27.1]}
-                        rotation={[1.07, 0, 0]}
+                        position={[-27.4785, 10.4125, -27.1013]}
+                        rotation={[1.0724, 0, 0]}
                     />
                     <mesh
                         geometry={nodes.Cylinder009.geometry}
                         material={materials['Material.007']}
-                        position={[-27.48, 10.41, -27.1]}
-                        rotation={[1.07, 0, 0]}
-                        scale={[0.05, 0.05, 0.05]}
+                        position={[-27.4785, 10.4125, -27.1013]}
+                        rotation={[1.0724, 0, 0]}
+                        scale={[0.0522, 0.0522, 0.0522]}
                     />
                     <mesh
                         geometry={nodes.Cube011.geometry}
                         material={nodes.Cube011.material}
-                        position={[-36.42, 14.14, -41.27]}
-                        rotation={[-0.12, 0.04, 0.58]}
+                        position={[-36.4219, 14.1388, -41.2747]}
+                        rotation={[-0.1157, 0.0358, 0.5845]}
                         scale={[1, 1, 1]}
                     />
                     <mesh
                         geometry={nodes.Cube012.geometry}
                         material={nodes.Cube012.material}
-                        position={[-17.5, 14.14, -42.88]}
-                        rotation={[-0.13, 0.03, 0.46]}
+                        position={[-17.5023, 14.1388, -42.8791]}
+                        rotation={[-0.1308, 0.0317, 0.4576]}
                         scale={[1, 1, 1]}
                     />
-                    <mesh geometry={nodes.Plane026.geometry} material={materials.Rubber} position={[0, -1.61, -100.17]} />
-                    <mesh geometry={nodes.Plane015.geometry} material={materials.Chrome} position={[-61.47, -29.15, -98.98]} />
+                    <mesh geometry={nodes.Plane026.geometry} material={materials.Rubber} position={[0, -1.6132, -100.1712]} />
+                    <mesh
+                        geometry={nodes.Plane015.geometry}
+                        material={materials.Chrome}
+                        position={[-61.4683, -29.1479, -98.9785]}
+                    />
                     <mesh
                         geometry={nodes.Cylinder.geometry}
                         material={materials.metal}
-                        position={[-57.92, -0.85, 178.34]}
-                        rotation={[0.04, -0.1, 0]}
+                        position={[-57.9152, -0.8491, 178.3433]}
+                        rotation={[0.0384, -0.1046, 0.0047]}
                         scale={[1, 1, 1]}
                     />
                     <mesh
                         geometry={nodes.Bolt.geometry}
                         material={materials.metal}
-                        position={[-60.9, 20.2, -74.75]}
-                        scale={[0.13, 0.08, 0.13]}
+                        position={[-60.9016, 20.1972, -74.7472]}
+                        scale={[0.1322, 0.0766, 0.1322]}
                     />
                     <mesh
                         geometry={nodes.Bolt001.geometry}
                         material={materials.metal}
-                        position={[-61.98, 20.25, -68.86]}
-                        scale={[0.13, 0.08, 0.13]}
+                        position={[-61.9846, 20.253, -68.8568]}
+                        scale={[0.1322, 0.0766, 0.1322]}
                     />
                     <mesh
                         geometry={nodes.Bolt002.geometry}
                         material={materials.metal}
-                        position={[-59.83, 20.25, -68.86]}
-                        rotation={[Math.PI, -1.44, Math.PI]}
-                        scale={[0.13, 0.08, 0.13]}
+                        position={[-59.8339, 20.253, -68.8568]}
+                        rotation={[Math.PI, -1.439, Math.PI]}
+                        scale={[0.1322, 0.0766, 0.1322]}
                     />
                     <mesh geometry={nodes.Plane019.geometry} material={materials.metal} />
                     <mesh geometry={nodes.Plane020.geometry} material={materials.metal} />
                     <mesh
                         geometry={nodes.Plane035.geometry}
                         material={materials.metal}
-                        position={[-27.07, 12.57, -40.74]}
-                        scale={[1.28, 1.28, 1.28]}
+                        position={[-27.0694, 12.5684, -40.7425]}
+                        scale={[1.275, 1.275, 1.275]}
                     />
-                    <mesh geometry={nodes.Cube025.geometry} material={materials.metal} position={[-20.48, -20.42, -74.21]} />
-                    <mesh geometry={nodes.Cube026.geometry} material={materials.metal} position={[-27.67, -20.42, -74.21]} />
+                    <mesh
+                        geometry={nodes.Cube025.geometry}
+                        material={materials.metal}
+                        position={[-20.4813, -20.4176, -74.2081]}
+                    />
+                    <mesh
+                        geometry={nodes.Cube026.geometry}
+                        material={materials.metal}
+                        position={[-27.6714, -20.4176, -74.2081]}
+                    />
                     <mesh
                         geometry={nodes.Plane045.geometry}
                         material={materials['Material.010']}
-                        position={[32.07, -32.09, -47.33]}
+                        position={[32.0662, -32.086, -47.3348]}
                     />
                     <mesh geometry={nodes.Plane018.geometry} material={materials.Wood} />
                     <mesh
                         geometry={nodes.Torus.geometry}
                         material={materials.Wood}
-                        position={[-27.48, 13.1, -22.62]}
-                        rotation={[1.03, 0, 0]}
-                        scale={[0.89, 0.89, 0.89]}
+                        position={[-27.4785, 13.0986, -22.6238]}
+                        rotation={[1.0304, 0, 0]}
+                        scale={[0.8876, 0.8876, 0.8876]}
                     />
-                    <mesh geometry={nodes.Plane008.geometry} material={materials.Cristal} position={[0, -1.61, -100.17]} />
+                    <mesh geometry={nodes.Plane008.geometry} material={materials.Cristal} position={[0, -1.6132, -100.1712]} />
                     <mesh
-
                         geometry={nodes.Cube008.geometry}
                         material={materials.Seats}
-                        position={[-31.12, -32.97, 10.24]}
-                        rotation={[0.08, 0, 0]}>
+                        position={[-31.1222, -32.9726, 10.2407]}
+                        rotation={[0.0777, 0, 0]}>
                         <mesh material-color={snap.items.interior} geometry={nodes.Cube005.geometry} material={materials.Seats} />
                         <mesh
                             geometry={nodes.Cube009_1.geometry}
                             material={materials.metal}
-                            position={[2.16, 0, 0]}
-                            rotation={[-0.08, 0, 0]}
+                            position={[2.163, 0, 0]}
+                            rotation={[-0.0777, 0, 0]}
                         />
                         <mesh
                             geometry={nodes.Cube010.geometry}
                             material={materials.metal}
-                            position={[-13.69, 1.3, 11.48]}
-                            rotation={[-0.08, 0, 0]}
+                            position={[-13.6882, 1.299, 11.4763]}
+                            rotation={[-0.0777, 0, 0]}
                         />
                     </mesh>
                     <mesh geometry={nodes.Plane027.geometry} material={materials['matte-black']} />
                     <mesh
                         geometry={nodes.Cube013.geometry}
                         material={materials['matte-black']}
-                        position={[-22.4, 2.12, -41.93]}
-                        rotation={[-0.11, -0.02, -0.05]}
+                        position={[-22.3986, 2.1224, -41.9283]}
+                        rotation={[-0.1147, -0.0196, -0.045]}
                         scale={[1, 1, 1]}
                     />
                     <mesh
                         geometry={nodes.Cube015.geometry}
                         material={materials['matte-black']}
-                        position={[-0.59, -14.48, -64.93]}
+                        position={[-0.5918, -14.4786, -64.9295]}
                     />
                     <mesh geometry={nodes.Plane024.geometry} material={materials['matte-black']} />
-                    <mesh geometry={nodes.Cube020.geometry} material={materials['matte-black']} position={[0, -17.66, -4.76]} />
+                    <mesh
+                        geometry={nodes.Cube020.geometry}
+                        material={materials['matte-black']}
+                        position={[0, -17.6559, -4.7609]}
+                    />
                     <mesh
                         geometry={nodes.Cube014.geometry}
                         material={materials['matte-black']}
-                        position={[-27.23, -13.29, -73.33]}
-                        rotation={[-0.24, 0, 0]}
+                        position={[-27.2349, -13.2871, -73.328]}
+                        rotation={[-0.2408, 0, 0]}
                     />
                     <mesh
                         geometry={nodes.Cylinder001.geometry}
                         material={materials['matte-black']}
-                        position={[-36.43, 14.13, -41.39]}
-                        rotation={[1.48, 0.58, -0.04]}
-                        scale={[0, 0, 0]}
+                        position={[-36.426, 14.1255, -41.3891]}
+                        rotation={[1.4788, 0.5841, -0.0429]}
+                        scale={[0.0044, 0.0044, 0.0044]}
                     />
                     <mesh
                         geometry={nodes.Cylinder002.geometry}
                         material={materials['matte-black']}
-                        position={[-17.51, 14.13, -42.99]}
-                        rotation={[1.48, 0.58, -0.04]}
-                        scale={[0, 0, 0]}
+                        position={[-17.5064, 14.1255, -42.9935]}
+                        rotation={[1.4788, 0.5841, -0.0429]}
+                        scale={[0.0044, 0.0044, 0.0044]}
                     />
                     <mesh material-color={snap.items.interior} geometry={nodes.Plane025.geometry} material={materials['matte-black']} />
                     <mesh
                         geometry={nodes.Cylinder010.geometry}
                         material={materials['Rubber.002']}
-                        position={[-27.48, 10.41, -27.1]}
-                        rotation={[1.07, 0, 0]}
-                        scale={[0.05, 0.05, 0.05]}
+                        position={[-27.4785, 10.4125, -27.1013]}
+                        rotation={[1.0724, 0, 0]}
+                        scale={[0.0522, 0.0522, 0.0522]}
                     />
                     <mesh
                         geometry={nodes.Plane029.geometry}
                         material={materials['Cristal.002']}
-                        position={[-18.65, 0.08, 1.61]}
+                        position={[-18.65, 0.0822, 1.6076]}
                     />
                     <mesh geometry={nodes.Plane034.geometry} material={materials['Cristal.002']} />
                     <mesh
                         geometry={nodes.Plane037.geometry}
                         material={materials['Cristal.002']}
-                        position={[-17.77, -0.13, 1.56]}
+                        position={[-17.7719, -0.1327, 1.5559]}
                     />
                     <mesh
                         geometry={nodes.Plane002.geometry}
                         material={materials['metal.002']}
-                        position={[-61.47, -29.15, -98.98]}
+                        position={[-61.4683, -29.1479, -98.9785]}
                     />
                     <mesh
                         geometry={nodes.Cube035.geometry}
                         material={materials.Exhaust}
-                        position={[-29.18, -36.27, 151.36]}
-                        scale={[1.24, 1.24, 1.24]}
+                        position={[-29.1792, -36.2673, 151.3588]}
+                        scale={[1.2392, 1.2392, 1.2392]}
                     />
                     <mesh
                         geometry={nodes.Cylinder018.geometry}
                         material={materials.Exhaust}
-                        position={[-32.26, -36.43, 158.85]}
-                        scale={[1.24, 1.24, 1.24]}
+                        position={[-32.2592, -36.4308, 158.8451]}
+                        scale={[1.2392, 1.2392, 1.2392]}
                     />
                     <mesh
                         geometry={nodes.Cylinder019.geometry}
                         material={materials.Exhaust}
-                        position={[-25.88, -36.43, 158.85]}
-                        scale={[1.24, 1.24, 1.24]}
+                        position={[-25.883, -36.4308, 158.8451]}
+                        scale={[1.2392, 1.2392, 1.2392]}
                     />
                 </group>
             </group>
