@@ -48,7 +48,7 @@ function App() {
           <Ground />
           <ContactShadows rotation-x={Math.PI / 2} position={[0, -0.8, 0]} opacity={0.25} width={10} height={10} blur={2} far={1} />
         </Suspense>
-        <OrbitControls /*maxPolarAngle={Math.PI / 2}*/ />
+        <OrbitControls maxPolarAngle={Math.PI / 2} />
       </Canvas>
     </>
   )
