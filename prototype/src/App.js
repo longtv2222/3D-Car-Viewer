@@ -24,7 +24,9 @@ function Ground(props) {
   grid.material.opacity = 0.3
   grid.material.depthWrite = true
   grid.material.transparent = false
+  grid.receiveShadow = true
   scene.add(grid)
+
   return null
 }
 
@@ -35,17 +37,18 @@ function App() {
     <>
       <ColorPicker />
       <Canvas>
-        <ambientLight intensity={1} />
-        <spotLight intensity={1} angle={0.1} penumbra={0} position={[0, 50, 0]} />
+        {/* <ambientLight intensity={1} /> */}
+        <spotLight color={'#FFFFFF'} intensity={1} angle={Math.PI / 4} penumbra={1} position={[0, 20, 0]} castShadow={true} />
         <pointLight intensity={1} position={[40, 0, 0]} />
-        <pointLight intensity={1} position={[-40, 0, 0]} />
         <pointLight intensity={1} position={[0, 0, 40]} />
+        <pointLight intensity={1} position={[0, 20, 0]} />
+        <directionalLight position={[0, -10, 0]} />
         <Suspense fallback={null}>
           <Model />
           <Ground />
           <ContactShadows rotation-x={Math.PI / 2} position={[0, -0.8, 0]} opacity={0.25} width={10} height={10} blur={2} far={1} />
         </Suspense>
-        <OrbitControls maxPolarAngle={Math.PI / 2} />
+        <OrbitControls /*maxPolarAngle={Math.PI / 2}*/ />
       </Canvas>
     </>
   )

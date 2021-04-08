@@ -6,7 +6,6 @@ import React, { useRef } from 'react'
 import { useGLTF } from 'drei'
 import { useProxy } from 'valtio'
 import { state } from './App.js'
-import { StaticReadUsage } from 'three'
 
 export default function Model(props) {
     const snap = useProxy(state)
