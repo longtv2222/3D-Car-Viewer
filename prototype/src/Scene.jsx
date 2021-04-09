@@ -20,7 +20,7 @@ function Model(props) {
     const { nodes, materials } = useGLTF('/scene.gltf')
     return (
         <group ref={group} {...props} dispose={null}>
-            <group position={[0, 0.65, 0]}>
+            <group position={[0, 0.71, 0]}>
                 <group position={[0, 0.4, 0]} scale={[0.02, 0.02, 0.02]}>
                     <group position={[0, -17.5222, 177.4529]} rotation={[-Math.PI, 0, -Math.PI]}>
                         <mesh geometry={nodes.Plane012_1.geometry} material={materials.Rubber} />
