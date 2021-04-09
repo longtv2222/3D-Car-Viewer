@@ -1,20 +1,13 @@
 import React, { Suspense } from 'react'
 import { Canvas, useThree, useLoader } from 'react-three-fiber'
-import { OrbitControls, ContactShadows } from 'drei'
-import { proxy, } from 'valtio'
-import Model from './Scene.js'
+import { OrbitControls } from 'drei'
+import { Model } from './Scene.jsx'
 import * as THREE from 'three'
 import './App.css'
-import ColorPicker from './ColorPicker.js'
+import ColorPicker from './ColorPicker.jsx'
 import { TextureLoader } from 'three'
 
-const state = proxy({
-  current: null,
-  items: {
-    interior: '#FFF300',
-    exterior: '#FFF000',
-  }
-})
+
 
 function Environment() {
   const { scene, gl } = useThree()
@@ -43,8 +36,6 @@ function Ground(props) {
   return null
 }
 
-
-
 function App() {
   return (
     <>
@@ -61,4 +52,4 @@ function App() {
   )
 }
 
-export { state, App }
+export { App }

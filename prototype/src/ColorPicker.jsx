@@ -1,4 +1,4 @@
-import { state } from './App.js'
+import { state } from './Scene.jsx'
 import { useState } from 'react'
 import { TwitterPicker } from 'react-color'
 
