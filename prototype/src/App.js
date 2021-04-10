@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react'
 import { Canvas, useThree, useLoader } from 'react-three-fiber'
-import { OrbitControls } from 'drei'
+import { OrbitControls, PerspectiveCamera } from 'drei'
 import { Model } from './Scene.jsx'
 import * as THREE from 'three'
 import './App.css'
