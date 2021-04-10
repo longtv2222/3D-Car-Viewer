@@ -17,6 +17,7 @@ function Environment() {
   let envMap = pmremGenerator.fromEquirectangular(texture).texture;
   scene.environment = envMap;
   scene.background = envMap
+
   return null
 }
 
