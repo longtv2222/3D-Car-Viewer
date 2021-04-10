@@ -18,6 +18,7 @@ function Model(props) {
     const snap = useProxy(state)
     const group = useRef()
     const { nodes, materials } = useGLTF('/scene.gltf')
+
     return (
         <group ref={group} {...props} dispose={null}>
             <group position={[0, 0.71, 0]}>
