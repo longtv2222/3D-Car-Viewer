@@ -24,7 +24,6 @@ function Environment() {
 function Ground(props) {
   const { scene } = useThree()
   scene.background = new THREE.Color(0xeeeeee)
-  scene.fog = new THREE.Fog(0xeeeeee, 10, 50)
   scene.background = new THREE.Color(0xffffff)
   const grid = new THREE.GridHelper(100, 40, 0x000000, 0x000000)
   grid.material.opacity = 0.3
@@ -46,7 +45,7 @@ function App() {
           <Environment />
           <Ground />
           <Model />
-          <OrbitControls maxPolarAngle={Math.PI / 2} />
+          <OrbitControls maxPolarAngle={7 * Math.PI / 18} />
         </Suspense>
       </Canvas>
     </>
