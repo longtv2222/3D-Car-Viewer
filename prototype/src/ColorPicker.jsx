@@ -1,8 +1,8 @@
-import { state } from './Scene.jsx'
 import { useState } from 'react'
 import { TwitterPicker } from 'react-color'
+import { state } from './App.js'
 
-export default function ColorPicker() {
+export default function ColorPicker(props) {
     const [visibility1, setVisibility] = useState(false);
     const [visibility2, setVisibility2] = useState(false);
     return (
@@ -17,6 +17,9 @@ export default function ColorPicker() {
           Exterior
            <TwitterPicker className={visibility2 ? "padding" : "padding-hidden"} width={400} onChange={(color) => { state.items.exterior = color.hex }} />
             </button>
+
+            <button className={"button"} onClick={() => props.passedFunction()} >Switch Car</button>
+
         </div>
     )
 }

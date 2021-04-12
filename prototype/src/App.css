@@ -8,6 +8,16 @@
     z-index: 100;
 }
 
+.picker2 {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-evenly;
+    position: absolute;
+    top: 10px;
+    width: 100%;
+    z-index: 100;
+}
+
 .padding {
     visibility: visible;
     margin-top: 25px;
@@ -24,7 +34,10 @@
     font-weight: bold;
     font-size: 14px;
     border-color: white;
+    z-index : inherit
 }
+
+
 
 .padding-hidden {
     visibility: hidden;
