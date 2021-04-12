@@ -1,6 +1,6 @@
 import React, { Suspense, useState } from 'react'
 import { Canvas, useThree, useLoader } from 'react-three-fiber'
-import { OrbitControls, PerspectiveCamera } from 'drei'
+import { OrbitControls } from 'drei'
 import { Model } from './Scene.jsx'
 import * as THREE from 'three'
 import './App.css'
@@ -17,8 +17,6 @@ function Environment() {
   pmremGenerator.compileEquirectangularShader();
   let envMap = pmremGenerator.fromEquirectangular(texture).texture;
   scene.environment = envMap;
-  // scene.background = envMap;
-
   return null
 }
 
@@ -56,7 +54,7 @@ function App() {
           <Environment />
           <Ground />
           <Model visibility={!visible} myState={state} />
-          <Larmborghini visibility={visible} myState={state}/>
+          <Larmborghini visibility={visible} myState={state} />
           <OrbitControls maxPolarAngle={7 * Math.PI / 18} />
         </Suspense>
       </Canvas>
