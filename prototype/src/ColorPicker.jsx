@@ -21,8 +21,12 @@ export default function ColorPicker(props) {
             </button>
 
             <button className={"button"} onClick={() => props.passedFunction()} >Switch Car</button>
-            <button className={"button"} onClick={() => props.passedFunction()} >Finish</button>
-
+            <button className={"button"}
+                type="button"
+                onClick={(e) => {
+                    window.location.href = 'https://www.youtube.com/watch?v=ttHlj9l6tJo';
+                }}
+            >Finish</button>
         </div>
     )
 }
