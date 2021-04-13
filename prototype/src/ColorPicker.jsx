@@ -5,17 +5,19 @@ import { state } from './App.js'
 export default function ColorPicker(props) {
     const [visibility1, setVisibility] = useState(false);
     const [visibility2, setVisibility2] = useState(false);
+    const interiorColors = ['#000000', '#FFFFC1', '#010180']
+    const exteriorColors = ['#000000', '#FFFFC1', '#010180', '#800101']
     return (
         <div className="picker">
             <button className="button" onClick={() => setVisibility(!visibility1)}>
                 <br />Interior
-          <TwitterPicker className={visibility1 ? "padding" : "padding-hidden"} width={400} onChange={(color) => { state.items.interior = color.hex }} />
+          <TwitterPicker colors={interiorColors} className={visibility1 ? "padding" : "padding-hidden"} width={400} onChange={(color) => { state.items.interior = color.hex }} />
             </button>
 
             <button className="button" onClick={() => setVisibility2(!visibility2)}>
                 <br />
           Exterior
-           <TwitterPicker className={visibility2 ? "padding" : "padding-hidden"} width={400} onChange={(color) => { state.items.exterior = color.hex }} />
+           <TwitterPicker colors={exteriorColors} className={visibility2 ? "padding" : "padding-hidden"} width={400} onChange={(color) => { state.items.exterior = color.hex }} />
             </button>
 
             <button className={"button"} onClick={() => props.passedFunction()} >Switch Car</button>
