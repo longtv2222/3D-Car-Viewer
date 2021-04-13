@@ -5,8 +5,8 @@ import { state } from './App.js'
 export default function ColorPicker(props) {
     const [visibility1, setVisibility] = useState(false);
     const [visibility2, setVisibility2] = useState(false);
-    const interiorColors = ['#000000', '#FFFFC1', '#010180']
-    const exteriorColors = ['#000000', '#FFFFC1', '#010180', '#800101']
+    const interiorColors = ['#000000', '#EECCAA', '#808080', '#962']
+    const exteriorColors = ['#000000', '#808080', '#010180', '#800101']
     return (
         <div className="picker">
             <button className="button" onClick={() => setVisibility(!visibility1)}>
