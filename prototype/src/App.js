@@ -1,12 +1,12 @@
 import React, { Suspense, useState } from 'react'
 import { Canvas, useThree, useLoader } from 'react-three-fiber'
 import { OrbitControls } from 'drei'
-import { Model } from './Models/Scene.jsx'
+import Model from './Models/Scene.jsx'
 import * as THREE from 'three'
 import './App.css'
 import ColorPicker from './ColorPicker.jsx'
 import { TextureLoader } from 'three'
-import { Larmborghini } from './Models/Lamborghini.jsx'
+import Larmborghini from './Models/Lamborghini.jsx'
 import { proxy } from 'valtio'
 
 
@@ -43,18 +43,27 @@ const state = proxy({
   }
 })
 
-function App() {
-  const [visible, setModel] = useState(false)
 
+
+function App() {
+
+  let arr = ['Scene', 'Lamborghini']
+  let [index, setModel] = useState(0)
   return (
     <>
-      <ColorPicker passedFunction={() => setModel(!visible)} />
+      <ColorPicker passedFunction={() => setModel(() => {
+        ++index;
+        if (index == arr.length) {
+          return 0 //Reset index
+        }
+        return index
+      })} />
       <Canvas>
         <Suspense fallback={null}>
           <Environment />
           <Ground />
-          <Model visibility={!visible} myState={state} />
-          <Larmborghini visibility={visible} myState={state} />
+          <Model visibility={arr[index]} myState={state} />
+          <Larmborghini visibility={arr[index]} myState={state} />
           <OrbitControls maxPolarAngle={7 * Math.PI / 18} />
         </Suspense>
       </Canvas>
