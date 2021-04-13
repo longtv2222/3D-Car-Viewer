@@ -47,7 +47,7 @@ const state = proxy({
 
 function App() {
 
-  let arr = ['Scene', 'Lamborghini']
+  const arr = ['Scene', 'Lamborghini']
   let [index, setModel] = useState(0)
   return (
     <>
