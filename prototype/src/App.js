@@ -52,11 +52,7 @@ function App() {
   return (
     <>
       <ColorPicker passedFunction={() => setModel(() => {
-        ++index;
-        if (index == arr.length) {
-          return 0 //Reset index
-        }
-        return index
+        return (++index) == arr.length ? 0 : index
       })} />
       <Canvas>
         <Suspense fallback={null}>
