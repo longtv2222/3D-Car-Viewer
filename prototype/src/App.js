@@ -1,6 +1,6 @@
 import React, { Suspense, useState } from 'react'
-import { Canvas, useThree, useLoader } from 'react-three-fiber'
-import { OrbitControls } from 'drei'
+import { Canvas, useThree, useLoader } from '@react-three/fiber'
+import { OrbitControls } from '@react-three/drei'
 import Model from './Models/Scene.jsx'
 import * as THREE from 'three'
 import './App.css'
@@ -11,28 +11,28 @@ import { proxy } from 'valtio'
 
 
 function Environment() {
-  const { scene, gl } = useThree()
-  const texture = useLoader(TextureLoader, 'venice_sunset.jpg')
-  let pmremGenerator = new THREE.PMREMGenerator(gl);
+  const { scene, gl } = useThree();
+  const texture = useLoader(TextureLoader, 'venice_sunset.jpg');
+  const pmremGenerator = new THREE.PMREMGenerator(gl);
   pmremGenerator.compileEquirectangularShader();
-  let envMap = pmremGenerator.fromEquirectangular(texture).texture;
+  const envMap = pmremGenerator.fromEquirectangular(texture).texture;
   scene.environment = envMap;
-  return null
+  return null;
 }
 
 function Ground() {
-  const { scene } = useThree()
-  scene.background = new THREE.Color(0xeeeeee)
-  scene.background = new THREE.Color(0xffffff)
-  const grid = new THREE.GridHelper(100, 40, 0x000000, 0x000000)
-  grid.material.opacity = 0.3
-  grid.material.depthWrite = true
-  grid.material.transparent = false
-  grid.receiveShadow = true
+  const { scene } = useThree();
+  scene.background = new THREE.Color(0xeeeeee);
+  scene.background = new THREE.Color(0xffffff);
+  const grid = new THREE.GridHelper(100, 40, 0x000000, 0x000000);
+  grid.material.opacity = 0.3;
+  grid.material.depthWrite = true;
+  grid.material.transparent = false;
+  grid.receiveShadow = true;
 
-  scene.add(grid)
+  scene.add(grid);
 
-  return null
+  return null;
 }
 
 const state = proxy({
@@ -47,8 +47,8 @@ const state = proxy({
 
 function App() {
 
-  const arr = ['Scene', 'Lamborghini']
-  let [index, setModel] = useState(0)
+  const arr = ['Scene', 'Lamborghini'];
+  let [index, setModel] = useState(0);
   return (
     <>
       <ColorPicker passedFunction={() => setModel(() => {
