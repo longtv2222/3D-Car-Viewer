@@ -1,12 +1,12 @@
 import { Suspense, useState } from 'react'
 import { Canvas, useThree, useLoader } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
-import Model from './Models/Scene.jsx'
+import Model from './Models/Scene'
 import * as THREE from 'three'
 import './App.css'
 import ColorPicker from './ColorPicker'
 import { TextureLoader } from 'three'
-import Larmborghini from './Models/Lamborghini.jsx'
+import Larmborghini from './Models/Lamborghini'
 import { proxy } from 'valtio'
 
 
@@ -55,12 +55,13 @@ function App() {
   return (
     <>
       <ColorPicker passedFunction={() => setModel(() => {
-        return (++index) == arr.length ? 0 : index
+        return (++index) === arr.length ? 0 : index
       })} />
       <Canvas>
         <Suspense fallback={null}>
           <Environment />
           <Ground />
+           {/*// @ts-ignore */}
           <Model visibility={arr[index]} myState={state} />
           {/*// @ts-ignore */}
           <Larmborghini visibility={arr[index]} myState={state} />
