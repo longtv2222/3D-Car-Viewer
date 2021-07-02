@@ -1983,9 +1983,9 @@
     schema-utils "^2.6.5"
     source-map "^0.7.3"
 
-"@react-three/drei@^6.1.2":
-  version "6.2.2"
-  resolved "https://registry.yarnpkg.com/@react-three/drei/-/drei-6.2.2.tgz#739a3c147a34efd30848435d529a8f43e4588eaa"
+"@react-three/drei@^7.0.6":
+  version "7.0.6"
+  resolved "https://registry.yarnpkg.com/@react-three/drei/-/drei-7.0.6.tgz#649eb94d53eae659e516a7c575912ab049a9a1a7"
   dependencies:
     "@babel/runtime" "^7.11.2"
     blob-polyfill "^5.0.20210201"
@@ -1995,8 +1995,8 @@
     lodash.pick "^4.4.0"
     react-merge-refs "^1.0.0"
     stats.js "^0.17.0"
-    three-mesh-bvh "^0.4.0"
-    three-stdlib "^2.2.0"
+    three-mesh-bvh "^0.4.1"
+    three-stdlib "^2.3.0"
     troika-three-text "^0.42.0"
     use-asset "^1.0.4"
     utility-types "^3.10.0"
@@ -9924,11 +9924,11 @@ text-table@0.2.0, text-table@^0.2.0:
   version "0.2.0"
   resolved "https://registry.npmjs.org/text-table/-/text-table-0.2.0.tgz"
 
-three-mesh-bvh@^0.4.0:
+three-mesh-bvh@^0.4.1:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/three-mesh-bvh/-/three-mesh-bvh-0.4.1.tgz#ba0bf1dac7cbd41f2132c8446545c8ad9fbeb892"
 
-three-stdlib@^2.2.0:
+three-stdlib@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/three-stdlib/-/three-stdlib-2.3.0.tgz#cf669e50e4a766a0c9af28c2f36680a298c749b0"
   dependencies:
