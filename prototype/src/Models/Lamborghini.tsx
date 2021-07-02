@@ -82,11 +82,11 @@ export default function Model(props: any) {
   };
   const snap = proxy(props.myState)
   return (
-    <group visible={props.visibility} name={'Lamborghini'} ref={group} {...props} scale={[0.007, 0.007, 0.007]} position={[0, 1, 0]} dispose={null}>
+    <group visible={props.visibility} name={'Lamborghini'} ref={group} {...props} scale={[0.007, 0.007, 0.007]} position={[0, 0.95, 0]} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
         <group rotation={[Math.PI / 2, 0, 0]}>
           <group position={[0.1075, -3.3812, -26.1716]} rotation={[0, 0, 0]} scale={[73.6118, 73.6118, 73.6118]}>
-            <mesh geometry={nodes.object001_leather_0.geometry} material={nodes.object001_leather_0.material} />
+            <mesh geometry={nodes.object001_leather_0.geometry} material={nodes.object001_leather_0.material} />  
           </group>
           <group
             position={[-188.8479, -58.188, -341.0469]}
