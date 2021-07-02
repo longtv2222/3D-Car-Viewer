@@ -17,3 +17,5 @@ updates:
     labels:
       - "npm"
       - "dependencies"
+    assignees:
+      - "longtv2222"
