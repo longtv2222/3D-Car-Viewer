@@ -19,3 +19,8 @@ updates:
       - "dependencies"
     assignees:
       - "longtv2222"
+    # Prefix all commit messages with "npm"
+    # include a list of updated dependencies
+    commit-message:
+      prefix: "npm"
+      include: "scope"
