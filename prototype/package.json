@@ -30,7 +30,6 @@
     "typescript": "^4.3.2"
   },
   "scripts": {
-    "build2": "tsc",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",

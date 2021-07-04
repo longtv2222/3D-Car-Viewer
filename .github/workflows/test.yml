@@ -1,0 +1,50 @@
+on:
+  push:
+  pull_request:
+    types: [opened, synchronize, reopened]
+name: Test the project
+jobs:
+  testReact:
+    name: Test React project
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "12"
+
+      - name: Test React Project
+        run: |
+          cd prototype
+          npm ci
+           #To disable interactive cli for jest in create-react-app
+          CI=true
+          npm test
+  testInfra:
+    name: Test AWS Infrastructure
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "12"
+
+      - name: Build React project
+        run: |
+          cd prototype
+          npm ci
+          npm run build
+
+      - name: Test AWS Infrastructure
+        run: |
+          cd infrastructure
+          npm ci
+          npm run test
+
+          
