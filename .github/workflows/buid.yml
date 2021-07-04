@@ -1,4 +1,4 @@
-on: push
+on: release
 name: Build and Deploy
 jobs:
   deploy:
