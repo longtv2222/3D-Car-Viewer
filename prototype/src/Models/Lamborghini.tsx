@@ -6,7 +6,7 @@ import * as THREE from 'three'
 import { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three/examples/jsm/loaders/GLTFLoader'
-import { proxy } from 'valtio'
+import { useSnapshot } from 'valtio'
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -77,16 +77,17 @@ type GLTFResult = GLTF & {
 export default function Model(props: any) {
   const group = useRef<THREE.Group>()
   const { nodes } = useGLTF('/lamborghini.glb') as GLTFResult
+  const snap = useSnapshot(props.myState)
   if (props.visibility !== 'Lamborghini') {
     return null;
   };
-  const snap = proxy(props.myState)
+
   return (
     <group visible={props.visibility} name={'Lamborghini'} ref={group} {...props} scale={[0.007, 0.007, 0.007]} position={[0, 0.95, 0]} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
         <group rotation={[Math.PI / 2, 0, 0]}>
           <group position={[0.1075, -3.3812, -26.1716]} rotation={[0, 0, 0]} scale={[73.6118, 73.6118, 73.6118]}>
-            <mesh geometry={nodes.object001_leather_0.geometry} material={nodes.object001_leather_0.material} />  
+            <mesh geometry={nodes.object001_leather_0.geometry} material={nodes.object001_leather_0.material} />
           </group>
           <group
             position={[-188.8479, -58.188, -341.0469]}

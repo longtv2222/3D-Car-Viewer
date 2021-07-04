@@ -6,7 +6,7 @@ import * as THREE from 'three'
 import { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three/examples/jsm/loaders/GLTFLoader'
-import { proxy } from 'valtio'
+import { useSnapshot } from 'valtio'
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -190,10 +190,11 @@ type GLTFResult = GLTF & {
 export default function Model(props: any) {
   const group = useRef<THREE.Group>()
   const { nodes, materials } = useGLTF('/scene.gltf') as GLTFResult
+  const snap = useSnapshot(props.myState)
   if (props.visibility !== 'Scene') {
     return null
   }
-  const snap = proxy(props.myState)
+
   return (
     <group name="Scene" rotation={[0, 3.14, 0]} visible={props.visibility} ref={group} {...props} dispose={null}>
       <group position={[0, 0.71, 0]}>
