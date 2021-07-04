@@ -28,10 +28,9 @@ jobs:
           cd prototype
           npm ci
           npm run build
-          
+
       - name: Run deployment job
         run: |
-          cd ..
           cd infrastructure
           npm ci
           npm run cdk -- --version
