@@ -1,20 +1,20 @@
 on: push
-
+name: Build and Deploy
 jobs:
   deploy:
     name: Deploy AWS Resources
     runs-on: ubuntu-latest
     environment:
       name: AWS Credentials
-  
+
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        
       - name: Setup Node
         uses: actions/setup-node@v2
         with:
-            node-version: '12'
-            # cache: npm
+          node-version: "12"
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -23,8 +23,15 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-2
 
+      - name: Build React project
+        run: |
+          cd prototype
+          npm ci
+          npm run build
+          
       - name: Run deployment job
         run: |
+          cd ..
           cd infrastructure
           npm ci
           npm run cdk -- --version
