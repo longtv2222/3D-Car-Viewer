@@ -2,10 +2,10 @@ on:
   push:
   pull_request:
     types: [opened, synchronize, reopened]
-name: Test the project
+name: Test
 jobs:
   testReact:
-    name: Test React project
+    name: Test React
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -47,4 +47,4 @@ jobs:
           npm ci
           npm run test
 
-          
+
