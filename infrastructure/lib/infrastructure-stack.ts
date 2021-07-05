@@ -20,7 +20,6 @@ export class InfrastructureStack extends cdk.Stack {
       sources: [Source.asset(join(__dirname, "..", "..", "prototype", "build"))],
       destinationBucket: carViewerBucket,
       storageClass: StorageClass.STANDARD,
-      destinationKeyPrefix: 'web/static'
     });
     // The code that defines your stack goes here
   }

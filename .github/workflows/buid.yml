@@ -1,4 +1,6 @@
-on: release
+on:
+  release:
+    types: [published]
 name: Build and Deploy
 jobs:
   deploy:
@@ -10,7 +12,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        
+
       - name: Setup Node
         uses: actions/setup-node@v2
         with:
@@ -33,5 +35,4 @@ jobs:
         run: |
           cd infrastructure
           npm ci
-          npm run cdk -- bootstrap
-          npm run cdk -- deploy --require-approval never
+          npm run deploy
