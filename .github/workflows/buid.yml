@@ -33,4 +33,4 @@ jobs:
         run: |
           cd infrastructure
           npm ci
-          npm run cdk -- --version
+          npm run cdk -- deploy
