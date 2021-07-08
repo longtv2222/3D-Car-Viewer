@@ -1,7 +1,4 @@
-on:
-  push:
-  pull_request:
-    types: [opened, synchronize, reopened]
+on: push
 name: Test
 jobs:
   testReact:
