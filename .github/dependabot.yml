@@ -9,7 +9,6 @@ updates:
       day: "sunday"
       time: "06:00"
     labels:
-      - "npm"
       - "dependencies"
     # Prefix all commit messages with "npm"
     # include a list of updated dependencies
@@ -23,7 +22,6 @@ updates:
       day: "sunday"
       time: "06:00"
     labels:
-      - "npm"
       - "dependencies"
     # Prefix all commit messages with "npm"
     # include a list of updated dependencies
