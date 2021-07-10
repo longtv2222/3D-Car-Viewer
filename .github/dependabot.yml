@@ -16,3 +16,17 @@ updates:
     commit-message:
       prefix: "npm"
       include: "scope"
+  - package-ecosystem: "npm"
+    directory: "/infrastructure"
+    schedule:
+      interval: "weekly"
+      day: "sunday"
+      time: "06:00"
+    labels:
+      - "npm"
+      - "dependencies"
+    # Prefix all commit messages with "npm"
+    # include a list of updated dependencies
+    commit-message:
+      prefix: "npm"
+      include: "scope"
