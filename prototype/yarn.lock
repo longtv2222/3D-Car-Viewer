@@ -2275,8 +2275,8 @@
   resolved "https://registry.npmjs.org/@types/q/-/q-1.5.4.tgz"
 
 "@types/react-color@^3.0.4":
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/@types/react-color/-/react-color-3.0.4.tgz#c63daf012ad067ac0127bdd86725f079d02082bd"
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/@types/react-color/-/react-color-3.0.5.tgz#b8bdf8df7085bd1577658fb37d9a18d7ba3963bb"
   dependencies:
     "@types/react" "*"
     "@types/reactcss" "*"
