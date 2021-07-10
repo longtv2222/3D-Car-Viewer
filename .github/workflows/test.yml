@@ -17,7 +17,6 @@ jobs:
         run: |
           cd prototype
           npm ci
-           #To disable interactive cli for jest in create-react-app
           npm test
   testInfra:
     name: Test AWS Infrastructure
