@@ -41,8 +41,8 @@ function Ground() {
 const state = proxy({
   current: null,
   items: {
-    interior: '#FFF300',
-    exterior: '#FFF000',
+    interior: '',
+    exterior: '',
   }
 })
 
@@ -55,13 +55,15 @@ function App() {
   return (
     <>
       <ColorPicker passedFunction={() => setModel(() => {
+        state.items.interior = '';  //Clear color selection
+        state.items.exterior = '';
         return (++index) === arr.length ? 0 : index
       })} />
       <Canvas>
         <Suspense fallback={null}>
           <Environment />
           <Ground />
-           {/*// @ts-ignore */}
+          {/*// @ts-ignore */}
           <Model visibility={arr[index]} myState={state} />
           {/*// @ts-ignore */}
           <Larmborghini visibility={arr[index]} myState={state} />
