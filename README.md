@@ -28,7 +28,7 @@ The project has 2 big parts.
 * Inside ```infrastructure```, AWS resources are defined by CDK.
 * Inside ```prototype```, it is how the frontend portion of the application is created using React.
 
-Each folder has a dedicated README.MD so you can get around!
+Each folder has a dedicated README.MD so you can play around!
 
 
 
