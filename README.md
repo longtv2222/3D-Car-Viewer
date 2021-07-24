@@ -1,4 +1,7 @@
 # 3D-Car-Viewer
+
+![Test](https://github.com/longtv2222/3D-Car-Viewer/actions/workflows/test.yml/badge.svg) ![Build](https://github.com/longtv2222/3D-Car-Viewer/actions/workflows/buid.yml/badge.svg) 
+
 A React app for viewing 3D cars and changing cars colors!
 
 ## Get Started!
