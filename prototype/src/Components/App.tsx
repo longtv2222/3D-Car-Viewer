@@ -21,22 +21,11 @@ function Environment() {
 }
 
 function Ground() {
-  const { scene } = useThree();
-  scene.background = new THREE.Color(0xeeeeee);
-  scene.background = new THREE.Color(0xffffff);
-  const grid = new THREE.GridHelper(100, 40, 0x000000, 0x000000);
-  //@ts-ignore
-  grid.material.opacity = 0.3;
-  //@ts-ignore
-  grid.material.depthWrite = true;
-  //@ts-ignore
-  grid.material.transparent = false;
-  grid.receiveShadow = true;
-
-  scene.add(grid);
-
-  return null;
+  return <gridHelper args={[100, 40, 0x000000, 0x000000]} receiveShadow={true}>
+    <meshStandardMaterial opacity={0.3} depthWrite={true} />
+  </gridHelper>
 }
+
 
 const state = proxy({
   current: null,
