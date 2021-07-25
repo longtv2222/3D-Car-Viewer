@@ -1,6 +1,6 @@
 import { Suspense, useState } from 'react'
 import { Canvas, useThree, useLoader } from '@react-three/fiber'
-import { OrbitControls } from '@react-three/drei'
+import { Html, OrbitControls, useProgress } from '@react-three/drei'
 import Model from '../Models/Scene'
 import * as THREE from 'three'
 import '../App.css'
@@ -39,23 +39,30 @@ const state: CarProps = proxy({
   }
 })
 
+function Loader() {
+  const { progress } = useProgress()
+  return <Html center>{progress} % loaded</Html>
+}
+
 function App() {
   let [index, setModel] = useState(0);
   return (
     <>
-      <ColorPicker passedFunction={() => setModel(() => {
-        state.items.interior = '';  //Clear color selection
-        state.items.exterior = '';
-        index = ++index === state.cars.length ? 0 : index;
-        state.current = index;
-        return index;
-      })} />
       <Canvas >
-        <Suspense fallback={null}>
+        <Suspense fallback={<Loader />}>
           <Environment />
           <Model myState={state} />
           <Larmborghini myState={state} />
           <OrbitControls maxPolarAngle={7 * Math.PI / 18} />
+          <Html>
+            <ColorPicker passedFunction={() => setModel(() => {
+              state.items.interior = '';  //Clear color selection
+              state.items.exterior = '';
+              index = ++index === state.cars.length ? 0 : index;
+              state.current = index;
+              return index;
+            })} />
+          </Html>
         </Suspense>
       </Canvas>
     </>
