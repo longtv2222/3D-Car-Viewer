@@ -8,7 +8,7 @@ import ColorPicker from './ColorPicker'
 import { TextureLoader } from 'three'
 import Larmborghini from '../Models/Lamborghini'
 import { proxy } from 'valtio'
-
+import { Loader } from "@react-three/drei/web"
 
 function Environment() {
   const { scene, gl } = useThree();
@@ -58,6 +58,7 @@ function App() {
           <OrbitControls maxPolarAngle={7 * Math.PI / 18} />
         </Suspense>
       </Canvas>
+      <Loader />
     </>
   )
 }
