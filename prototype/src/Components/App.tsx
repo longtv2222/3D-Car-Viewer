@@ -8,7 +8,7 @@ import ColorPicker from './ColorPicker'
 import { TextureLoader } from 'three'
 import Larmborghini from '../Models/Lamborghini'
 import { proxy } from 'valtio'
-import { Loader } from "@react-three/drei/web"
+import { Loader, Sky } from "@react-three/drei/web"
 
 function Environment() {
   const { scene, gl } = useThree();
@@ -51,6 +51,8 @@ function App() {
         return index;
       })} />
       <Canvas >
+        <fog attach="fog" args={["white", 0, 100]} />
+        <Sky sunPosition={[7, 5, 1]} />
         <Suspense fallback={null}>
           <Environment />
           <Model myState={state} />
