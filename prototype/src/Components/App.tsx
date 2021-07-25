@@ -17,14 +17,11 @@ function Environment() {
   pmremGenerator.compileEquirectangularShader();
   const envMap = pmremGenerator.fromEquirectangular(texture).texture;
   scene.environment = envMap;
-  return null;
-}
-
-function Ground() {
   return <gridHelper args={[100, 40, 0x000000, 0x000000]} receiveShadow={true}>
     <meshStandardMaterial opacity={0.3} depthWrite={true} />
   </gridHelper>
 }
+
 
 
 const state = proxy({
@@ -35,10 +32,7 @@ const state = proxy({
   }
 })
 
-
-
 function App() {
-
   const arr = ['Scene', 'Lamborghini'];
   let [index, setModel] = useState(0);
   return (
@@ -48,13 +42,10 @@ function App() {
         state.items.exterior = '';
         return (++index) === arr.length ? 0 : index
       })} />
-      <Canvas>
+      <Canvas >
         <Suspense fallback={null}>
           <Environment />
-          <Ground />
-          {/*// @ts-ignore */}
           <Model visibility={arr[index]} myState={state} />
-          {/*// @ts-ignore */}
           <Larmborghini visibility={arr[index]} myState={state} />
           <OrbitControls maxPolarAngle={7 * Math.PI / 18} />
         </Suspense>
