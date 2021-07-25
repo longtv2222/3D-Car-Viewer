@@ -22,10 +22,17 @@ function Environment() {
   </gridHelper>
 }
 
-
-
-const state = proxy({
-  current: null,
+interface CarProps {
+  current: number,
+  cars: Array<String>,
+  items: {
+    interior: string,
+    exterior: string
+  }
+}
+const state: CarProps = proxy({
+  current: 0,
+  cars: ['Scene', 'Lamborghini'],
   items: {
     interior: '',
     exterior: '',
@@ -33,20 +40,21 @@ const state = proxy({
 })
 
 function App() {
-  const arr = ['Scene', 'Lamborghini'];
   let [index, setModel] = useState(0);
   return (
     <>
       <ColorPicker passedFunction={() => setModel(() => {
         state.items.interior = '';  //Clear color selection
         state.items.exterior = '';
-        return (++index) === arr.length ? 0 : index
+        index = ++index === state.cars.length ? 0 : index;
+        state.current = index;
+        return index;
       })} />
       <Canvas >
         <Suspense fallback={null}>
           <Environment />
-          <Model visibility={arr[index]} myState={state} />
-          <Larmborghini visibility={arr[index]} myState={state} />
+          <Model myState={state} />
+          <Larmborghini myState={state} />
           <OrbitControls maxPolarAngle={7 * Math.PI / 18} />
         </Suspense>
       </Canvas>

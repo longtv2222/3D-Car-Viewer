@@ -78,7 +78,7 @@ export default function Model(props: any) {
   const group = useRef<THREE.Group>()
   const { nodes } = useGLTF('/lamborghini.glb') as GLTFResult
   const snap = useSnapshot(props.myState)
-  if (props.visibility !== 'Lamborghini') {
+  if (props.myState.cars[props.myState.current] !== 'Lamborghini') {
     return null;
   };
 
