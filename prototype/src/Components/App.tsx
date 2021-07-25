@@ -22,7 +22,7 @@ function Environment() {
   </gridHelper>
 }
 
-interface CarProps {
+export interface CarProps {
   current: number,
   cars: Array<String>,
   items: {

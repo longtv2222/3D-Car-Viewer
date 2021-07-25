@@ -7,6 +7,7 @@ import { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three/examples/jsm/loaders/GLTFLoader'
 import { useSnapshot } from 'valtio'
+import { CarProps } from '../Components/App'
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -190,8 +191,8 @@ type GLTFResult = GLTF & {
 export default function Model(props: any) {
   const group = useRef<THREE.Group>()
   const { nodes, materials } = useGLTF('/scene.gltf') as GLTFResult
-  const snap = useSnapshot(props.myState)
-  if (props.myState.cars[props.myState.current] !== 'Scene') {
+  const snap = useSnapshot(props.myState) as CarProps;
+  if (snap.cars[props.myState.current] !== 'Scene') {
     return null
   }
 
