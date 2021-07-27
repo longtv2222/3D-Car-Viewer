@@ -41,6 +41,7 @@ const state: CarProps = proxy({
 
 function App() {
   let [index, setModel] = useState(0);
+  const [rotate, setRotate] = useState(true);
   return (
     <>
       <ColorPicker passedFunction={() => setModel(() => {
@@ -49,15 +50,15 @@ function App() {
         index = ++index === state.cars.length ? 0 : index;
         state.current = index;
         return index;
-      })} />
-      <Canvas >
+      })} enableRotate={() => setRotate(!rotate)} />
+      <Canvas camera={{ position: [0, 0, 10] }}>
         <fog attach="fog" args={["white", 0, 100]} />
         <Sky sunPosition={[7, 5, 1]} />
         <Suspense fallback={null}>
           <Environment />
           <Model myState={state} />
           <Larmborghini myState={state} />
-          <OrbitControls maxPolarAngle={7 * Math.PI / 18} />
+          <OrbitControls maxPolarAngle={7 * Math.PI / 18} maxDistance={50} autoRotate={rotate} />
         </Suspense>
       </Canvas>
       <Loader />
