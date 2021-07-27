@@ -8,12 +8,6 @@ export default function ColorPicker(props: any) {
     const interiorColors = ['#000000', '#EECCAA', '#808080', '#962'];
     const exteriorColors = ['#000000', '#808080', '#010180', '#800101', '#0000EE'];
 
-    let rotation = true;
-    let rotationButton;
-    if (rotation)
-        rotationButton = <button className={"button"} type="button" onClick={props.enableRotate}>Disable Rotation</button>
-    else
-        rotationButton = <button className={"button"} type="button" onClick={props.enableRotate}>Enable Rotation</button>
 
     return (
         <div className="picker">
@@ -30,7 +24,7 @@ export default function ColorPicker(props: any) {
                 <TwitterPicker colors={exteriorColors} className={visibility2 ? "padding" : "padding-hidden"} width={400} onChange={(color: any) => { state.items.exterior = color.hex }} />
             </button>
             <button className={"button"} onClick={props.passedFunction} >Switch</button>
-            {rotationButton}
+            <button className={"button"} type="button" onClick={props.enableRotate}>Rotation</button>
         </div>
     )
 }
