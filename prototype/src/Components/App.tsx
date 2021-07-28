@@ -10,6 +10,10 @@ import Larmborghini from '../Models/Lamborghini'
 import { proxy } from 'valtio'
 import { Loader, Sky } from "@react-three/drei/web"
 
+
+/**
+ * For configuring the environment
+ */
 function Environment() {
   const { scene, gl } = useThree();
   const texture = useLoader(TextureLoader, 'venice_sunset.jpg');
@@ -30,6 +34,7 @@ export interface CarProps {
     exterior: string
   }
 }
+
 const state: CarProps = proxy({
   current: 0,
   cars: ['Scene', 'Lamborghini'],

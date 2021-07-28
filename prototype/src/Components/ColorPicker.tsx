@@ -2,6 +2,9 @@ import { useState } from 'react'
 import { TwitterPicker } from 'react-color'
 import { state } from './App'
 
+/**
+ * For switching color of car 
+ */
 export default function ColorPicker(props: any) {
     const [visibility1, setVisibility] = useState(false);
     const [visibility2, setVisibility2] = useState(false);
