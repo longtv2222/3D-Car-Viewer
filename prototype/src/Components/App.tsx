@@ -1,11 +1,11 @@
 import { Suspense, useState } from 'react'
-import { Canvas, useThree, useLoader } from '@react-three/fiber'
+import { Canvas, useLoader, useThree } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 import Model from '../Models/Scene'
 import * as THREE from 'three'
 import '../App.css'
 import ColorPicker from './ColorPicker'
-import { TextureLoader } from 'three'
+import { MeshLambertMaterial, PlaneGeometry, TextureLoader, Vector3 } from 'three'
 import Larmborghini from '../Models/Lamborghini'
 import { proxy } from 'valtio'
 import { Loader, Sky } from "@react-three/drei/web"
@@ -17,13 +17,20 @@ import { Loader, Sky } from "@react-three/drei/web"
 function Environment() {
   const { scene, gl } = useThree();
   const texture = useLoader(TextureLoader, 'venice_sunset.jpg');
+
   const pmremGenerator = new THREE.PMREMGenerator(gl);
   pmremGenerator.compileEquirectangularShader();
   const envMap = pmremGenerator.fromEquirectangular(texture).texture;
   scene.environment = envMap;
-  return <gridHelper args={[100, 40, 0x000000, 0x000000]} receiveShadow={true}>
-    <meshStandardMaterial opacity={0.3} depthWrite={true} />
-  </gridHelper>
+
+  const groundTexture = useLoader(TextureLoader, 'flag_top.jpg');
+  groundTexture.wrapS = THREE.RepeatWrapping;
+  groundTexture.wrapT = THREE.RepeatWrapping;
+  groundTexture.repeat.set(25, 25);
+  groundTexture.encoding = THREE.sRGBEncoding;
+
+  const meshLamberMaterial = new MeshLambertMaterial({ map: groundTexture });
+  return <mesh args={[new PlaneGeometry(100, 100), meshLamberMaterial]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow={true} />
 }
 
 export interface CarProps {
@@ -56,9 +63,10 @@ function App() {
         state.current = index;
         return index;
       })} enableRotate={() => setRotate(!rotate)} />
-      <Canvas camera={{ position: [0, 0, 10] }}>
+      <Canvas camera={{ position: [0, 0, 10] }} shadows={false}>
+        <ambientLight args={[0xdfebff, 0.4]} castShadow={true} position={new Vector3(5, 5, 5)} />
         <fog attach="fog" args={["white", 0, 100]} />
-        <Sky sunPosition={[7, 5, 1]} />
+        <Sky sunPosition={[8, 5, 20]} />
         <Suspense fallback={null}>
           <Environment />
           <Model myState={state} />
