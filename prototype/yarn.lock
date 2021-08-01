@@ -2250,9 +2250,13 @@
   version "3.0.4"
   resolved "https://registry.npmjs.org/@types/minimatch/-/minimatch-3.0.4.tgz"
 
-"@types/node@*", "@types/node@^16.0.0":
+"@types/node@*":
   version "16.4.2"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-16.4.2.tgz#0a95d7fd950cb1eaca0ce11031d72e8f680b775a"
+
+"@types/node@^16.4.4":
+  version "16.4.9"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.4.9.tgz#04eb3da65d08ea377f5e682bf0d22dc1f5e7f19e"
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.0"
@@ -9943,9 +9947,9 @@ three-stdlib@^2.3.1:
     potpack "^1.0.1"
     zstddec "^0.0.2"
 
-three@^0.130.0:
-  version "0.130.1"
-  resolved "https://registry.yarnpkg.com/three/-/three-0.130.1.tgz#797588b2877ace31603bbbc864eb2e3022f0b3b4"
+three@^0.131.1:
+  version "0.131.1"
+  resolved "https://registry.yarnpkg.com/three/-/three-0.131.1.tgz#c7d35213a0ec5c3ee28316221ecdf2c18d1140a0"
 
 throat@^5.0.0:
   version "5.0.0"
