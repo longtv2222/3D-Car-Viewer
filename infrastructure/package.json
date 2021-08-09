@@ -22,6 +22,9 @@
     "typescript": "~4.3.5"
   },
   "dependencies": {
+    "@aws-cdk/aws-cloudfront": "^1.112.0",
+    "@aws-cdk/aws-cloudfront-origins": "^1.112.0",
+    "@aws-cdk/aws-iam": "^1.112.0",
     "@aws-cdk/aws-s3": "1.112.0",
     "@aws-cdk/aws-s3-deployment": "1.112.0",
     "@aws-cdk/core": "1.112.0",

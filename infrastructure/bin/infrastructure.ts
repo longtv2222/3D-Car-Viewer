@@ -2,11 +2,21 @@
 import 'source-map-support/register';
 import * as cdk from '@aws-cdk/core';
 import { InfrastructureStack } from '../lib/infrastructure-stack';
+import { CloudFrontStack } from '../lib/cloudfront-stack';
+import { StackProps } from '@aws-cdk/core';
 
 const app = new cdk.App();
-new InfrastructureStack(app, 'InfrastructureStack', {
+
+const stackProps: StackProps = {
   env: {
     account: process.env.CDK_DEFAULT_ACCOUNT,
-    region: 'us-east-2'
-  },
+    region: process.env.CDK_DEFAULT_REGION
+  }
+};
+
+const s3WebsiteStack = new InfrastructureStack(app, 'InfrastructureStack', stackProps);
+
+new CloudFrontStack(app, 'CloudFrontStack', {
+  s3Website: s3WebsiteStack.carViewerBucket,
+  stackProps: stackProps
 });
