@@ -5,8 +5,7 @@ import * as origins from '@aws-cdk/aws-cloudfront-origins';
 import { RemovalPolicy } from '@aws-cdk/core';
 import { Effect, PolicyStatement } from '@aws-cdk/aws-iam';
 
-interface CloudFrontStackProps {
-    stackProps?: cdk.StackProps;
+interface CloudFrontConstructProps {
     s3Website: IBucket;
 }
 
@@ -15,9 +14,9 @@ interface CloudFrontStackProps {
  * - https://aws.amazon.com/premiumsupport/knowledge-center/s3-website-cloudfront-error-403/
  * - https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
  */
-export class CloudFrontStack extends cdk.Stack {
-    constructor(scope: cdk.Construct, id: string, props: CloudFrontStackProps) {
-        super(scope, id, props.stackProps);
+export class CloudFrontS3Construct extends cdk.Construct {
+    constructor(scope: cdk.Construct, id: string, props: CloudFrontConstructProps) {
+        super(scope, id);
         const cloudfrontUser = new cloudfront.OriginAccessIdentity(this, 'S3OriginAccessIdentity', { comment: 'Restricting S3 Bucket to this user only' });
 
         const s3OriginTarget = new origins.S3Origin(props.s3Website);
