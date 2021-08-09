@@ -1984,8 +1984,8 @@
     source-map "^0.7.3"
 
 "@react-three/drei@^7.0.6":
-  version "7.2.2"
-  resolved "https://registry.yarnpkg.com/@react-three/drei/-/drei-7.2.2.tgz#11d423583bd5eb070222bc7c6463e84b72113f44"
+  version "7.3.1"
+  resolved "https://registry.yarnpkg.com/@react-three/drei/-/drei-7.3.1.tgz#df35632f41e4b23f8b68b887ed9d5af7a9ebf36a"
   dependencies:
     "@babel/runtime" "^7.11.2"
     blob-polyfill "^5.0.20210201"
@@ -1996,7 +1996,7 @@
     react-merge-refs "^1.0.0"
     stats.js "^0.17.0"
     three-mesh-bvh "^0.4.1"
-    three-stdlib "^2.3.1"
+    three-stdlib "^2.4.0"
     troika-three-text "^0.42.0"
     use-asset "^1.0.4"
     utility-types "^3.10.0"
@@ -2250,9 +2250,9 @@
   version "3.0.4"
   resolved "https://registry.npmjs.org/@types/minimatch/-/minimatch-3.0.4.tgz"
 
-"@types/node@*", "@types/node@^16.0.0":
-  version "16.4.2"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.4.2.tgz#0a95d7fd950cb1eaca0ce11031d72e8f680b775a"
+"@types/node@*", "@types/node@^16.4.4":
+  version "16.4.13"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.4.13.tgz#7dfd9c14661edc65cccd43a29eb454174642370d"
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.0"
@@ -2288,8 +2288,8 @@
     "@types/react" "*"
 
 "@types/react@*", "@types/react@^17.0.11":
-  version "17.0.15"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.15.tgz#c7533dc38025677e312606502df7656a6ea626d0"
+  version "17.0.16"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.16.tgz#056f40c45645761527baeb7d89d842a6abdf285a"
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -9928,9 +9928,9 @@ three-mesh-bvh@^0.4.1:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/three-mesh-bvh/-/three-mesh-bvh-0.4.1.tgz#ba0bf1dac7cbd41f2132c8446545c8ad9fbeb892"
 
-three-stdlib@^2.3.1:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/three-stdlib/-/three-stdlib-2.3.1.tgz#201f4ff74a56e9ea45c77c111a615803edcb7f46"
+three-stdlib@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/three-stdlib/-/three-stdlib-2.4.0.tgz#e6ffde19de40f3e2d8dfe5d5659667272c1918b6"
   dependencies:
     "@babel/runtime" "^7.14.6"
     "@webgpu/glslang" "^0.0.15"
@@ -9943,9 +9943,9 @@ three-stdlib@^2.3.1:
     potpack "^1.0.1"
     zstddec "^0.0.2"
 
-three@^0.130.0:
-  version "0.130.1"
-  resolved "https://registry.yarnpkg.com/three/-/three-0.130.1.tgz#797588b2877ace31603bbbc864eb2e3022f0b3b4"
+three@^0.131.1:
+  version "0.131.3"
+  resolved "https://registry.yarnpkg.com/three/-/three-0.131.3.tgz#406fd210c603ca9154937ae3582996fbfd3cb716"
 
 throat@^5.0.0:
   version "5.0.0"
@@ -10375,8 +10375,8 @@ validate-npm-package-license@^3.0.1:
     spdx-expression-parse "^3.0.0"
 
 valtio@^1.0.6:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/valtio/-/valtio-1.1.0.tgz#6069ba7b5ae7e05a579e81ca678b4142dbd7e478"
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/valtio/-/valtio-1.1.3.tgz#e5a922769d64c511b5d9858f2a4156ffa50df7a0"
   dependencies:
     proxy-compare "2.0.1"
 
