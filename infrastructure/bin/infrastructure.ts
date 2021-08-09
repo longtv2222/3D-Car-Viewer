@@ -2,8 +2,8 @@
 import 'source-map-support/register';
 import * as cdk from '@aws-cdk/core';
 import { InfrastructureStack } from '../lib/infrastructure-stack';
-import { CloudFrontStack } from '../lib/cloudfront-stack';
-import { ConcreteDependable, StackProps } from '@aws-cdk/core';
+
+import { StackProps } from '@aws-cdk/core';
 
 const app = new cdk.App();
 
@@ -16,9 +16,3 @@ const stackProps: StackProps = {
 
 const s3WebsiteStack = new InfrastructureStack(app, 'InfrastructureStack', stackProps);
 
-const cloudfrontStack = new CloudFrontStack(app, 'CloudFrontStack', {
-  s3Website: s3WebsiteStack.carViewerBucket,
-  stackProps: stackProps
-});
-
-cloudfrontStack.addDependency(s3WebsiteStack);
