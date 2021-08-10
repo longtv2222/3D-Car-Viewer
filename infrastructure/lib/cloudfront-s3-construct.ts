@@ -19,10 +19,10 @@ export class CloudFrontS3Construct extends cdk.Construct {
         super(scope, id);
         const cloudfrontUser = new cloudfront.OriginAccessIdentity(this, 'S3OriginAccessIdentity', { comment: 'Restricting S3 Bucket to this user only' });
 
-        const s3OriginTarget = new origins.S3Origin(props.s3Website);
+        const s3OriginTarget = new origins.S3Origin(props.s3Website, { originAccessIdentity: cloudfrontUser });
 
         new cloudfront.Distribution(this, 'CarViewerDist', {
-            defaultBehavior: { origin: s3OriginTarget },
+            defaultBehavior: { origin: s3OriginTarget, },
             priceClass: cloudfront.PriceClass.PRICE_CLASS_100, //Distrubute to USA, Canada, Europe, & Israel only
         });
 
