@@ -2334,8 +2334,8 @@
   resolved "https://registry.npmjs.org/@types/tapable/-/tapable-1.0.7.tgz"
 
 "@types/three@^0.131.0":
-  version "0.131.0"
-  resolved "https://registry.yarnpkg.com/@types/three/-/three-0.131.0.tgz#98f59887b05f71e665cf2fbdf04e0e4ceb9f89b6"
+  version "0.131.1"
+  resolved "https://registry.yarnpkg.com/@types/three/-/three-0.131.1.tgz#2ee511383c8620f6ce301582214122319e6aca34"
 
 "@types/uglify-js@*":
   version "3.13.0"
