@@ -1994,8 +1994,8 @@
     source-map "^0.7.3"
 
 "@react-three/drei@^7.0.6":
-  version "7.7.0"
-  resolved "https://registry.yarnpkg.com/@react-three/drei/-/drei-7.7.0.tgz#b92e00342ca631f692e7c333c448ca8cd693be86"
+  version "7.8.5"
+  resolved "https://registry.yarnpkg.com/@react-three/drei/-/drei-7.8.5.tgz#0858c0afa8984a211a4d6e0b88fdcc4c69a18713"
   dependencies:
     "@babel/runtime" "^7.11.2"
     blob-polyfill "^5.0.20210201"
