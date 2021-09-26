@@ -5,7 +5,7 @@ import Model from '../Models/Scene'
 import * as THREE from 'three'
 import '../App.css'
 import ColorPicker from './ColorPicker'
-import { MeshLambertMaterial, PlaneGeometry, TextureLoader, Vector3 } from 'three'
+import { TextureLoader, Vector3 } from 'three'
 import Larmborghini from '../Models/Lamborghini'
 import { proxy } from 'valtio'
 import { Loader, Sky } from "@react-three/drei/web"
