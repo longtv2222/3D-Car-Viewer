@@ -1,4 +1,4 @@
-import { Suspense, useState } from 'react'
+import React, { Suspense, useState } from 'react'
 import { Canvas, useLoader, useThree } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 import Model from '../Models/Scene'
@@ -23,14 +23,8 @@ function Environment() {
   const envMap = pmremGenerator.fromEquirectangular(texture).texture;
   scene.environment = envMap;
 
-  const groundTexture = useLoader(TextureLoader, 'flag_top.jpg');
-  groundTexture.wrapS = THREE.RepeatWrapping;
-  groundTexture.wrapT = THREE.RepeatWrapping;
-  groundTexture.repeat.set(25, 25);
-  groundTexture.encoding = THREE.sRGBEncoding;
-
-  const meshLamberMaterial = new MeshLambertMaterial({ map: groundTexture });
-  return <mesh args={[new PlaneGeometry(100, 100), meshLamberMaterial]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow={true} />
+  // const meshLamberMaterial = new MeshLambertMaterial({ map: groundTexture });
+  return <gridHelper args={[20, 10, 0x808080, 0x808080]} />
 }
 
 export interface CarProps {
@@ -55,7 +49,7 @@ function App() {
   let [index, setModel] = useState(0);
   const [rotate, setRotate] = useState(true);
   return (
-    <>
+    <React.Fragment>
       <ColorPicker passedFunction={() => setModel(() => {
         state.items.interior = '';  //Clear color selection
         state.items.exterior = '';
@@ -75,7 +69,7 @@ function App() {
         </Suspense>
       </Canvas>
       <Loader />
-    </>
+    </React.Fragment>
   )
 }
 
