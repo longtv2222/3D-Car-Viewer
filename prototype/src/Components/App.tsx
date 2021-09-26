@@ -22,9 +22,14 @@ function Environment() {
   pmremGenerator.compileEquirectangularShader();
   const envMap = pmremGenerator.fromEquirectangular(texture).texture;
   scene.environment = envMap;
+  scene.background = envMap;
 
   // const meshLamberMaterial = new MeshLambertMaterial({ map: groundTexture });
-  return <gridHelper args={[20, 10, 0x808080, 0x808080]} />
+  return (<React.Fragment>
+    <fog attach="fog" args={["white", 0, 100]} />
+    <Sky sunPosition={[8, 5, 20]} />
+    <gridHelper args={[20, 10, 0x808080, 0x808080]} />
+  </React.Fragment>)
 }
 
 export interface CarProps {
@@ -59,8 +64,6 @@ function App() {
       })} enableRotate={() => setRotate(!rotate)} />
       <Canvas camera={{ position: [0, 0, 10] }} shadows={false}>
         <ambientLight args={[0xdfebff, 0.4]} castShadow={true} position={new Vector3(5, 5, 5)} />
-        <fog attach="fog" args={["white", 0, 100]} />
-        <Sky sunPosition={[8, 5, 20]} />
         <Suspense fallback={null}>
           <Environment />
           <Model myState={state} />
