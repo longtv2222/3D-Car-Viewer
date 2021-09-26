@@ -1650,8 +1650,8 @@
     "@types/react" "*"
 
 "@types/react@*", "@types/react@^17.0.11":
-  version "17.0.21"
-  resolved "https://registry.npmjs.org/@types/react/-/react-17.0.21.tgz"
+  version "17.0.24"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.24.tgz#7e1b3f78d0fc53782543f9bce6d949959a5880bd"
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
