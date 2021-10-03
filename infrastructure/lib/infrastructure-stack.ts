@@ -25,6 +25,6 @@ export class InfrastructureStack extends cdk.Stack {
       storageClass: StorageClass.STANDARD,
     });
 
-    new CloudFrontS3Construct(this, 'CloudFrontS3', { s3Website: carViewerBucket })
+    // new CloudFrontS3Construct(this, 'CloudFrontS3', { s3Website: carViewerBucket })
   }
 }
