@@ -9191,9 +9191,9 @@ three-stdlib@^2.4.2:
     potpack "^1.0.1"
     zstddec "^0.0.2"
 
-three@^0.132.2:
-  version "0.132.2"
-  resolved "https://registry.npmjs.org/three/-/three-0.132.2.tgz"
+three@^0.133.0:
+  version "0.133.0"
+  resolved "https://registry.yarnpkg.com/three/-/three-0.133.0.tgz#41427306c731a89407221b7be48c7a63580400e7"
 
 throat@^5.0.0:
   version "5.0.0"
