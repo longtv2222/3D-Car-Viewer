@@ -1340,8 +1340,8 @@
     source-map "^0.7.3"
 
 "@react-three/drei@^7.0.6":
-  version "7.12.5"
-  resolved "https://registry.npmjs.org/@react-three/drei/-/drei-7.12.5.tgz"
+  version "7.13.1"
+  resolved "https://registry.yarnpkg.com/@react-three/drei/-/drei-7.13.1.tgz#e7a5408362c829243037f1e33c286789816eaaaa"
   dependencies:
     "@babel/runtime" "^7.11.2"
     blob-polyfill "^5.0.20210201"
