@@ -9192,8 +9192,8 @@ three-stdlib@^2.4.2:
     zstddec "^0.0.2"
 
 three@^0.133.0:
-  version "0.133.0"
-  resolved "https://registry.npmjs.org/three/-/three-0.133.0.tgz"
+  version "0.133.1"
+  resolved "https://registry.yarnpkg.com/three/-/three-0.133.1.tgz#5606f4817d67a09d9212d4ccbd6826564774f8f4"
 
 throat@^5.0.0:
   version "5.0.0"
