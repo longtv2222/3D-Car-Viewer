@@ -1360,8 +1360,8 @@
     zustand "^3.5.1"
 
 "@react-three/fiber@^7.0.1":
-  version "7.0.14"
-  resolved "https://registry.yarnpkg.com/@react-three/fiber/-/fiber-7.0.14.tgz#4d16be024275eeeaef2f33048f49ec29982c8856"
+  version "7.0.16"
+  resolved "https://registry.yarnpkg.com/@react-three/fiber/-/fiber-7.0.16.tgz#cc309b89247a94fe790f6325f2e145048f27ff78"
   dependencies:
     "@babel/runtime" "^7.13.10"
     react-merge-refs "^1.1.0"
@@ -1608,8 +1608,8 @@
   resolved "https://registry.npmjs.org/@types/minimatch/-/minimatch-3.0.4.tgz"
 
 "@types/node@*", "@types/node@^16.4.4":
-  version "16.10.3"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.10.3.tgz#7a8f2838603ea314d1d22bb3171d899e15c57bd5"
+  version "16.11.1"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.11.1.tgz#2e50a649a50fc403433a14f829eface1a3443e97"
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.0"
@@ -9399,8 +9399,8 @@ typedarray@^0.0.6:
   resolved "https://registry.npmjs.org/typedarray/-/typedarray-0.0.6.tgz"
 
 typescript@^4.3.2:
-  version "4.4.3"
-  resolved "https://registry.npmjs.org/typescript/-/typescript-4.4.3.tgz"
+  version "4.4.4"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.4.4.tgz#2cd01a1a1f160704d3101fd5a58ff0f9fcb8030c"
 
 unbox-primitive@^1.0.1:
   version "1.0.1"
