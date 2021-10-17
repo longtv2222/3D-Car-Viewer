@@ -1680,9 +1680,9 @@
   version "1.0.7"
   resolved "https://registry.npmjs.org/@types/tapable/-/tapable-1.0.7.tgz"
 
-"@types/three@^0.132.2":
-  version "0.132.2"
-  resolved "https://registry.npmjs.org/@types/three/-/three-0.132.2.tgz"
+"@types/three@^0.133.1":
+  version "0.133.1"
+  resolved "https://registry.yarnpkg.com/@types/three/-/three-0.133.1.tgz#6007faaf7f6b53339150a2a1fe57121e4c6607c1"
 
 "@types/uglify-js@*":
   version "3.13.0"
