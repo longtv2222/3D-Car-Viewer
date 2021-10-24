@@ -1638,8 +1638,8 @@
     "@types/reactcss" "*"
 
 "@types/react-dom@^17.0.7":
-  version "17.0.9"
-  resolved "https://registry.npmjs.org/@types/react-dom/-/react-dom-17.0.9.tgz"
+  version "17.0.10"
+  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-17.0.10.tgz#d6972ec018d23cf22b99597f1289343d99ea9d9d"
   dependencies:
     "@types/react" "*"
 
