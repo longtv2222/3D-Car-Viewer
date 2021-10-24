@@ -1359,8 +1359,8 @@
     zustand "^3.5.13"
 
 "@react-three/fiber@^7.0.1":
-  version "7.0.16"
-  resolved "https://registry.yarnpkg.com/@react-three/fiber/-/fiber-7.0.16.tgz#cc309b89247a94fe790f6325f2e145048f27ff78"
+  version "7.0.17"
+  resolved "https://registry.yarnpkg.com/@react-three/fiber/-/fiber-7.0.17.tgz#2addf9a312b46f74d11596caa452557aab340762"
   dependencies:
     "@babel/runtime" "^7.13.10"
     react-merge-refs "^1.1.0"
@@ -1631,8 +1631,8 @@
   resolved "https://registry.npmjs.org/@types/q/-/q-1.5.4.tgz"
 
 "@types/react-color@^3.0.4":
-  version "3.0.5"
-  resolved "https://registry.npmjs.org/@types/react-color/-/react-color-3.0.5.tgz"
+  version "3.0.6"
+  resolved "https://registry.yarnpkg.com/@types/react-color/-/react-color-3.0.6.tgz#602fed023802b2424e7cd6ff3594ccd3d5055f9a"
   dependencies:
     "@types/react" "*"
     "@types/reactcss" "*"
