@@ -1340,8 +1340,8 @@
     source-map "^0.7.3"
 
 "@react-three/drei@^7.0.6":
-  version "7.16.2"
-  resolved "https://registry.yarnpkg.com/@react-three/drei/-/drei-7.16.2.tgz#5da4f0974dd52d6ba7c5cbc9039c3019a4d1715e"
+  version "7.17.1"
+  resolved "https://registry.yarnpkg.com/@react-three/drei/-/drei-7.17.1.tgz#42c85bb7f5348a5aa4340f5e608492d6ff3aa555"
   dependencies:
     "@babel/runtime" "^7.11.2"
     detect-gpu "^3.1.21"
