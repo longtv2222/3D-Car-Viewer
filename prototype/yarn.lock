@@ -1340,19 +1340,19 @@
     source-map "^0.7.3"
 
 "@react-three/drei@^7.0.6":
-  version "7.20.0"
-  resolved "https://registry.yarnpkg.com/@react-three/drei/-/drei-7.20.0.tgz#30bb4a1bfe46bfcb47623fab56bbb541b2eb6f19"
+  version "7.20.5"
+  resolved "https://registry.yarnpkg.com/@react-three/drei/-/drei-7.20.5.tgz#b872e55d0c260a60a5e458236ec1fdf168e0e25e"
   dependencies:
     "@babel/runtime" "^7.11.2"
-    detect-gpu "^3.1.21"
+    detect-gpu "^3.1.25"
     glsl-noise "^0.0.0"
     lodash.omit "^4.5.0"
     lodash.pick "^4.4.0"
-    react-composer "^5.0.1"
+    react-composer "^5.0.2"
     react-merge-refs "^1.1.0"
     stats.js "^0.17.0"
-    three-mesh-bvh "^0.5.0"
-    three-stdlib "^2.5.4"
+    three-mesh-bvh "^0.5.2"
+    three-stdlib "^2.5.9"
     troika-three-text "^0.43.0"
     use-asset "^1.0.4"
     utility-types "^3.10.0"
@@ -3591,9 +3591,9 @@ destroy@~1.0.4:
   version "1.0.4"
   resolved "https://registry.npmjs.org/destroy/-/destroy-1.0.4.tgz"
 
-detect-gpu@^3.1.21:
-  version "3.1.22"
-  resolved "https://registry.yarnpkg.com/detect-gpu/-/detect-gpu-3.1.22.tgz#2be2cae2de8dcfb2685d809dff1904de037ed5c6"
+detect-gpu@^3.1.25:
+  version "3.1.26"
+  resolved "https://registry.yarnpkg.com/detect-gpu/-/detect-gpu-3.1.26.tgz#c3f7c365c6e57e9e2035371d5d5467b1eba8e4b5"
   dependencies:
     webgl-constants "^1.1.1"
 
@@ -7891,9 +7891,9 @@ react-color@^2.19.3:
     reactcss "^1.2.0"
     tinycolor2 "^1.4.1"
 
-react-composer@^5.0.1:
-  version "5.0.1"
-  resolved "https://registry.npmjs.org/react-composer/-/react-composer-5.0.1.tgz"
+react-composer@^5.0.2:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/react-composer/-/react-composer-5.0.2.tgz#131cb53326abb07363795ad3abb0dc4a3005ee05"
   dependencies:
     prop-types "^15.6.0"
 
@@ -9171,13 +9171,13 @@ text-table@0.2.0, text-table@^0.2.0:
   version "0.2.0"
   resolved "https://registry.npmjs.org/text-table/-/text-table-0.2.0.tgz"
 
-three-mesh-bvh@^0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/three-mesh-bvh/-/three-mesh-bvh-0.5.0.tgz#3dac1812b7df682df932efaa43f68da79fc7ff73"
+three-mesh-bvh@^0.5.2:
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/three-mesh-bvh/-/three-mesh-bvh-0.5.2.tgz#6d435330e4aa686dcdbf70330c8eb5dd42b12737"
 
-three-stdlib@^2.5.4:
-  version "2.5.4"
-  resolved "https://registry.yarnpkg.com/three-stdlib/-/three-stdlib-2.5.4.tgz#2eda85a067ac572c698eba288d82a07121ccca25"
+three-stdlib@^2.5.9:
+  version "2.5.9"
+  resolved "https://registry.yarnpkg.com/three-stdlib/-/three-stdlib-2.5.9.tgz#dd0e7a8854d41a16b3f49fff8fb4471258aac8f9"
   dependencies:
     "@babel/runtime" "^7.14.6"
     "@webgpu/glslang" "^0.0.15"
