@@ -9606,8 +9606,8 @@ validate-npm-package-license@^3.0.1:
     spdx-expression-parse "^3.0.0"
 
 valtio@^1.0.6:
-  version "1.2.5"
-  resolved "https://registry.yarnpkg.com/valtio/-/valtio-1.2.5.tgz#c09a700c54ff7e0942611b9c25e006a5b2193733"
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/valtio/-/valtio-1.2.6.tgz#f80d38df0cd967374035c722bb9b12699bdf5ef0"
   dependencies:
     proxy-compare "2.0.2"
 
