@@ -1359,8 +1359,8 @@
     zustand "^3.5.13"
 
 "@react-three/fiber@^7.0.1":
-  version "7.0.17"
-  resolved "https://registry.yarnpkg.com/@react-three/fiber/-/fiber-7.0.17.tgz#2addf9a312b46f74d11596caa452557aab340762"
+  version "7.0.19"
+  resolved "https://registry.yarnpkg.com/@react-three/fiber/-/fiber-7.0.19.tgz#28a2eb2c9a93b75dfde227c4cbd77882f2dad9e8"
   dependencies:
     "@babel/runtime" "^7.13.10"
     react-merge-refs "^1.1.0"
