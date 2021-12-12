@@ -1339,11 +1339,52 @@
     schema-utils "^2.6.5"
     source-map "^0.7.3"
 
-"@react-three/drei@^7.0.6":
-  version "7.25.4"
-  resolved "https://registry.yarnpkg.com/@react-three/drei/-/drei-7.25.4.tgz#cb30b7276ac93353fb191bb6614664b5bf578edf"
+"@react-spring/animated@~9.3.0":
+  version "9.3.1"
+  resolved "https://registry.yarnpkg.com/@react-spring/animated/-/animated-9.3.1.tgz#ffc4706121e8406efeaeacb407b42b5022943b46"
+  dependencies:
+    "@react-spring/shared" "~9.3.0"
+    "@react-spring/types" "~9.3.0"
+
+"@react-spring/core@~9.3.0":
+  version "9.3.1"
+  resolved "https://registry.yarnpkg.com/@react-spring/core/-/core-9.3.1.tgz#b98e1dca1eb4871dec75fdab350327e8a5222865"
+  dependencies:
+    "@react-spring/animated" "~9.3.0"
+    "@react-spring/shared" "~9.3.0"
+    "@react-spring/types" "~9.3.0"
+
+"@react-spring/rafz@~9.3.0":
+  version "9.3.1"
+  resolved "https://registry.yarnpkg.com/@react-spring/rafz/-/rafz-9.3.1.tgz#8dd6a598ffea487252b75d05d199e4aca5ea9d5e"
+
+"@react-spring/shared@~9.3.0":
+  version "9.3.1"
+  resolved "https://registry.yarnpkg.com/@react-spring/shared/-/shared-9.3.1.tgz#e7f22a4b8f5fea4491fa6a24c108db5abd19ddba"
+  dependencies:
+    "@react-spring/rafz" "~9.3.0"
+    "@react-spring/types" "~9.3.0"
+
+"@react-spring/three@^9.3.1":
+  version "9.3.1"
+  resolved "https://registry.yarnpkg.com/@react-spring/three/-/three-9.3.1.tgz#91a50851639c5a88fed8f76b4e25ff388d2b24e7"
+  dependencies:
+    "@react-spring/animated" "~9.3.0"
+    "@react-spring/core" "~9.3.0"
+    "@react-spring/shared" "~9.3.0"
+    "@react-spring/types" "~9.3.0"
+
+"@react-spring/types@~9.3.0":
+  version "9.3.1"
+  resolved "https://registry.yarnpkg.com/@react-spring/types/-/types-9.3.1.tgz#20f392ecad15a1ea6c0865ffe86ca5016c05a278"
+
+"@react-three/drei@^8.0.0":
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/@react-three/drei/-/drei-8.0.0.tgz#94f357f27a89cc2930e7dad965e50e9bb6653395"
   dependencies:
     "@babel/runtime" "^7.11.2"
+    "@react-spring/three" "^9.3.1"
+    "@use-gesture/react" "^10.2.0"
     detect-gpu "^3.1.28"
     glsl-noise "^0.0.0"
     lodash.omit "^4.5.0"
@@ -1819,6 +1860,16 @@
   dependencies:
     "@typescript-eslint/types" "4.27.0"
     eslint-visitor-keys "^2.0.0"
+
+"@use-gesture/core@10.2.3":
+  version "10.2.3"
+  resolved "https://registry.yarnpkg.com/@use-gesture/core/-/core-10.2.3.tgz#2484aec9da140bfaad8c91587610ada765120e5e"
+
+"@use-gesture/react@^10.2.0":
+  version "10.2.3"
+  resolved "https://registry.yarnpkg.com/@use-gesture/react/-/react-10.2.3.tgz#14d4f1d093f82a5d6224ca807c4c80882940150d"
+  dependencies:
+    "@use-gesture/core" "10.2.3"
 
 "@webassemblyjs/ast@1.9.0":
   version "1.9.0"
