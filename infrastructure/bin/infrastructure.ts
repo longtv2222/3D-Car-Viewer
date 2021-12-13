@@ -12,5 +12,5 @@ const stackProps: StackProps = {
   }
 };
 
-const s3WebsiteStack = new InfrastructureStack(app, 'InfrastructureStack', stackProps);
+new InfrastructureStack(app, 'InfrastructureStack', stackProps);
 
