@@ -1,9 +1,9 @@
-import * as cdk from '@aws-cdk/core';
-import { IBucket, BucketPolicy } from '@aws-cdk/aws-s3';
-import * as cloudfront from '@aws-cdk/aws-cloudfront';
-import * as origins from '@aws-cdk/aws-cloudfront-origins';
-import { RemovalPolicy } from '@aws-cdk/core';
-import { Effect, PolicyStatement } from '@aws-cdk/aws-iam';
+import { IBucket, BucketPolicy } from 'aws-cdk-lib/aws-s3';
+import * as cloudfront from 'aws-cdk-lib/aws-cloudfront';
+import * as origins from 'aws-cdk-lib/aws-cloudfront-origins';
+import { RemovalPolicy } from 'aws-cdk-lib';
+import { Effect, PolicyStatement } from 'aws-cdk-lib/aws-iam';
+import { Construct } from "constructs"
 
 interface CloudFrontConstructProps {
     s3Website: IBucket;
@@ -14,8 +14,8 @@ interface CloudFrontConstructProps {
  * - https://aws.amazon.com/premiumsupport/knowledge-center/s3-website-cloudfront-error-403/
  * - https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
  */
-export class CloudFrontS3Construct extends cdk.Construct {
-    constructor(scope: cdk.Construct, id: string, props: CloudFrontConstructProps) {
+export class CloudFrontS3Construct extends Construct {
+    constructor(scope: Construct, id: string, props: CloudFrontConstructProps) {
         super(scope, id);
         const cloudfrontUser = new cloudfront.OriginAccessIdentity(this, 'S3OriginAccessIdentity', { comment: 'Restricting S3 Bucket to this user only' });
 

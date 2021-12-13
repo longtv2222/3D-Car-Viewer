@@ -1,13 +1,13 @@
-import * as cdk from '@aws-cdk/core';
-import { ObjectOwnership, Bucket, IBucket } from '@aws-cdk/aws-s3';
-import { BucketDeployment, Source, StorageClass } from '@aws-cdk/aws-s3-deployment';
+import { Stack, StackProps, RemovalPolicy } from 'aws-cdk-lib';
+import { ObjectOwnership, Bucket } from 'aws-cdk-lib/aws-s3';
+import { BucketDeployment, Source, StorageClass } from 'aws-cdk-lib/aws-s3-deployment';
 import { join } from "path";
-import { CloudFrontS3Construct } from './cloudfront-s3-construct';
+import { Construct } from 'constructs';
 
-export class InfrastructureStack extends cdk.Stack {
+export class InfrastructureStack extends Stack {
 
 
-  constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
+  constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
     const carViewerBucket = new Bucket(this, 'CarViewerBucket', {
@@ -15,7 +15,7 @@ export class InfrastructureStack extends cdk.Stack {
       publicReadAccess: true,
       bucketName: "3d-car-viewer-s3-asset",
       objectOwnership: ObjectOwnership.BUCKET_OWNER_PREFERRED,
-      removalPolicy: cdk.RemovalPolicy.DESTROY,
+      removalPolicy: RemovalPolicy.DESTROY,
       autoDeleteObjects: true
     });
 

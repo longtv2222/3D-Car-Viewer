@@ -12,22 +12,17 @@
     "deploy": "cdk bootstrap && cdk deploy --require-approval never"
   },
   "devDependencies": {
-    "@aws-cdk/assert": "1.112.0",
-    "@types/jest": "^27.0.2",
-    "@types/node": "16.11.4",
-    "jest": "^26.4.2",
-    "ts-jest": "^26.2.0",
-    "aws-cdk": "1.112.0",
+    "@types/jest": "^27.0.3",
+    "@types/node": "^16.11.12",
+    "aws-cdk": "2.1.0",
+    "jest": "^27.4.4",
+    "ts-jest": "^27.1.1",
     "ts-node": "^10.4.0",
-    "typescript": "~4.4.4"
+    "typescript": "^4.5.3"
   },
   "dependencies": {
-    "@aws-cdk/aws-cloudfront": "^1.112.0",
-    "@aws-cdk/aws-cloudfront-origins": "^1.112.0",
-    "@aws-cdk/aws-iam": "^1.112.0",
-    "@aws-cdk/aws-s3": "1.112.0",
-    "@aws-cdk/aws-s3-deployment": "1.112.0",
-    "@aws-cdk/core": "1.112.0",
+    "aws-cdk-lib": "^2.1.0",
+    "constructs": "^10.0.12",
     "source-map-support": "^0.5.20"
   }
 }
