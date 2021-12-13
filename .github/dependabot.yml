@@ -21,8 +21,6 @@ updates:
       interval: "weekly"
       day: "sunday"
       time: "06:00"
-    ignore:
-      - dependency-name: "aws-cdk"
     labels:
       - "dependencies"
     # Prefix all commit messages with "npm"
