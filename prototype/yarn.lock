@@ -2343,9 +2343,9 @@
   version "2.0.0"
   resolved "https://registry.npmjs.org/@types/stack-utils/-/stack-utils-2.0.0.tgz"
 
-"@types/three@^0.132.2":
-  version "0.132.2"
-  resolved "https://registry.npmjs.org/@types/three/-/three-0.132.2.tgz"
+"@types/three@^0.135.0":
+  version "0.135.0"
+  resolved "https://registry.yarnpkg.com/@types/three/-/three-0.135.0.tgz#db7f9d9699b60aba844fc5b2893adf6dd6811665"
 
 "@types/trusted-types@^2.0.2":
   version "2.0.2"
