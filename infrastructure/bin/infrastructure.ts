@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import 'source-map-support/register';
 import { StackProps, App } from 'aws-cdk-lib';
-import { InfrastructureStack } from '../lib/infrastructure-stack';
+import { CarViewerFrontEndStack } from '../lib/car-viewer-frontend-stack';
 
 const app = new App();
 
@@ -12,5 +12,5 @@ const stackProps: StackProps = {
   }
 };
 
-new InfrastructureStack(app, 'InfrastructureStack', stackProps);
+new CarViewerFrontEndStack(app, 'CarViewerInfrastructure', stackProps);
 
