@@ -8249,8 +8249,8 @@ v8-to-istanbul@^8.1.0:
     source-map "^0.7.3"
 
 valtio@^1.0.6:
-  version "1.2.5"
-  resolved "https://registry.yarnpkg.com/valtio/-/valtio-1.2.5.tgz#c09a700c54ff7e0942611b9c25e006a5b2193733"
+  version "1.2.8"
+  resolved "https://registry.yarnpkg.com/valtio/-/valtio-1.2.8.tgz#59472314efe03ef259a70a49c8fb8dfbdf2668f4"
   dependencies:
     proxy-compare "2.0.2"
 
