@@ -1,5 +1,4 @@
-import { Stack, StackProps, RemovalPolicy } from 'aws-cdk-lib';
-import { ObjectOwnership, Bucket } from 'aws-cdk-lib/aws-s3';
+import { Stack, StackProps } from 'aws-cdk-lib';
 import { BucketDeployment, Source, StorageClass } from 'aws-cdk-lib/aws-s3-deployment';
 import { join } from "path";
 import { Construct } from 'constructs';
@@ -18,6 +17,7 @@ export class CarViewerFrontEndStack extends Stack {
       destinationBucket: carViewerSpaPattern.spaOriginBucket,
       storageClass: StorageClass.STANDARD,
       logRetention: RetentionDays.ONE_DAY,
+      distribution: carViewerSpaPattern.spaDistribution,
     });
 
   }

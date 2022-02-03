@@ -50,7 +50,7 @@ export class CloudFrontS3SpaPatternConstruct extends Construct implements ICloud
             override: true,
         },
         contentSecurityPolicy: {
-            contentSecurityPolicy: "default-src 'none'; img-src 'self'; script-src 'self'; style-src 'self'; object-src 'none'",
+            contentSecurityPolicy: "default-src 'self' file: data: blob: filesystem:; img-src 'self'; script-src 'self' 'unsafe-eval'; style-src 'self'; object-src 'none'",
             override: true,
         },
         contentTypeOptions: {
