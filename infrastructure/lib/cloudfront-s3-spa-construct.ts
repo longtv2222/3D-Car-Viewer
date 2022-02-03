@@ -100,7 +100,7 @@ export class CloudFrontS3SpaPatternConstruct extends Construct implements ICloud
                     responsePagePath: "/index.html",
                 },
                 {
-                    httpStatus: 403,
+                    httpStatus: 404,
                     responseHttpStatus: 200,
                     responsePagePath: "/index.html",
                 }
