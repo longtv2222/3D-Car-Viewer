@@ -41,7 +41,7 @@ function App() {
       <Canvas camera={{ position: [0, 0, 10] }} shadows={true} mode="concurrent" frameloop="demand">
         <Suspense fallback={null}>
           <Environment background={true}
-            preset="sunset"
+            files={'venice_sunset_1k.hdr'}
             scene={undefined} />
           <Model myState={state} />
           <Larmborghini myState={state} />

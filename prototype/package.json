@@ -27,11 +27,12 @@
     "@types/react-color": "^3.0.4",
     "@types/react-dom": "^17.0.7",
     "@types/three": "^0.132.2",
+    "cross-env": "^7.0.3",
     "typescript": "^4.3.2"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "cross-env INLINE_RUNTIME_CHUNK=false && react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
