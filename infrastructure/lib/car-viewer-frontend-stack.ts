@@ -11,7 +11,7 @@ export class CarViewerFrontEndStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
-    const carViewerSpaPattern = new CloudFrontS3SpaPatternConstruct(this, 'CarViewerBucket');
+    const carViewerSpaPattern = new CloudFrontS3SpaPatternConstruct(this, 'CarViewerSpaPattern');
 
     new BucketDeployment(this, 'CarViewerWebsite', {
       sources: [Source.asset(join(__dirname, "..", "..", "prototype", "build"))],
