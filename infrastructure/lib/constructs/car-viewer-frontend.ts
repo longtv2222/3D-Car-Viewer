@@ -3,17 +3,17 @@ import { BucketDeployment, Source, StorageClass } from 'aws-cdk-lib/aws-s3-deplo
 import { join } from "path";
 import { Construct } from 'constructs';
 import { RetentionDays } from 'aws-cdk-lib/aws-logs';
-import { CloudFrontS3SpaPatternConstruct } from './cloudfront-s3-spa-construct';
+import { CloudFrontS3SpaPatternConstruct } from './cloudfront-s3-spa-pattern';
 
-export class CarViewerFrontEndStack extends Stack {
+export class CarViewerFrontEndConstruct extends Construct {
 
-  constructor(scope: Construct, id: string, props?: StackProps) {
-    super(scope, id, props);
+  constructor(scope: Construct, id: string) {
+    super(scope, id);
 
     const carViewerSpaPattern = new CloudFrontS3SpaPatternConstruct(this, 'CarViewerSpaPattern');
 
     new BucketDeployment(this, 'CarViewerWebsite', {
-      sources: [Source.asset(join(__dirname, "..", "..", "prototype", "build"))],
+      sources: [Source.asset(join(__dirname, "..", "..", "..", "prototype", "build"))],
       destinationBucket: carViewerSpaPattern.spaOriginBucket,
       storageClass: StorageClass.STANDARD,
       logRetention: RetentionDays.ONE_DAY,

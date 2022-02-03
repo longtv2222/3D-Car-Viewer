@@ -9,7 +9,7 @@
     "watch": "tsc -w",
     "test": "jest",
     "cdk": "cdk",
-    "deploy": "cdk bootstrap && cdk deploy --require-approval never"
+    "deploy-prod": "cdk deploy 'CarViewerProductionStage/*'"
   },
   "devDependencies": {
     "@types/jest": "^27.4.0",

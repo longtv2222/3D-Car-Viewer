@@ -1,16 +1,18 @@
 #!/usr/bin/env node
 import 'source-map-support/register';
-import { StackProps, App } from 'aws-cdk-lib';
-import { CarViewerFrontEndStack } from '../lib/car-viewer-frontend-stack';
+import { App, StageProps } from 'aws-cdk-lib';
+import { ProductionStage } from "./prod-stage"
 
 const app = new App();
 
-const stackProps: StackProps = {
+const stageProps: StageProps = {
   env: {
     account: process.env.CDK_DEFAULT_ACCOUNT,
     region: process.env.CDK_DEFAULT_REGION
-  }
+  },
 };
 
-new CarViewerFrontEndStack(app, 'CarViewerInfrastructure', stackProps);
+new ProductionStage(app, "CarViewerProductionStage", stageProps)
+
+
 
