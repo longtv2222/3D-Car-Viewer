@@ -3,18 +3,32 @@ import * as cloudfront from 'aws-cdk-lib/aws-cloudfront';
 import * as origins from 'aws-cdk-lib/aws-cloudfront-origins';
 import { Duration, RemovalPolicy } from 'aws-cdk-lib';
 import { Construct } from "constructs"
-import { ResponseHeadersPolicy, SecurityPolicyProtocol } from 'aws-cdk-lib/aws-cloudfront';
+import { IDistribution, ResponseHeadersPolicy, SecurityPolicyProtocol } from 'aws-cdk-lib/aws-cloudfront';
 
-
+interface ICloudFrontS3SpaConstruct {
+    readonly spaOriginBucket: IBucket;
+    readonly spaDistribution: IDistribution;
+}
 /**
  * Documentation on how to setup origin access identity access to S3:
  * - https://aws.amazon.com/premiumsupport/knowledge-center/s3-website-cloudfront-error-403/
  * - https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
  */
-export class CloudFrontS3SpaConstruct extends Construct {
+export class CloudFrontS3SpaPatternConstruct extends Construct implements ICloudFrontS3SpaConstruct {
+
+    /**
+     * Bucket that contains the content of your SPA
+     */
+    readonly spaOriginBucket: IBucket;
+
+    /**
+     * CloudFront Distribution (CDN) for your SPA
+     */
+    readonly spaDistribution: cloudfront.IDistribution;
+
     /** 
- * Implement security best practices for header policy
- */
+     * Implement security best practices for header policy
+     */
     static defaultResponseHeadersPolicy: cloudfront.ResponseSecurityHeadersBehavior = {
         frameOptions: {
             frameOption: cloudfront.HeadersFrameOption.DENY,
@@ -55,14 +69,15 @@ export class CloudFrontS3SpaConstruct extends Construct {
             blockPublicAccess: BlockPublicAccess.BLOCK_ALL,
             enforceSSL: true,
         });
-
+        this.spaOriginBucket = spaOriginBucket;
+        
         const s3OriginTarget = new origins.S3Origin(spaOriginBucket);
 
         const spaResponseHeader = new ResponseHeadersPolicy(this, 'SpaResponseHeaderPolicy', {
-            securityHeadersBehavior: CloudFrontS3SpaConstruct.defaultResponseHeadersPolicy,
+            securityHeadersBehavior: CloudFrontS3SpaPatternConstruct.defaultResponseHeadersPolicy,
         });
 
-        new cloudfront.Distribution(this, 'SpaDistribution', {
+        const spaDistribution = new cloudfront.Distribution(this, 'SpaDistribution', {
             defaultBehavior: {
                 origin: s3OriginTarget,
                 allowedMethods: cloudfront.AllowedMethods.ALLOW_GET_HEAD,
@@ -77,6 +92,7 @@ export class CloudFrontS3SpaConstruct extends Construct {
             priceClass: cloudfront.PriceClass.PRICE_CLASS_100, //Distrubute to USA, Canada, Europe, & Israel only
             defaultRootObject: "index.html",
             minimumProtocolVersion: SecurityPolicyProtocol.TLS_V1_2_2021,
+            // In case if user requests non-existing path so that we can redirect to appropriate page
             errorResponses: [
                 {
                     httpStatus: 403,
@@ -90,6 +106,7 @@ export class CloudFrontS3SpaConstruct extends Construct {
                 }
             ],
         });
-        
+        this.spaDistribution = spaDistribution;
     }
+
 }

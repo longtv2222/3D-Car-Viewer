@@ -4,28 +4,21 @@ import { BucketDeployment, Source, StorageClass } from 'aws-cdk-lib/aws-s3-deplo
 import { join } from "path";
 import { Construct } from 'constructs';
 import { RetentionDays } from 'aws-cdk-lib/aws-logs';
+import { CloudFrontS3SpaPatternConstruct } from './cloudfront-s3-spa-construct';
 
 export class CarViewerFrontEndStack extends Stack {
 
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
-    const carViewerBucket = new Bucket(this, 'CarViewerBucket', {
-      websiteIndexDocument: 'index.html',
-      publicReadAccess: true,
-      bucketName: "3d-car-viewer-s3-asset",
-      objectOwnership: ObjectOwnership.BUCKET_OWNER_PREFERRED,
-      removalPolicy: RemovalPolicy.DESTROY,
-      autoDeleteObjects: true,
-    });
+    const carViewerSpaPattern = new CloudFrontS3SpaPatternConstruct(this, 'CarViewerBucket');
 
     new BucketDeployment(this, 'CarViewerWebsite', {
       sources: [Source.asset(join(__dirname, "..", "..", "prototype", "build"))],
-      destinationBucket: carViewerBucket,
+      destinationBucket: carViewerSpaPattern.spaOriginBucket,
       storageClass: StorageClass.STANDARD,
-      logRetention: RetentionDays.ONE_DAY, 
+      logRetention: RetentionDays.ONE_DAY,
     });
 
-    // new CloudFrontS3Construct(this, 'CloudFrontS3', { s3Website: carViewerBucket })
   }
 }
