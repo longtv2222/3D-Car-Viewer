@@ -1,20 +1,25 @@
-import { IBucket, BucketPolicy, ObjectOwnership, Bucket, BlockPublicAccess } from 'aws-cdk-lib/aws-s3';
+import { IBucket, ObjectOwnership, Bucket, BlockPublicAccess } from 'aws-cdk-lib/aws-s3';
 import * as cloudfront from 'aws-cdk-lib/aws-cloudfront';
 import * as origins from 'aws-cdk-lib/aws-cloudfront-origins';
 import { Duration, RemovalPolicy } from 'aws-cdk-lib';
 import { Construct } from "constructs"
 import { IDistribution, ResponseHeadersPolicy, SecurityPolicyProtocol } from 'aws-cdk-lib/aws-cloudfront';
+import { ICarViewerDnsConstruct } from './car-viewer-dns';
 
-interface ICloudFrontS3SpaConstruct {
+export interface ICloudFrontS3SpaPatternConstruct {
     readonly spaOriginBucket: IBucket;
     readonly spaDistribution: IDistribution;
+}
+
+export interface CloudFrontS3SpaPatternConstructProps {
+    dnsProps: ICarViewerDnsConstruct;
 }
 /**
  * Documentation on how to setup origin access identity access to S3:
  * - https://aws.amazon.com/premiumsupport/knowledge-center/s3-website-cloudfront-error-403/
  * - https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
  */
-export class CloudFrontS3SpaPatternConstruct extends Construct implements ICloudFrontS3SpaConstruct {
+export class CloudFrontS3SpaPatternConstruct extends Construct implements ICloudFrontS3SpaPatternConstruct {
 
     /**
      * Bucket that contains the content of your SPA
@@ -58,7 +63,7 @@ export class CloudFrontS3SpaPatternConstruct extends Construct implements ICloud
         }
     };
 
-    constructor(scope: Construct, id: string) {
+    constructor(scope: Construct, id: string, props: CloudFrontS3SpaPatternConstructProps) {
         super(scope, id);
 
         const spaOriginBucket = new Bucket(this, 'SpaOriginBucket', {
@@ -70,7 +75,7 @@ export class CloudFrontS3SpaPatternConstruct extends Construct implements ICloud
             enforceSSL: true,
         });
         this.spaOriginBucket = spaOriginBucket;
-        
+
         const s3OriginTarget = new origins.S3Origin(spaOriginBucket);
 
         const spaResponseHeader = new ResponseHeadersPolicy(this, 'SpaResponseHeaderPolicy', {
@@ -89,6 +94,8 @@ export class CloudFrontS3SpaPatternConstruct extends Construct implements ICloud
                 compress: true,
                 cachedMethods: cloudfront.CachedMethods.CACHE_GET_HEAD,
             },
+            domainNames: [props.dnsProps.domainName],
+            certificate: props.dnsProps.certificate,
             priceClass: cloudfront.PriceClass.PRICE_CLASS_100, //Distrubute to USA, Canada, Europe, & Israel only
             defaultRootObject: "index.html",
             minimumProtocolVersion: SecurityPolicyProtocol.TLS_V1_2_2021,
