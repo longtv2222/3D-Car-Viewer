@@ -8,7 +8,7 @@ function handler(event) {
     var wwwPrefix = "www.";
 
     // Since our SPA has static asset, we don't want to redirect these static assets (Cost Extra round trip time)
-    if (host.startsWith(wwwPrefix) && (request.uri === '/' || request.uri === 'index.html')) {
+    if (host.startsWith(wwwPrefix) && (request.uri === '/' || request.uri === '/index.html')) {
         console.log("Redirecting...");
         var response = {
             statusCode: 301,

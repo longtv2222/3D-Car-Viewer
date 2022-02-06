@@ -89,8 +89,9 @@ export class CloudFrontS3SpaPatternConstruct extends Construct implements ICloud
         const viewerRequestFunction = new cloudfront.Function(this, "SpaViewerRequestFunction", {
             code: cloudfront.FunctionCode.fromFile({
                 filePath: join(__dirname, "viewer-request-redirect.ts")
-            })
-        })
+            }),
+            comment: "A Function to redirect from WWW to non WWW in Viewer Request",
+        });
 
         const spaDistribution = new cloudfront.Distribution(this, 'SpaDistribution', {
             defaultBehavior: {
@@ -127,6 +128,7 @@ export class CloudFrontS3SpaPatternConstruct extends Construct implements ICloud
                     responsePagePath: "/index.html",
                 }
             ],
+            comment: `Spa Distribution for ${id}`
         });
         this.spaDistribution = spaDistribution;
 

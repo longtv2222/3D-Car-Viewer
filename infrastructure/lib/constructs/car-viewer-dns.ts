@@ -1,7 +1,7 @@
 import { Duration, Stack } from "aws-cdk-lib";
 import { CertificateValidation, DnsValidatedCertificate, ICertificate } from "aws-cdk-lib/aws-certificatemanager";
 import { IDistribution } from "aws-cdk-lib/aws-cloudfront";
-import { AaaaRecord, ARecord, CnameRecord, HostedZone, HostedZoneAttributes, IHostedZone } from "aws-cdk-lib/aws-route53";
+import { AaaaRecord, ARecord, CnameRecord, HostedZone, HostedZoneAttributes, IHostedZone, RecordTarget } from "aws-cdk-lib/aws-route53";
 import { CloudFrontTarget } from "aws-cdk-lib/aws-route53-targets";
 import { Construct } from "constructs";
 
@@ -55,18 +55,14 @@ export class CarViewerDnsConstruct extends Construct implements ICarViewerDnsCon
 
         const config = {
             zone: this.hostedZone,
-            target: {
-                aliasTarget: new CloudFrontTarget(distribution),
-            },
+            target: RecordTarget.fromAlias(new CloudFrontTarget(distribution)),
             recordName: this.domainName,
             ttl: Duration.minutes(30),
         };
 
         const wwwConfig = {
             zone: this.hostedZone,
-            target: {
-                aliasTarget: new CloudFrontTarget(distribution),
-            },
+            target: RecordTarget.fromAlias(new CloudFrontTarget(distribution)),
             recordName: this.wwwDomainName,
             ttl: Duration.minutes(30),
         };
