@@ -21,6 +21,9 @@ updates:
       interval: "weekly"
       day: "sunday"
       time: "06:00"
+    # Always increase the version requirement
+    # to match the new version.
+    versioning-strategy: increase
     labels:
       - "dependencies"
     # Prefix all commit messages with "npm"
