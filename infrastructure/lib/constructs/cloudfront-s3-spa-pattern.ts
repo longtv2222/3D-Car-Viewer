@@ -69,7 +69,7 @@ export class CloudFrontS3SpaPatternConstruct extends Construct implements ICloud
 
         const spaOriginBucket = new Bucket(this, 'SpaOriginBucket', {
             publicReadAccess: false,
-            objectOwnership: ObjectOwnership.BUCKET_OWNER_PREFERRED,
+            objectOwnership: ObjectOwnership.BUCKET_OWNER_ENFORCED,
             removalPolicy: RemovalPolicy.DESTROY,
             autoDeleteObjects: true,
             blockPublicAccess: BlockPublicAccess.BLOCK_ALL,
