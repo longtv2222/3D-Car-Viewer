@@ -13,6 +13,7 @@ export interface CarViewerDnsConstructProps {
 export interface ICarViewerDnsConstruct {
     cloudfrontCertificate: ICertificate;
     domainName: string;
+    wwwDomainName: string;
     addDistributionRecordsToHostedZone: (distribution: IDistribution, Ipv6Enabled?: boolean) => void;
 }
 
@@ -20,11 +21,13 @@ export class CarViewerDnsConstruct extends Construct implements ICarViewerDnsCon
     readonly cloudfrontCertificate: ICertificate;
     readonly hostedZone: IHostedZone;
     readonly domainName: string;
+    readonly wwwDomainName: string;
 
     constructor(scope: Construct, id: string, props: CarViewerDnsConstructProps) {
         super(scope, id);
 
         this.domainName = props.domainName;
+        this.wwwDomainName = `www.${props.domainName}`;
 
         if (this.domainName.startsWith("www"))
             throw new Error("Domain name cannot start with wwww");
@@ -37,7 +40,8 @@ export class CarViewerDnsConstruct extends Construct implements ICarViewerDnsCon
 
         this.cloudfrontCertificate = new DnsValidatedCertificate(this, "Certificate", {
             validation: CertificateValidation.fromDns(hostedZone),
-            domainName: props.domainName,
+            domainName: this.domainName,
+            subjectAlternativeNames: [this.wwwDomainName],
             hostedZone,
             region: "us-east-1",
         });
@@ -58,12 +62,26 @@ export class CarViewerDnsConstruct extends Construct implements ICarViewerDnsCon
             ttl: Duration.minutes(30),
         };
 
-        const stack = Stack.of(this);
-        stack.node.tryFindChild(A_RECORD_GLOBAL_UNIQUE_ID) as ARecord ?? new ARecord(this, A_RECORD_GLOBAL_UNIQUE_ID, config);
+        const wwwConfig = {
+            zone: this.hostedZone,
+            target: {
+                aliasTarget: new CloudFrontTarget(distribution),
+            },
+            recordName: this.wwwDomainName,
+            ttl: Duration.minutes(30),
+        };
 
-        if (Ipv6Enabled)
-            stack.node.tryFindChild(A_RECORD_GLOBAL_UNIQUE_ID) as AaaaRecord ??
-                new AaaaRecord(this, AAAA_RECORD_GLOBAL_UNIQUE_ID, config);
+        const stack = Stack.of(this);
+
+        if (stack.node.tryFindChild(A_RECORD_GLOBAL_UNIQUE_ID) === undefined) {
+            new ARecord(this, A_RECORD_GLOBAL_UNIQUE_ID, config);
+            new ARecord(this, `${A_RECORD_GLOBAL_UNIQUE_ID}www`, wwwConfig);
+        }
+
+        if (Ipv6Enabled && stack.node.tryFindChild(A_RECORD_GLOBAL_UNIQUE_ID) === undefined) {
+            new AaaaRecord(this, AAAA_RECORD_GLOBAL_UNIQUE_ID, config);
+            new AaaaRecord(this, `${AAAA_RECORD_GLOBAL_UNIQUE_ID}www`, wwwConfig);
+        }
     }
 
 }

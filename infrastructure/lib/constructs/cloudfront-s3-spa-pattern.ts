@@ -5,6 +5,8 @@ import { Duration, RemovalPolicy } from 'aws-cdk-lib';
 import { Construct } from "constructs"
 import { IDistribution, ResponseHeadersPolicy, SecurityPolicyProtocol } from 'aws-cdk-lib/aws-cloudfront';
 import { ICarViewerDnsConstruct } from './car-viewer-dns';
+import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
+import { join } from 'path/posix';
 
 export interface ICloudFrontS3SpaPatternConstruct {
     readonly spaOriginBucket: IBucket;
@@ -81,8 +83,14 @@ export class CloudFrontS3SpaPatternConstruct extends Construct implements ICloud
         const spaResponseHeader = new ResponseHeadersPolicy(this, 'SpaResponseHeaderPolicy', {
             securityHeadersBehavior: CloudFrontS3SpaPatternConstruct.defaultResponseHeadersPolicy,
         });
-        
+
         const Ipv6Enabled = true;
+
+        const viewerRequestFunction = new cloudfront.Function(this, "SpaViewerRequestFunction", {
+            code: cloudfront.FunctionCode.fromFile({
+                filePath: join(__dirname, "viewer-request-redirect.ts")
+            })
+        })
 
         const spaDistribution = new cloudfront.Distribution(this, 'SpaDistribution', {
             defaultBehavior: {
@@ -94,9 +102,13 @@ export class CloudFrontS3SpaPatternConstruct extends Construct implements ICloud
                 viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
                 originRequestPolicy: cloudfront.OriginRequestPolicy.CORS_S3_ORIGIN,
                 compress: true,
+                functionAssociations: [{
+                    eventType: cloudfront.FunctionEventType.VIEWER_REQUEST,
+                    function: viewerRequestFunction,
+                }],
                 cachedMethods: cloudfront.CachedMethods.CACHE_GET_HEAD,
             },
-            domainNames: [props.dnsProps.domainName],
+            domainNames: [props.dnsProps.domainName, props.dnsProps.wwwDomainName],
             certificate: props.dnsProps.cloudfrontCertificate,
             priceClass: cloudfront.PriceClass.PRICE_CLASS_100, //Distrubute to USA, Canada, Europe, & Israel only
             defaultRootObject: "index.html",
@@ -117,7 +129,7 @@ export class CloudFrontS3SpaPatternConstruct extends Construct implements ICloud
             ],
         });
         this.spaDistribution = spaDistribution;
-        
+
         props.dnsProps.addDistributionRecordsToHostedZone(this.spaDistribution, Ipv6Enabled);
     }
 
