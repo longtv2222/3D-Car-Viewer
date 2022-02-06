@@ -21,8 +21,6 @@ export class CarViewerFrontEndConstruct extends Construct {
       dnsProps: carViewerDns
     });
 
-    carViewerDns.addDistributionRecordsToHostedZone(carViewerSpaPattern.spaDistribution, true);
-
     new BucketDeployment(this, 'CarViewerWebsite', {
       sources: [Source.asset(join(__dirname, "..", "..", "..", "prototype", "build"))],
       destinationBucket: carViewerSpaPattern.spaOriginBucket,

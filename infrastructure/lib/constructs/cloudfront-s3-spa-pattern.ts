@@ -81,6 +81,8 @@ export class CloudFrontS3SpaPatternConstruct extends Construct implements ICloud
         const spaResponseHeader = new ResponseHeadersPolicy(this, 'SpaResponseHeaderPolicy', {
             securityHeadersBehavior: CloudFrontS3SpaPatternConstruct.defaultResponseHeadersPolicy,
         });
+        
+        const Ipv6Enabled = true;
 
         const spaDistribution = new cloudfront.Distribution(this, 'SpaDistribution', {
             defaultBehavior: {
@@ -95,10 +97,11 @@ export class CloudFrontS3SpaPatternConstruct extends Construct implements ICloud
                 cachedMethods: cloudfront.CachedMethods.CACHE_GET_HEAD,
             },
             domainNames: [props.dnsProps.domainName],
-            certificate: props.dnsProps.certificate,
+            certificate: props.dnsProps.cloudfrontCertificate,
             priceClass: cloudfront.PriceClass.PRICE_CLASS_100, //Distrubute to USA, Canada, Europe, & Israel only
             defaultRootObject: "index.html",
             minimumProtocolVersion: SecurityPolicyProtocol.TLS_V1_2_2021,
+            enableIpv6: Ipv6Enabled,
             // In case if user requests non-existing path so that we can redirect to appropriate page
             errorResponses: [
                 {
@@ -114,6 +117,8 @@ export class CloudFrontS3SpaPatternConstruct extends Construct implements ICloud
             ],
         });
         this.spaDistribution = spaDistribution;
+        
+        props.dnsProps.addDistributionRecordsToHostedZone(this.spaDistribution, Ipv6Enabled);
     }
 
 }

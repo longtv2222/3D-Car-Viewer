@@ -11,12 +11,13 @@ export interface CarViewerDnsConstructProps {
 }
 
 export interface ICarViewerDnsConstruct {
-    certificate: ICertificate;
+    cloudfrontCertificate: ICertificate;
     domainName: string;
+    addDistributionRecordsToHostedZone: (distribution: IDistribution, Ipv6Enabled?: boolean) => void;
 }
 
 export class CarViewerDnsConstruct extends Construct implements ICarViewerDnsConstruct {
-    readonly certificate: ICertificate;
+    readonly cloudfrontCertificate: ICertificate;
     readonly hostedZone: IHostedZone;
     readonly domainName: string;
 
@@ -34,7 +35,7 @@ export class CarViewerDnsConstruct extends Construct implements ICarViewerDnsCon
         });
         this.hostedZone = hostedZone;
 
-        this.certificate = new DnsValidatedCertificate(this, "Certificate", {
+        this.cloudfrontCertificate = new DnsValidatedCertificate(this, "Certificate", {
             validation: CertificateValidation.fromDns(hostedZone),
             domainName: props.domainName,
             hostedZone,
