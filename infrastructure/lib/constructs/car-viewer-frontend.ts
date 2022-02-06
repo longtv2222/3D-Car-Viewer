@@ -1,4 +1,3 @@
-import { Stack, StackProps } from 'aws-cdk-lib';
 import { BucketDeployment, Source, StorageClass } from 'aws-cdk-lib/aws-s3-deployment';
 import { join } from "path";
 import { Construct } from 'constructs';

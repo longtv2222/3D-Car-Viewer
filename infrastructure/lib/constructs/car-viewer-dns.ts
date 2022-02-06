@@ -1,7 +1,7 @@
 import { Duration, Stack } from "aws-cdk-lib";
 import { CertificateValidation, DnsValidatedCertificate, ICertificate } from "aws-cdk-lib/aws-certificatemanager";
 import { IDistribution } from "aws-cdk-lib/aws-cloudfront";
-import { AaaaRecord, ARecord, CnameRecord, HostedZone, HostedZoneAttributes, IHostedZone, RecordTarget } from "aws-cdk-lib/aws-route53";
+import { AaaaRecord, ARecord, HostedZone, IHostedZone, RecordTarget } from "aws-cdk-lib/aws-route53";
 import { CloudFrontTarget } from "aws-cdk-lib/aws-route53-targets";
 import { Construct } from "constructs";
 

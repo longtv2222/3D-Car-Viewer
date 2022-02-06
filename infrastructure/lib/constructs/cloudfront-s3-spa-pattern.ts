@@ -5,8 +5,7 @@ import { Duration, RemovalPolicy } from 'aws-cdk-lib';
 import { Construct } from "constructs"
 import { IDistribution, ResponseHeadersPolicy, SecurityPolicyProtocol } from 'aws-cdk-lib/aws-cloudfront';
 import { ICarViewerDnsConstruct } from './car-viewer-dns';
-import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
-import { join } from 'path/posix';
+import { join } from 'path';
 
 export interface ICloudFrontS3SpaPatternConstruct {
     readonly spaOriginBucket: IBucket;
