@@ -35,4 +35,4 @@ jobs:
         run: |
           cd infrastructure
           npm ci
-          npm run deploy
+          npm run deploy-prod
