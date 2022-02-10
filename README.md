@@ -6,7 +6,7 @@
 
 A React app for viewing 3D cars
 
-The project is now available to view at http://3d-car-viewer-s3-asset.s3-website.us-east-2.amazonaws.com/
+The project is now available to view at https://3d.themagehub.com/
 
 ## Get Started!
 
