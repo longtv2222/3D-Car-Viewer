@@ -1223,9 +1223,9 @@
   version "9.3.2"
   resolved "https://registry.npmjs.org/@react-spring/types/-/types-9.3.2.tgz"
 
-"@react-three/drei@^8.10.6":
-  version "8.10.6"
-  resolved "https://registry.yarnpkg.com/@react-three/drei/-/drei-8.10.6.tgz#a44382c60e60e59e6d21c17c6403a00e015e9121"
+"@react-three/drei@^8.11.0":
+  version "8.11.0"
+  resolved "https://registry.yarnpkg.com/@react-three/drei/-/drei-8.11.0.tgz#aed175b670e02091d35e19d46338de0b538087da"
   dependencies:
     "@babel/runtime" "^7.11.2"
     "@react-spring/three" "^9.3.1"
