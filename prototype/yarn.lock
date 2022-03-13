@@ -1223,9 +1223,9 @@
   version "9.3.2"
   resolved "https://registry.npmjs.org/@react-spring/types/-/types-9.3.2.tgz"
 
-"@react-three/drei@^8.14.0":
-  version "8.14.0"
-  resolved "https://registry.yarnpkg.com/@react-three/drei/-/drei-8.14.0.tgz#60dba5b98f3b8d1ed776a7a0e96e61079c77d360"
+"@react-three/drei@^8.16.5":
+  version "8.16.5"
+  resolved "https://registry.yarnpkg.com/@react-three/drei/-/drei-8.16.5.tgz#cce44be8c61cf1a0638dbf0068cfa525baee2b7c"
   dependencies:
     "@babel/runtime" "^7.11.2"
     "@react-spring/three" "^9.3.1"
@@ -1240,7 +1240,7 @@
     suspend-react "^0.0.8"
     three-mesh-bvh "^0.5.4"
     three-stdlib "^2.8.7"
-    troika-three-text "^0.46.1"
+    troika-three-text "^0.46.2"
     utility-types "^3.10.0"
     zustand "^3.5.13"
 
@@ -7151,9 +7151,9 @@ tr46@^2.1.0:
   dependencies:
     punycode "^2.1.1"
 
-troika-three-text@^0.46.1:
-  version "0.46.1"
-  resolved "https://registry.yarnpkg.com/troika-three-text/-/troika-three-text-0.46.1.tgz#44c5bda31279c8b885ab2523ab8e54c584ea4564"
+troika-three-text@^0.46.2:
+  version "0.46.3"
+  resolved "https://registry.yarnpkg.com/troika-three-text/-/troika-three-text-0.46.3.tgz#abc37056e2c12ae94552ffbc1f116e2e442a8bd5"
   dependencies:
     bidi-js "^1.0.2"
     troika-three-utils "^0.46.0"
