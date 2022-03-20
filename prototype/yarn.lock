@@ -1223,9 +1223,9 @@
   version "9.3.2"
   resolved "https://registry.npmjs.org/@react-spring/types/-/types-9.3.2.tgz"
 
-"@react-three/drei@^8.16.5":
-  version "8.16.5"
-  resolved "https://registry.yarnpkg.com/@react-three/drei/-/drei-8.16.5.tgz#cce44be8c61cf1a0638dbf0068cfa525baee2b7c"
+"@react-three/drei@^8.18.4":
+  version "8.18.4"
+  resolved "https://registry.yarnpkg.com/@react-three/drei/-/drei-8.18.4.tgz#df883107af99c451ff741d82992934accf70b9e9"
   dependencies:
     "@babel/runtime" "^7.11.2"
     "@react-spring/three" "^9.3.1"
@@ -1234,6 +1234,7 @@
     glsl-noise "^0.0.0"
     lodash.omit "^4.5.0"
     lodash.pick "^4.4.0"
+    meshline "^2.0.4"
     react-composer "^5.0.2"
     react-merge-refs "^1.1.0"
     stats.js "^0.17.0"
@@ -5094,6 +5095,10 @@ merge-stream@^2.0.0:
 merge2@^1.3.0:
   version "1.4.1"
   resolved "https://registry.npmjs.org/merge2/-/merge2-1.4.1.tgz"
+
+meshline@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/meshline/-/meshline-2.0.4.tgz#39c7bcf36b503397642f2312e6211f2a8ecf75c5"
 
 methods@~1.1.2:
   version "1.1.2"
