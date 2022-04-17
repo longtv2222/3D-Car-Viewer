@@ -10,7 +10,7 @@
     "react": "^18.0.0",
     "react-color": "^2.19.3",
     "react-dom": "^18.0.0",
-    "react-scripts": "^5.0.0",
+    "react-scripts": "^5.0.1",
     "three": "^0.139.2",
     "valtio": "^1.5.2"
   },
