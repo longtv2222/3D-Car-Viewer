@@ -11,7 +11,7 @@
     "react-color": "^2.19.3",
     "react-dom": "^18.1.0",
     "react-scripts": "^5.0.1",
-    "three": "^0.140.0",
+    "three": "^0.140.2",
     "valtio": "^1.6.0"
   },
   "eslintConfig": {
@@ -23,7 +23,7 @@
   "devDependencies": {
     "@types/jest": "^27.4.1",
     "@types/node": "^17.0.30",
-    "@types/react": "^18.0.8",
+    "@types/react": "^18.0.9",
     "@types/react-color": "^3.0.6",
     "@types/react-dom": "^18.0.3",
     "@types/three": "^0.139.0",
