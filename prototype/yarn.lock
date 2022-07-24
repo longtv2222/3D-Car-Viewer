@@ -7434,9 +7434,9 @@ v8-to-istanbul@^8.1.0:
     convert-source-map "^1.6.0"
     source-map "^0.7.3"
 
-valtio@^1.6.2:
-  version "1.6.2"
-  resolved "https://registry.yarnpkg.com/valtio/-/valtio-1.6.2.tgz#c0583fd6ff3caea456ec3868f8cf4c4dc1e7253b"
+valtio@^1.6.3:
+  version "1.6.3"
+  resolved "https://registry.yarnpkg.com/valtio/-/valtio-1.6.3.tgz#7ea4aa72cd3deb14f18283ecb1ef2e4f802899f6"
   dependencies:
     proxy-compare "2.2.0"
     use-sync-external-store "1.2.0"
