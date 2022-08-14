@@ -1684,13 +1684,19 @@
   version "2.0.1"
   resolved "https://registry.npmjs.org/@types/stack-utils/-/stack-utils-2.0.1.tgz"
 
-"@types/three@^0.140.0":
-  version "0.140.0"
-  resolved "https://registry.yarnpkg.com/@types/three/-/three-0.140.0.tgz#3b74a021a69a6e2cd0e2550def15aa4c1c20e924"
+"@types/three@^0.143.0":
+  version "0.143.0"
+  resolved "https://registry.yarnpkg.com/@types/three/-/three-0.143.0.tgz#686f1221c4c89d797713f0533d2f129afcc3572d"
+  dependencies:
+    "@types/webxr" "*"
 
 "@types/trusted-types@^2.0.2":
   version "2.0.2"
   resolved "https://registry.npmjs.org/@types/trusted-types/-/trusted-types-2.0.2.tgz"
+
+"@types/webxr@*":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@types/webxr/-/webxr-0.5.0.tgz#aae1cef3210d88fd4204f8c33385a0bbc4da07c9"
 
 "@types/ws@^8.2.2":
   version "8.2.2"
@@ -7166,9 +7172,9 @@ three-stdlib@^2.8.9:
     potpack "^1.0.1"
     zstddec "^0.0.2"
 
-three@^0.140.2:
-  version "0.140.2"
-  resolved "https://registry.yarnpkg.com/three/-/three-0.140.2.tgz#ca0b7390d1ce4f7f2850e80afd00ef48fc244491"
+three@^0.143.0:
+  version "0.143.0"
+  resolved "https://registry.yarnpkg.com/three/-/three-0.143.0.tgz#1455bca132cc2b20beb7f41d313e10c29e5ed9df"
 
 throat@^6.0.1:
   version "6.0.1"
