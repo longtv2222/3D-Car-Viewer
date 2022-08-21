@@ -12,7 +12,7 @@
     "react-dom": "^18.2.0",
     "react-scripts": "^5.0.1",
     "three": "^0.140.2",
-    "valtio": "^1.6.3"
+    "valtio": "^1.6.4"
   },
   "eslintConfig": {
     "extends": [
@@ -21,7 +21,7 @@
     ]
   },
   "devDependencies": {
-    "@types/jest": "^28.1.6",
+    "@types/jest": "^28.1.7",
     "@types/node": "^18.7.3",
     "@types/react": "^18.0.17",
     "@types/react-color": "^3.0.6",
