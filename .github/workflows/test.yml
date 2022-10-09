@@ -1,90 +1,50 @@
 on: push
 name: Test
 jobs:
-  setup-node-modules:
-    name: Setup node modules for caching
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Setup Node
-        uses: actions/setup-node@v2
-        with:
-          node-version: "16"
-
-      - name: Cache node modules
-        uses: actions/cache@v2
-        with:
-          # npm cache files are stored in `~/.npm` on Linux/macOS
-          path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: ${{ runner.os }}-npm-cache
-
-      - name: Install React project
-        run: |
-          cd prototype
-          npm ci
-
-      - name: Install AWS project
-        run: |
-          cd infrastructure
-          npm ci
-  testReact:
-    needs: setup-node-modules
+  test-react:
     name: Test React
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      - name: Setup Node
-        uses: actions/setup-node@v2
+      - name: Setup Node and Caching
+        uses: actions/setup-node@v3
         with:
           node-version: "16"
-
-      - name: Cache node modules
-        uses: actions/cache@v2
-        with:
-          # npm cache files are stored in `~/.npm` on Linux/macOS
-          path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}  
+          cache: "npm"
+          cache-dependency-path: prototype/package-lock.json
 
       - name: Test React Project
         run: |
-          cd prototype
           npm ci
           npm test
-  testInfra:
-    needs: setup-node-modules
+        working-directory: prototype
+
+  test-infra:
     name: Test AWS Infrastructure
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      - name: Setup Node
-        uses: actions/setup-node@v2
+      - name: Setup Node and Caching
+        uses: actions/setup-node@v3
         with:
           node-version: "16"
-
-      - name: Cache node modules
-        uses: actions/cache@v2
-        with:
-          # npm cache files are stored in `~/.npm` on Linux/macOS
-          path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          cache: "npm"
+          cache-dependency-path: infrastructure/package-lock.json
 
       - name: Build React project
         run: |
-          cd prototype
           npm ci
           npm run build
+        working-directory: prototype
 
       - name: Test AWS Infrastructure
         run: |
-          cd infrastructure
           npm ci
           npm run test
+        working-directory: infrastructure
 
 
