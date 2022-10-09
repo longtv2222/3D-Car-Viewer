@@ -1,32 +1,7 @@
 on: push
 name: Test
 jobs:
-  setup-node-modules:
-    name: Setup node modules for caching
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Setup Node and Caching
-        uses: actions/setup-node@v3
-        with:
-          node-version: "16"
-          cache: "npm"
-          cache-dependency-path: |
-            infrastructure/package-lock.json
-            prototype/package-lock.json
-
-      - name: Install React project
-        run: npm ci
-        working-directory: prototype
-
-      - name: Install AWS project
-        run: npm ci
-        working-directory: infrastructure
-
-  testReact:
-    needs: setup-node-modules
+  test-react:
     name: Test React
     runs-on: ubuntu-latest
     steps:
@@ -46,8 +21,7 @@ jobs:
           npm test
         working-directory: prototype
 
-  testInfra:
-    needs: setup-node-modules
+  test-infra:
     name: Test AWS Infrastructure
     runs-on: ubuntu-latest
     steps:

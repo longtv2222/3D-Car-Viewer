@@ -31,12 +31,12 @@ jobs:
 
       - name: Build React project
         run: |
-          cd prototype
           npm ci
           npm run build
+        working-directory: prototype
 
       - name: Run deployment job
         run: |
-          cd infrastructure
           npm ci
           npm run deploy-prod
+        working-directory: infrastructure
