@@ -1584,9 +1584,9 @@
   dependencies:
     "@types/istanbul-lib-report" "*"
 
-"@types/jest@^29.1.1":
-  version "29.1.1"
-  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-29.1.1.tgz#cf21a0835a1ba9a30ea1966019f1261c6a114c92"
+"@types/jest@^29.1.2":
+  version "29.1.2"
+  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-29.1.2.tgz#7ad8077043ab5f6c108c8111bcc1d224e5600a87"
   dependencies:
     expect "^29.0.0"
     pretty-format "^29.0.0"
