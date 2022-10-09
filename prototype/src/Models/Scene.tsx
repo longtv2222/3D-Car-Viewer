@@ -7,7 +7,7 @@ import { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three/examples/jsm/loaders/GLTFLoader'
 import { useSnapshot } from 'valtio'
-import { CarProps } from '../Components/App'
+import { CarProps } from '../App'
 
 type GLTFResult = GLTF & {
   nodes: {

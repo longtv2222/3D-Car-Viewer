@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { TwitterPicker } from 'react-color'
-import { state } from './App'
+import { state } from '../App'
 
 /**
  * For switching color of car 

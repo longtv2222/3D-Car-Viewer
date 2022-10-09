@@ -1,10 +1,10 @@
 import React, { Suspense, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
-import Model from '../Models/Scene'
-import '../App.css'
-import ColorPicker from './ColorPicker'
-import Larmborghini from '../Models/Lamborghini'
+import Model from './Models/Scene'
+import './App.css'
+import ColorPicker from './Components/ColorPicker'
+import Larmborghini from './Models/Lamborghini'
 import { proxy } from 'valtio'
 import { Loader, Environment } from "@react-three/drei/web"
 
