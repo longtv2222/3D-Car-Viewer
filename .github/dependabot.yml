@@ -5,8 +5,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/prototype"
     schedule:
-      interval: "weekly"
-      day: "sunday"
+      interval: "monthly"
       time: "06:00"
     # Always increase the version requirement
     # to match the new version.
@@ -21,8 +20,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/infrastructure"
     schedule:
-      interval: "weekly"
-      day: "sunday"
+      interval: "monthly"
       time: "06:00"
     # Always increase the version requirement
     # to match the new version.
