@@ -38,7 +38,7 @@ function App() {
         state.current = index;
         return index;
       })} enableRotate={() => setRotate(!rotate)} />
-      <Canvas camera={{ position: [0, 0, 10] }} shadows={true} mode="concurrent" frameloop="demand">
+      <Canvas camera={{ position: [0, 0, 10] }} shadows={true} frameloop="demand">
         <Suspense fallback={null}>
           <Environment background={true}
             files={'venice_sunset_1k.hdr'}
