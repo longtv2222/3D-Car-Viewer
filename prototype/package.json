@@ -6,7 +6,7 @@
   "main": "src/index.js",
   "dependencies": {
     "@react-three/drei": "^9.34.3",
-    "@react-three/fiber": "^8.8.9",
+    "@react-three/fiber": "^8.9.0",
     "react": "^18.2.0",
     "react-color": "^2.19.3",
     "react-dom": "^18.2.0",
