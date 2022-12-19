@@ -17,7 +17,7 @@ export class CarViewerStage extends Stage {
         });
 
         new s3deployment.BucketDeployment(spaWebsite, 'S3Deployment', {
-            sources: [s3deployment.Source.asset(join(__dirname, "..", "..", "frontend", "public"))],
+            sources: [s3deployment.Source.asset(join(__dirname, "..", "..", "prototype", "build"))],
             destinationBucket: spaWebsite.siteOriginBucket,
             storageClass: s3deployment.StorageClass.STANDARD,
             logRetention: logs.RetentionDays.ONE_DAY,
