@@ -38,5 +38,5 @@ jobs:
       - name: Run deployment job
         run: |
           npm ci
-          npm run deploy-prod
+          npm run deploy-prod-frontend
         working-directory: infrastructure
