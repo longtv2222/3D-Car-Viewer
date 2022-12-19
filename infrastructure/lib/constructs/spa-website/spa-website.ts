@@ -176,7 +176,7 @@ export class SpaWebsite extends Construct implements ISpaWebsite {
             certificate: this.siteCertificate,
             priceClass: cf.PriceClass.PRICE_CLASS_100,
             enableIpv6: enableIpv6,
-            comment: "For handling redirection to apex domain name of longta.me",
+            comment: "For handling redirection to apex domain name of 3d.themagehub.com",
         });
 
         /**
