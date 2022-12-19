@@ -27,7 +27,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.PROD_AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.PROD_AWS_SECRET_KEY }}
-          aws-region: us-east-2
+          aws-region: us-east-1
 
       - name: Build React project
         run: |
@@ -38,5 +38,5 @@ jobs:
       - name: Run deployment job
         run: |
           npm ci
-          npm run deploy-prod
+          npm run deploy-prod-frontend
         working-directory: infrastructure

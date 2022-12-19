@@ -9,9 +9,10 @@
     "watch": "tsc -w",
     "test": "jest",
     "cdk": "cdk",
-    "deploy-prod": "cdk deploy 'CarViewerProductionStage/*'"
+    "deploy-prod-frontend": "cdk deploy 'CarViewerProd/Frontend'"
   },
   "devDependencies": {
+    "@jest/types": "^29.3.1",
     "@types/jest": "^27.5.0",
     "@types/node": "^18.11.10",
     "@types/source-map-support": "^0.5.6",
