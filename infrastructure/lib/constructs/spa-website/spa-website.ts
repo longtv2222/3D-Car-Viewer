@@ -149,7 +149,7 @@ export class SpaWebsite extends Construct implements ISpaWebsite {
                     responsePagePath: "/index.html",
                 }
             ],
-            comment: `Spa Distribution for ${id}`
+            comment: `3D Car Viewer Distribution`
         });
 
         /**
