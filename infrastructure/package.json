@@ -12,7 +12,7 @@
     "deploy-prod-frontend": "cdk deploy 'CarViewerProd/Frontend'"
   },
   "devDependencies": {
-    "@jest/types": "^29.5.0",
+    "@jest/types": "^29.6.1",
     "@types/jest": "^27.5.0",
     "@types/node": "^20.3.3",
     "@types/source-map-support": "^0.5.6",
