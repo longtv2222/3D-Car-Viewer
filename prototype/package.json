@@ -12,7 +12,7 @@
     "react-dom": "^18.2.0",
     "react-scripts": "^5.0.1",
     "three": "^0.154.0",
-    "valtio": "^1.10.6"
+    "valtio": "^1.11.1"
   },
   "eslintConfig": {
     "extends": [
