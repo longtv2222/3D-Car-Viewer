@@ -7,6 +7,10 @@ updates:
     schedule:
       interval: "monthly"
       time: "06:00"
+    groups:
+      fe-deps:
+        patterns:
+          - "*"
     # Always increase the version requirement
     # to match the new version.
     versioning-strategy: increase
@@ -19,6 +23,10 @@ updates:
       include: "scope"
   - package-ecosystem: "npm"
     directory: "/infrastructure"
+    groups:
+      infra-deps:
+        patterns:
+          - "*"    
     schedule:
       interval: "monthly"
       time: "06:00"
