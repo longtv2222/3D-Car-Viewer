@@ -5,14 +5,14 @@
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
-    "@react-three/drei": "^9.66.1",
-    "@react-three/fiber": "^8.13.6",
+    "@react-three/drei": "^9.80.9",
+    "@react-three/fiber": "^8.13.7",
     "react": "^18.2.0",
     "react-color": "^2.19.3",
     "react-dom": "^18.2.0",
     "react-scripts": "^5.0.1",
-    "three": "^0.154.0",
-    "valtio": "^1.11.1"
+    "three": "^0.156.0",
+    "valtio": "^1.11.2"
   },
   "eslintConfig": {
     "extends": [
@@ -21,14 +21,14 @@
     ]
   },
   "devDependencies": {
-    "@types/jest": "^29.5.1",
-    "@types/node": "^20.2.5",
-    "@types/react": "^18.2.14",
+    "@types/jest": "^29.5.4",
+    "@types/node": "^20.5.7",
+    "@types/react": "^18.2.21",
     "@types/react-color": "^3.0.6",
     "@types/react-dom": "^18.2.7",
-    "@types/three": "^0.149.0",
+    "@types/three": "^0.155.1",
     "cross-env": "^7.0.3",
-    "typescript": "^4.9.5"
+    "typescript": "^5.2.2"
   },
   "scripts": {
     "start": "react-scripts start",
