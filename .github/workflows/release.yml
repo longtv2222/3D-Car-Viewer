@@ -8,6 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: Production
+    permissions:
+      id-token: write
+      contents: read
 
     steps:
       - name: Checkout
