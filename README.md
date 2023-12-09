@@ -1,6 +1,5 @@
 # 3D-Car-Viewer
 
-![Test](https://github.com/longtv2222/3D-Car-Viewer/actions/workflows/test.yml/badge.svg) ![Build](https://github.com/longtv2222/3D-Car-Viewer/actions/workflows/buid.yml/badge.svg) 
 
 ## Introduction
 
