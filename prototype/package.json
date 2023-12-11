@@ -10,7 +10,6 @@
     "react": "^18.2.0",
     "react-color": "^2.19.3",
     "react-dom": "^18.2.0",
-    "react-scripts": "^5.0.1",
     "three": "^0.159.0",
     "valtio": "^1.12.1"
   },
@@ -27,14 +26,14 @@
     "@types/react-color": "^3.0.10",
     "@types/react-dom": "^18.2.17",
     "@types/three": "^0.159.0",
-    "cross-env": "^7.0.3",
-    "typescript": "^4.9.5"
+    "@vitejs/plugin-react": "^4.2.1",
+    "typescript": "^4.9.5",
+    "vite": "^5.0.7"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "cross-env INLINE_RUNTIME_CHUNK=false && react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
   },
   "browserslist": [
     ">0.2%",

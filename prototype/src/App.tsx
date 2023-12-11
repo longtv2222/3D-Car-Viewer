@@ -46,7 +46,6 @@ function App() {
           <Model myState={state} />
           <Larmborghini myState={state} />
           <OrbitControls maxPolarAngle={7 * Math.PI / 18} maxDistance={20} autoRotate={rotate} />
-
         </Suspense>
       </Canvas>
       <Loader />
