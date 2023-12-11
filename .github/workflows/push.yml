@@ -31,7 +31,7 @@ jobs:
       - name: Setup Node and Caching
         uses: actions/setup-node@v3
         with:
-          node-version: '.nvmrc'
+          node-version-file: '.nvmrc'
           cache: "npm"
           cache-dependency-path: infrastructure/package-lock.json
 
