@@ -6,7 +6,7 @@ import { Leva, useControls } from 'leva'
 import { Suspense } from 'react'
 
 export default function App() {
-  const { Interior, Exterior, Rotation, Select, Stats:stats } = useControls({
+  const { Interior, Exterior, Rotation, Select, Stats: stats } = useControls({
     Select: { options: ['Lamborghini', 'Scene'] },
     Interior: '#aa5252',
     Exterior: '#9a9898',
@@ -19,8 +19,8 @@ export default function App() {
     <>
       <Canvas camera={{ position: [0, 0, 10] }} shadows={true} frameloop="demand">
         <Suspense fallback={null}>
-          {Select === "Lamborghini" && <Lamborghini interior={Interior} exterior={Exterior} />}
-          {Select === "Scene" && <Scene interior={Interior} exterior={Exterior} />}
+          <Lamborghini interior={Interior} exterior={Exterior} visible={Select === "Lamborghini"} />
+          <Scene interior={Interior} exterior={Exterior} visible={Select === "Scene"} />
         </Suspense>
         <Environment
           background
