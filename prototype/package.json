@@ -3,7 +3,7 @@
   "description": "",
   "keywords": [],
   "dependencies": {
-    "@react-three/drei": "^9.91.0",
+    "@react-three/drei": "^9.92.4",
     "@react-three/fiber": "^8.15.12",
     "leva": "^0.9.35",
     "react": "^18.2.0",
@@ -13,9 +13,9 @@
   "devDependencies": {
     "@types/jest": "^29.5.11",
     "@types/node": "^20.10.4",
-    "@types/react": "^18.2.43",
+    "@types/react": "^18.2.45",
     "@types/react-color": "^3.0.10",
-    "@types/react-dom": "^18.2.17",
+    "@types/react-dom": "^18.2.18",
     "@types/three": "^0.159.0",
     "@typescript-eslint/eslint-plugin": "^6.14.0",
     "@vitejs/plugin-react": "^4.2.1",
