@@ -68,7 +68,7 @@ export class SpaWebsite extends Construct implements ISpaWebsite {
             override: true,
         },
         contentSecurityPolicy: {
-            contentSecurityPolicy: "default-src 'self' file: data: blob: filesystem:; img-src 'self' file: data: blob: filesystem:; script-src 'self' 'unsafe-eval'; style-src 'self'; object-src 'none'",
+            contentSecurityPolicy: "default-src 'self' file: data: blob: filesystem:; img-src 'self' file: data: blob: filesystem:; script-src 'self' 'unsafe-eval'; style-src 'unsafe-inline'; object-src 'none'",
             override: true,
         },
         contentTypeOptions: {
