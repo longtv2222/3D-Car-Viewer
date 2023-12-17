@@ -18,7 +18,7 @@ jobs:
       - name: Test React Project
         run: |
           npm ci
-          npm test
+          npm run build
         working-directory: prototype
 
   test-infra:
@@ -31,7 +31,7 @@ jobs:
       - name: Setup Node and Caching
         uses: actions/setup-node@v3
         with:
-          node-version: "16"
+          node-version-file: '.nvmrc'
           cache: "npm"
           cache-dependency-path: infrastructure/package-lock.json
 

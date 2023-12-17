@@ -1,57 +1,35 @@
-import React, { Suspense, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
-import { OrbitControls } from '@react-three/drei'
-import Model from './Models/Scene'
-import './App.css'
-import ColorPicker from './Components/ColorPicker'
-import Larmborghini from './Models/Lamborghini'
-import { proxy } from 'valtio'
-import { Loader, Environment } from "@react-three/drei/web"
+import { Environment, Loader, OrbitControls, Stats } from "@react-three/drei"
+import Lamborghini from "./components/Models/Lamborghini"
+import Scene from "./components/Models/Scene"
+import { useControls } from 'leva'
+import { Suspense } from 'react'
 
-export interface CarProps {
-  current: number,
-  cars: Array<String>,
-  items: {
-    interior: string,
-    exterior: string
-  }
-}
+export default function App() {
+  const { Interior, Exterior, rotation, hideStats, select } = useControls({
+    select: { options: ['Lamborghini', 'Scene'] },
+    Interior: '#aa5252',
+    Exterior: '#9a9898',
+    rotation: false,
+    hideStats: false,
+  });
 
-const state: CarProps = proxy({
-  current: 0,
-  cars: ['Scene', 'Lamborghini'],
-  items: {
-    interior: '',
-    exterior: '',
-  }
-})
-
-function App() {
-  let [index, setModel] = useState(0);
-  const [rotate, setRotate] = useState(true);
   return (
-    <React.Fragment>
-      <ColorPicker passedFunction={() => setModel(() => {
-        state.items.interior = '';  //Clear color selection
-        state.items.exterior = '';
-        index = ++index === state.cars.length ? 0 : index;
-        state.current = index;
-        return index;
-      })} enableRotate={() => setRotate(!rotate)} />
+    <>
       <Canvas camera={{ position: [0, 0, 10] }} shadows={true} frameloop="demand">
         <Suspense fallback={null}>
-          <Environment background={true}
-            files={'venice_sunset_1k.hdr'}
-            scene={undefined} />
-          <Model myState={state} />
-          <Larmborghini myState={state} />
-          <OrbitControls maxPolarAngle={7 * Math.PI / 18} maxDistance={20} autoRotate={rotate} />
-
+          {select === "Lamborghini" && <Lamborghini interior={Interior} exterior={Exterior} />}
+          {select === "Scene" && <Scene interior={Interior} exterior={Exterior} />}
         </Suspense>
+        <Environment
+          background
+          files={'venice_sunset_1k.hdr'}
+          blur={0.5}
+        />
+        {!hideStats ? <Stats /> : undefined}
+        <OrbitControls maxPolarAngle={7 * Math.PI / 18} maxDistance={20} autoRotate={rotation} />
       </Canvas>
       <Loader />
-    </React.Fragment>
+    </>
   )
 }
-
-export { App, state }

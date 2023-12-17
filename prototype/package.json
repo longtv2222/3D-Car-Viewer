@@ -1,24 +1,14 @@
 {
   "name": "prototype",
-  "version": "1.0.0",
   "description": "",
   "keywords": [],
-  "main": "src/index.js",
   "dependencies": {
     "@react-three/drei": "^9.91.0",
     "@react-three/fiber": "^8.15.12",
+    "leva": "^0.9.35",
     "react": "^18.2.0",
-    "react-color": "^2.19.3",
     "react-dom": "^18.2.0",
-    "react-scripts": "^5.0.1",
-    "three": "^0.159.0",
-    "valtio": "^1.12.1"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "three": "^0.159.0"
   },
   "devDependencies": {
     "@types/jest": "^29.5.11",
@@ -27,19 +17,18 @@
     "@types/react-color": "^3.0.10",
     "@types/react-dom": "^18.2.17",
     "@types/three": "^0.159.0",
-    "cross-env": "^7.0.3",
-    "typescript": "^4.9.5"
+    "@typescript-eslint/eslint-plugin": "^6.14.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "eslint": "^8.56.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.10"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "cross-env INLINE_RUNTIME_CHUNK=false && react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+    "start": "vite",
+    "build": "tsc --noEmit && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "serve": "vite preview"
+  }
 }
