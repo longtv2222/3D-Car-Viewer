@@ -76,7 +76,7 @@ export default function Lamborghini(props: Model) {
   const { nodes } = useGLTF('/lamborghini.glb') as GLTFResult;
 
   return (
-    <group name={'Lamborghini'} scale={[0.007, 0.007, 0.007]} position={[0, 0.95, 0]} dispose={null} {...props}>
+    <group name={'Lamborghini'} scale={[0.010, 0.010, 0.010]} position={[0, 0.95, 0]} dispose={null} {...props}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
         <group rotation={[Math.PI / 2, 0, 0]}>
           <group position={[0.1075, -3.3812, -26.1716]} rotation={[0, 0, 0]} scale={[73.6118, 73.6118, 73.6118]}>
