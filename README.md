@@ -3,11 +3,11 @@
 
 ## Introduction
 
-A React app for viewing 3D cars
+A virtual showroom for cars. Allowing you to view and customize a detailed 3D model of a car, bringing the browsing experience to life.
 
 The project is now available to view at https://3d.themagehub.com/
 
-## Get Started!
+## Getting Started!
 
 - Clone the project:
     ```git clone https://github.com/longtv2222/3D-Car-Viewer.git```
@@ -17,17 +17,15 @@ The project is now available to view at https://3d.themagehub.com/
 
 - Now you can play around with Car 3D Models!
 
-![localhost_3000_ (1)](https://user-images.githubusercontent.com/61606375/121995729-ae528780-cd64-11eb-810a-e548fd79ef12.png)
+![localhost_3000_ (1)](https://github.com/longtv2222/3D-Car-Viewer/assets/61606375/cef2a398-70d4-4c54-ae9c-52d1598198af)
 
-
-## Explanation
+## Components
 
 The project has 2 big parts. 
 
-* Inside ```infrastructure```, AWS resources are defined by CDK.
-* Inside ```prototype```, it is how the frontend portion of the application is created using React.
+*  ```infrastructure``` directory provision AWS resources using [AWS CDK](https://github.com/aws/aws-cdk).
+* ```prototype``` directory is the code for the app, powered by React and Three.js
 
-Each folder has a dedicated README.MD so you can play around!
 
 
 
