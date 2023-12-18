@@ -21,7 +21,7 @@ The project is now available to view at https://3d.themagehub.com/
 
 ## Components
 
-The project has 2 big parts. 
+The project has 2 main components:
 
 *  ```infrastructure``` directory provision AWS resources using [AWS CDK](https://github.com/aws/aws-cdk).
 * ```prototype``` directory is the code for the app, powered by React and Three.js
