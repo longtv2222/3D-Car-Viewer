@@ -6,9 +6,7 @@ License: CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
 Source: https://sketchfab.com/3d-models/maserati-mc20-a9f3c4fc83cf43ad95b303738e8588b3
 Title: Maserati MC20
 */
-
 import * as THREE from 'three'
-import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
 import { Model } from './model'
