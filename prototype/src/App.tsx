@@ -8,7 +8,7 @@ import { Suspense, useEffect, useRef, useState } from 'react'
 import { Model, ModelProps, models } from './components/Models/model'
 
 interface Cars {
-  readonly Model:(props: ModelProps) => JSX.Element;
+  readonly Model: (props: ModelProps) => JSX.Element;
   readonly interior: string;
   readonly exterior: string;
 }
@@ -48,7 +48,7 @@ export default function App() {
   };
 
   const setCarInterior = (interior: string) => {
-    const model = levaStore.get("Select") as Model;8
+    const model = levaStore.get("Select") as Model; 8
     setCarsState({
       ...carsStateRef.current,
       [model]: {
@@ -68,7 +68,7 @@ export default function App() {
       }
     })
   };
-  
+
   const [{ Rotation, Stats: stats }, set] = useControls(() => ({
     Select: {
       options: models,
@@ -99,14 +99,10 @@ export default function App() {
       <Canvas camera={{ position: [0, 0, 10] }} shadows={true} frameloop="demand">
         <Suspense fallback={null}>
           {models
-            .map(name => (
-              cars[name].Model({
-                exterior: carsState[name].exterior,
-                interior: carsState[name].interior,
-                visible: levaStore.get("Select") === name,
-                key: name
-              })
-            ))}
+            .map(name => {
+              const Model = cars[name].Model;
+              return <Model exterior={carsState[name].exterior} interior={carsState[name].interior} visible={levaStore.get("Select") === name} key={name} />
+            })}
         </Suspense>
         <Environment
           background
