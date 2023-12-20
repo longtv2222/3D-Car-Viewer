@@ -9,7 +9,7 @@ Title: Maserati MC20
 import * as THREE from 'three'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
-import { Model } from './model'
+import { ModelProps } from './model'
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -561,7 +561,7 @@ type GLTFResult = GLTF & {
   }
 }
 
-export default function Car(props: Model) {
+export default function Car(props: ModelProps) {
   const { nodes, materials } = useGLTF('/maserati_mc20.glb') as GLTFResult
   return (
     <group {...props} dispose={null} position={[-2.2, -1, 4]} scale={[2, 2, 2]}>

@@ -5,18 +5,20 @@ import Scene from "./components/Models/Autobianchi Stellina"
 import Maserati from "./components/Models/Maserati_mc20"
 import { Leva, levaStore, useControls, button } from 'leva'
 import { Suspense, useEffect, useRef, useState } from 'react'
-import { Model } from './components/Models/model'
+import { Model, ModelProps, models } from './components/Models/model'
+
+interface Cars {
+  readonly Model:(props: ModelProps) => JSX.Element;
+  readonly interior: string;
+  readonly exterior: string;
+}
 
 export default function App() {
-  const carNameComponentMap: Record<string, {
-    readonly interior: string,
-    readonly exterior: string,
-    readonly Model: (props: Model) => JSX.Element,
-  }> = {
+  const carNameComponentMap: Record<Model, Cars> = {
     "Lamborghini Aventador J": {
       Model: Lamborghini,
       interior: "#000000",
-      exterior: "#9a9898"
+      exterior: "#9a9898",
     },
     "Maserati MC20": {
       Model: Maserati,
@@ -33,47 +35,47 @@ export default function App() {
   const [carsState, setCarsState] = useState(() => carNameComponentMap);
   const carsStateRef = useRef(carsState);
 
+  useEffect(() => {
+    carsStateRef.current = carsState;
+  }, [carsState]);
+
   const resetCarColor = () => {
-    const model: string = levaStore.get("Select");
+    const model = levaStore.get("Select") as Model;
     set({
-      Exterior: carNameComponentMap[model]?.exterior,
-      Interior: carNameComponentMap[model]?.interior,
+      Exterior: carNameComponentMap[model].exterior,
+      Interior: carNameComponentMap[model].interior,
     });
   };
 
   const setCarInterior = (interior: string) => {
-    const model: string = levaStore.get("Select");
+    const model = levaStore.get("Select") as Model;
     setCarsState({
       ...carsStateRef.current,
       [model]: {
-        ...carsStateRef.current[model]!,
+        ...carsStateRef.current[model],
         interior
       }
     })
   };
 
   const setCarExterior = (exterior: string) => {
-    const model: string = levaStore.get("Select");
+    const model = levaStore.get("Select") as Model;
     setCarsState({
       ...carsStateRef.current,
       [model]: {
-        ...carsStateRef.current[model]!,
+        ...carsStateRef.current[model],
         exterior
       }
     })
   };
 
-  useEffect(() => {
-    carsStateRef.current = carsState;
-  }, [carsState]);
-
   const [{ Rotation, Stats: stats }, set] = useControls(() => ({
     Select: {
-      options: Object.keys(carNameComponentMap),
-      onChange: (value) => {
+      options: models,
+      onChange: (value: Model) => {
         set({
-          Exterior: carsStateRef.current[value]?.exterior,
-          Interior: carsStateRef.current[value]?.interior,
+          Exterior: carsStateRef.current[value].exterior,
+          Interior: carsStateRef.current[value].interior,
         });
       }
     },
@@ -87,7 +89,7 @@ export default function App() {
     },
     Rotation: false,
     Stats: true,
-    "Reset Color": button(resetCarColor),
+    "Reset color": button(resetCarColor),
   }));
 
   const { progress } = useProgress()
@@ -96,11 +98,11 @@ export default function App() {
     <>
       <Canvas camera={{ position: [0, 0, 10] }} shadows={true} frameloop="demand">
         <Suspense fallback={null}>
-          {Object.entries(carNameComponentMap)
-            .map(([name, car]) => (
-              car.Model({
-                exterior: carsState[name]?.exterior!,
-                interior: carsState[name]?.interior!,
+          {models
+            .map(name => (
+              carNameComponentMap[name].Model({
+                exterior: carsState[name].exterior,
+                interior: carsState[name].interior,
                 visible: levaStore.get("Select") === name,
               })
             ))}

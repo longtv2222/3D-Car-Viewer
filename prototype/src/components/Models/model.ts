@@ -1,4 +1,4 @@
-export interface Model {
+export interface ModelProps {
     /**
      * Set color of the model
      */
@@ -12,3 +12,7 @@ export interface Model {
      */
     readonly visible: boolean
 }
+
+
+export const models = ["Lamborghini Aventador J", "Maserati MC20", "Autobianchi Stellina"] as const;
+export type Model = typeof models[number];
