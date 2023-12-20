@@ -4,7 +4,7 @@ import Lamborghini from "./components/Models/Lamborghini"
 import Scene from "./components/Models/Autobianchi Stellina"
 import Maserati from "./components/Models/Maserati_mc20"
 import { Leva, levaStore, useControls, button } from 'leva'
-import { Suspense } from 'react'
+import { Suspense, useEffect, useRef, useState } from 'react'
 import { Model } from './components/Models/model'
 
 export default function App() {
@@ -30,6 +30,9 @@ export default function App() {
     },
   };
 
+  const [carsState, setCarsState] = useState(() => carNameComponentMap);
+  const carsStateRef = useRef(carsState);
+
   const resetCarColor = () => {
     const model: string = levaStore.get("Select");
     set({
@@ -38,18 +41,50 @@ export default function App() {
     });
   };
 
-  const [{ Interior, Exterior, Rotation, Stats: stats }, set] = useControls(() => ({
-    Select: { 
+  const setCarInterior = (interior: string) => {
+    const model: string = levaStore.get("Select");
+    setCarsState({
+      ...carsStateRef.current,
+      [model]: {
+        ...carsStateRef.current[model]!,
+        interior
+      }
+    })
+  };
+
+  const setCarExterior = (exterior: string) => {
+    const model: string = levaStore.get("Select");
+    setCarsState({
+      ...carsStateRef.current,
+      [model]: {
+        ...carsStateRef.current[model]!,
+        exterior
+      }
+    })
+  };
+
+  useEffect(() => {
+    carsStateRef.current = carsState;
+  }, [carsState]);
+
+  const [{ Rotation, Stats: stats }, set] = useControls(() => ({
+    Select: {
       options: Object.keys(carNameComponentMap),
-      onChange:(value)=>{
+      onChange: (value) => {
         set({
-          Exterior: carNameComponentMap[value]?.exterior,
-          Interior: carNameComponentMap[value]?.interior,
+          Exterior: carsStateRef.current[value]?.exterior,
+          Interior: carsStateRef.current[value]?.interior,
         });
       }
     },
-    Interior: '#000000',
-    Exterior: '#9a9898',
+    Interior: {
+      value: '#000000',
+      onChange: setCarInterior
+    },
+    Exterior: {
+      value: '#9a9898',
+      onChange: setCarExterior
+    },
     Rotation: false,
     Stats: true,
     "Reset Color": button(resetCarColor),
@@ -64,8 +99,8 @@ export default function App() {
           {Object.entries(carNameComponentMap)
             .map(([name, car]) => (
               car.Model({
-                exterior: Exterior,
-                interior: Interior,
+                exterior: carsState[name]?.exterior!,
+                interior: carsState[name]?.interior!,
                 visible: levaStore.get("Select") === name,
               })
             ))}
