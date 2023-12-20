@@ -3,23 +3,49 @@ import { Environment, Loader, OrbitControls, Stats, useProgress } from "@react-t
 import Lamborghini from "./components/Models/Lamborghini"
 import Scene from "./components/Models/Autobianchi Stellina"
 import Maserati from "./components/Models/Maserati_mc20"
-import { Leva, useControls } from 'leva'
+import { Leva, levaStore, useControls, button } from 'leva'
 import { Suspense } from 'react'
+import { Model } from './components/Models/model'
 
 export default function App() {
-  const carNameComponentMap = {
-    "Lamborghini Aventador J": Lamborghini,
-    "Maserati MC20": Maserati,
-    "Autobianchi Stellina": Scene
+  const carNameComponentMap: Record<string, {
+    readonly interior: string,
+    readonly exterior: string,
+    readonly Model: (props: Model) => JSX.Element,
+  }> = {
+    "Lamborghini Aventador J": {
+      Model: Lamborghini,
+      interior: "#000000",
+      exterior: "#9a9898"
+    },
+    "Maserati MC20": {
+      Model: Maserati,
+      interior: "#000000",
+      exterior: "#ffffff"
+    },
+    "Autobianchi Stellina": {
+      Model: Scene,
+      interior: "#000000",
+      exterior: "#963f3f"
+    },
   };
 
-  const { Interior, Exterior, Rotation, Select, Stats: stats } = useControls({
+  const resetCarColor = () => {
+    const model: string = levaStore.get("Select");
+    set({
+      Exterior: carNameComponentMap[model]?.exterior,
+      Interior: carNameComponentMap[model]?.interior,
+    });
+  };
+
+  const [{ Interior, Exterior, Rotation, Select, Stats: stats }, set] = useControls(() => ({
     Select: { options: Object.keys(carNameComponentMap) },
     Interior: '#000000',
     Exterior: '#9a9898',
     Rotation: false,
     Stats: true,
-  });
+    "Reset Color": button(resetCarColor),
+  }));
 
   const { progress } = useProgress()
 
@@ -28,8 +54,8 @@ export default function App() {
       <Canvas camera={{ position: [0, 0, 10] }} shadows={true} frameloop="demand">
         <Suspense fallback={null}>
           {Object.entries(carNameComponentMap)
-            .map(([name, CarModel]) => (
-              CarModel({
+            .map(([name, car]) => (
+              car.Model({
                 exterior: Exterior,
                 interior: Interior,
                 visible: Select === name,
