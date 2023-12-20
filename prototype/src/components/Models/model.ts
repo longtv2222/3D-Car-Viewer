@@ -11,6 +11,10 @@ export interface ModelProps {
      * To show or hide model
      */
     readonly visible: boolean
+    /**
+     * Key of the component
+     */
+    readonly key: string
 }
 
 

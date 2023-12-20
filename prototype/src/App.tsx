@@ -104,6 +104,7 @@ export default function App() {
                 exterior: carsState[name].exterior,
                 interior: carsState[name].interior,
                 visible: levaStore.get("Select") === name,
+                key: name
               })
             ))}
         </Suspense>
