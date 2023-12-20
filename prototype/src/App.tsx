@@ -39,7 +39,15 @@ export default function App() {
   };
 
   const [{ Interior, Exterior, Rotation, Select, Stats: stats }, set] = useControls(() => ({
-    Select: { options: Object.keys(carNameComponentMap) },
+    Select: { 
+      options: Object.keys(carNameComponentMap),
+      onChange:(value)=>{
+        set({
+          Exterior: carNameComponentMap[value]?.exterior,
+          Interior: carNameComponentMap[value]?.interior,
+        });
+      }
+    },
     Interior: '#000000',
     Exterior: '#9a9898',
     Rotation: false,
@@ -58,7 +66,7 @@ export default function App() {
               car.Model({
                 exterior: Exterior,
                 interior: Interior,
-                visible: Select === name,
+                visible: levaStore.get("Select") === name,
               })
             ))}
         </Suspense>
