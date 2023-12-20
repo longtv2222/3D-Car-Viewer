@@ -7,22 +7,34 @@ import { Leva, useControls } from 'leva'
 import { Suspense } from 'react'
 
 export default function App() {
+  const carNameComponentMap = {
+    "Lamborghini Aventador J": Lamborghini,
+    "Maserati MC20": Maserati,
+    "Autobianchi Stellina": Scene
+  };
+
   const { Interior, Exterior, Rotation, Select, Stats: stats } = useControls({
-    Select: { options: ['Lamborghini Aventador J', 'Autobianchi Stellina', "Maserati MC20"] },
-    Interior: '#aa5252',
+    Select: { options: Object.keys(carNameComponentMap) },
+    Interior: '#000000',
     Exterior: '#9a9898',
     Rotation: false,
     Stats: true,
   });
+
   const { progress } = useProgress()
 
   return (
     <>
       <Canvas camera={{ position: [0, 0, 10] }} shadows={true} frameloop="demand">
         <Suspense fallback={null}>
-          <Lamborghini interior={Interior} exterior={Exterior} visible={Select === "Lamborghini Aventador J"} />
-          <Scene interior={Interior} exterior={Exterior} visible={Select === "Autobianchi Stellina"} />
-          <Maserati interior={Interior} exterior={Exterior} visible={Select === "Maserati MC20"} />
+          {Object.entries(carNameComponentMap)
+            .map(([name, CarModel]) => (
+              CarModel({
+                exterior: Exterior,
+                interior: Interior,
+                visible: Select === name,
+              })
+            ))}
         </Suspense>
         <Environment
           background
