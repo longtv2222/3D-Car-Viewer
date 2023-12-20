@@ -1,8 +1,8 @@
 import { Canvas } from '@react-three/fiber'
 import { Environment, Loader, OrbitControls, Stats, useProgress } from "@react-three/drei"
-import Lamborghini from "./components/Models/Lamborghini"
+import Lamborghini from "./components/Models/Lamborghini Aventador J"
 import Scene from "./components/Models/Autobianchi Stellina"
-import Maserati from "./components/Models/Maserati_mc20"
+import Maserati from "./components/Models/Maserati MC20"
 import { Leva, levaStore, useControls, button } from 'leva'
 import { Suspense, useEffect, useRef, useState } from 'react'
 import { Model, ModelProps, models } from './components/Models/model'
@@ -14,7 +14,7 @@ interface Cars {
 }
 
 export default function App() {
-  const carNameComponentMap: Record<Model, Cars> = {
+  const cars: Record<Model, Cars> = {
     "Lamborghini Aventador J": {
       Model: Lamborghini,
       interior: "#000000",
@@ -32,7 +32,7 @@ export default function App() {
     },
   };
 
-  const [carsState, setCarsState] = useState(() => carNameComponentMap);
+  const [carsState, setCarsState] = useState(() => cars);
   const carsStateRef = useRef(carsState);
 
   useEffect(() => {
@@ -42,8 +42,8 @@ export default function App() {
   const resetCarColor = () => {
     const model = levaStore.get("Select") as Model;
     set({
-      Exterior: carNameComponentMap[model].exterior,
-      Interior: carNameComponentMap[model].interior,
+      Exterior: cars[model].exterior,
+      Interior: cars[model].interior,
     });
   };
 
@@ -68,7 +68,7 @@ export default function App() {
       }
     })
   };
-
+  
   const [{ Rotation, Stats: stats }, set] = useControls(() => ({
     Select: {
       options: models,
@@ -92,7 +92,7 @@ export default function App() {
     "Reset color": button(resetCarColor),
   }));
 
-  const { progress } = useProgress()
+  const { progress } = useProgress();
 
   return (
     <>
@@ -100,7 +100,7 @@ export default function App() {
         <Suspense fallback={null}>
           {models
             .map(name => (
-              carNameComponentMap[name].Model({
+              cars[name].Model({
                 exterior: carsState[name].exterior,
                 interior: carsState[name].interior,
                 visible: levaStore.get("Select") === name,
