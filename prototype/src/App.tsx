@@ -48,7 +48,7 @@ export default function App() {
   };
 
   const setCarInterior = (interior: string) => {
-    const model = levaStore.get("Select") as Model; 8
+    const model = levaStore.get("Select") as Model;
     setCarsState({
       ...carsStateRef.current,
       [model]: {
