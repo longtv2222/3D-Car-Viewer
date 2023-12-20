@@ -48,7 +48,7 @@ export default function App() {
   };
 
   const setCarInterior = (interior: string) => {
-    const model = levaStore.get("Select") as Model;
+    const model = levaStore.get("Select") as Model;8
     setCarsState({
       ...carsStateRef.current,
       [model]: {
@@ -114,7 +114,7 @@ export default function App() {
           blur={0.5}
         />
         {stats ? <Stats /> : undefined}
-        <OrbitControls maxPolarAngle={7 * Math.PI / 18} maxDistance={20} autoRotate={Rotation} />
+        <OrbitControls maxPolarAngle={7 * Math.PI / 18} autoRotate={Rotation} minDistance={2} maxDistance={15} />
       </Canvas>
       <Loader />
       <Leva
