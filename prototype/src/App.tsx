@@ -38,7 +38,7 @@ export default function App() {
     });
   };
 
-  const [{ Interior, Exterior, Rotation, Select, Stats: stats }, set] = useControls(() => ({
+  const [{ Interior, Exterior, Rotation, Stats: stats }, set] = useControls(() => ({
     Select: { 
       options: Object.keys(carNameComponentMap),
       onChange:(value)=>{
