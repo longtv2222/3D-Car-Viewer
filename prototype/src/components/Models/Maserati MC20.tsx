@@ -562,7 +562,7 @@ type GLTFResult = GLTF & {
 }
 
 export default function Car(props: ModelProps) {
-  const { nodes, materials } = useGLTF('/maserati_mc20.glb') as GLTFResult
+  const { nodes, materials } = useGLTF('/maserati_mc20.glb') as unknown as GLTFResult
   return (
     <group {...props} dispose={null} position={[-2.2, -1, 4]} scale={[2, 2, 2]}>
       <group scale={0.01}>

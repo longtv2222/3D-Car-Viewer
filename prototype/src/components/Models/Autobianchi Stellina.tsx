@@ -187,7 +187,7 @@ type GLTFResult = GLTF & {
 }
 
 export default function Car(props: ModelProps) {
-  const { nodes, materials } = useGLTF('/scene.gltf') as GLTFResult
+  const { nodes, materials } = useGLTF('/scene.gltf') as unknown as  GLTFResult
 
   return (
     <group name="Scene" rotation={[0, 3.14, 0]} {...props} dispose={null} >
