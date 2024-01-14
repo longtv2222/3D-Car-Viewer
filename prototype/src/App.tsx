@@ -4,7 +4,7 @@ import Lamborghini from "./components/Models/Lamborghini Aventador J"
 import Scene from "./components/Models/Autobianchi Stellina"
 import Maserati from "./components/Models/Maserati MC20"
 import { Leva, levaStore, useControls, button } from 'leva'
-import { Suspense, useEffect, useRef, useState } from 'react'
+import { Suspense, useEffect, useMemo, useRef, useState } from 'react'
 import { Model, ModelProps, models } from './components/Models/model'
 
 interface Cars {
@@ -14,7 +14,7 @@ interface Cars {
 }
 
 export default function App() {
-  const cars: Record<Model, Cars> = {
+  const cars: Record<Model, Cars> = useMemo(() => ({
     "Lamborghini Aventador J": {
       Model: Lamborghini,
       interior: "#000000",
@@ -30,7 +30,7 @@ export default function App() {
       interior: "#000000",
       exterior: "#963f3f"
     },
-  };
+  }), []);
 
   const [carsState, setCarsState] = useState(() => cars);
   const carsStateRef = useRef(carsState);

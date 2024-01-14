@@ -73,7 +73,7 @@ type GLTFResult = GLTF & {
 }
 
 export default function Lamborghini(props: ModelProps) {
-  const { nodes } = useGLTF('/lamborghini.glb') as GLTFResult;
+  const { nodes } = useGLTF('/lamborghini.glb') as unknown as GLTFResult;
 
   return (
     <group name={'Lamborghini'} scale={[0.010, 0.010, 0.010]} position={[0, 0.95, 0]} dispose={null} {...props}>
