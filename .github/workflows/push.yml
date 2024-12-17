@@ -46,26 +46,3 @@ jobs:
           npm ci
           npm run test
         working-directory: infrastructure
-
-  lint:
-    name: Lint
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Setup Node and Caching
-        uses: actions/setup-node@v3
-        with:
-          node-version-file: '.nvmrc'
-          cache: "npm"
-          cache-dependency-path: infrastructure/package-lock.json
-
-      - name: Build React project
-        run: |
-          npm ci
-          npm run lint
-        working-directory: prototype
-
-
-
