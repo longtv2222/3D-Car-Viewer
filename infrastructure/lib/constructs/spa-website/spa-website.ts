@@ -4,7 +4,7 @@ import * as cf from "aws-cdk-lib/aws-cloudfront";
 import * as acm from "aws-cdk-lib/aws-certificatemanager";
 import { Duration, RemovalPolicy } from "aws-cdk-lib";
 import * as route53 from "aws-cdk-lib/aws-route53";
-import { S3Origin } from "aws-cdk-lib/aws-cloudfront-origins";
+import { S3BucketOrigin, S3Origin } from "aws-cdk-lib/aws-cloudfront-origins";
 import { CloudFrontTarget } from "aws-cdk-lib/aws-route53-targets";
 
 export interface ISpaWebsite {
@@ -118,7 +118,7 @@ export class SpaWebsite extends Construct implements ISpaWebsite {
 
         this.spaDistribution = new cf.Distribution(this, 'SpaDistribution', {
             defaultBehavior: {
-                origin: new S3Origin(this.siteOriginBucket),
+                origin: S3BucketOrigin.withOriginAccessControl(this.siteOriginBucket),
                 allowedMethods: cf.AllowedMethods.ALLOW_GET_HEAD,
                 responseHeadersPolicy: new cf.ResponseHeadersPolicy(this, "ResponseHeader", {
                     securityHeadersBehavior: SpaWebsite.defaultResponseHeadersPolicy,
