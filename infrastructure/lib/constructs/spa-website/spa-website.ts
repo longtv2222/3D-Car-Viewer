@@ -4,7 +4,7 @@ import * as cf from "aws-cdk-lib/aws-cloudfront";
 import * as acm from "aws-cdk-lib/aws-certificatemanager";
 import { Duration, RemovalPolicy } from "aws-cdk-lib";
 import * as route53 from "aws-cdk-lib/aws-route53";
-import { S3BucketOrigin } from "aws-cdk-lib/aws-cloudfront-origins";
+import { S3BucketOrigin, S3StaticWebsiteOrigin } from "aws-cdk-lib/aws-cloudfront-origins";
 import { CloudFrontTarget } from "aws-cdk-lib/aws-route53-targets";
 
 export interface ISpaWebsite {
@@ -168,7 +168,7 @@ export class SpaWebsite extends Construct implements ISpaWebsite {
 
         const redirectDistribution = new cf.Distribution(this, "RedirectDistribution", {
             defaultBehavior: {
-                origin: S3BucketOrigin.withOriginAccessControl(redirectBucket),
+                origin: new S3StaticWebsiteOrigin(redirectBucket),
                 viewerProtocolPolicy: cf.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
                 originRequestPolicy: cf.OriginRequestPolicy.CORS_S3_ORIGIN,
             },
